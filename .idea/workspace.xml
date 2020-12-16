@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1ldJ5tBS5epQ8X1GN93Y7U230h6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="C:\Users\USER\Desktop\firebaseRTC\samples\node_modules\stylelint" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/firebaseRTC/samples/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="" />
+      <created>1607920855930</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607920855930</updated>
+      <workItem from="1607920857643" duration="3335000" />
+      <workItem from="1607934488201" duration="16000" />
+      <workItem from="1607934505589" duration="844000" />
+      <workItem from="1608003269562" duration="56000" />
+      <workItem from="1608003343267" duration="13000" />
+      <workItem from="1608003357004" duration="3088000" />
+      <workItem from="1608012467217" duration="1285000" />
+      <workItem from="1608015369392" duration="27000" />
+      <workItem from="1608025906639" duration="648000" />
+      <workItem from="1608082972870" duration="328000" />
+      <workItem from="1608083307946" duration="1253000" />
+      <workItem from="1608086311833" duration="1297000" />
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1608025974702</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608025974702</updated>
+    </task>
+    <task id="LOCAL-00002" summary="edit README.md">
+      <created>1608083271459</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083271459</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="edit README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit README.md" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="554" y="281" key="FileChooserDialogImpl" timestamp="1608083305253">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="554" y="281" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1608083305253" />
+    <state width="1268" height="278" key="GridCell.Tab.0.bottom" timestamp="1608015359929">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1268" height="278" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1608015359929" />
+    <state width="1268" height="278" key="GridCell.Tab.0.center" timestamp="1608015359928">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1268" height="278" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1608015359928" />
+    <state width="1268" height="278" key="GridCell.Tab.0.left" timestamp="1608015359928">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1268" height="278" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1608015359928" />
+    <state width="1268" height="278" key="GridCell.Tab.0.right" timestamp="1608015359928">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1268" height="278" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1608015359928" />
+    <state x="154" y="163" key="SettingsEditor" timestamp="1608086608439">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="154" y="163" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1608086608439" />
+    <state x="245" y="249" key="Vcs.Push.Dialog.v2" timestamp="1608083276147">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="245" y="249" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1608083276147" />
+    <state x="355" y="100" width="584" height="840" key="find.popup" timestamp="1607934527017">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="355" y="100" width="584" height="840" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1607934527017" />
+  </component>
+</project>
