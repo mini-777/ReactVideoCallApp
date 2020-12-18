@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "160323747251",
+    "firebase_url": "https://react-cam-test-default-rtdb.firebaseio.com",
+    "project_id": "react-cam-test",
+    "storage_bucket": "react-cam-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160323747251:android:0be3522de65dee1c4b9fc6",
+        "android_client_info": {
+          "package_name": "com.agorarnquickstart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160323747251-qmisemlindageaa4ondbe229gcvqvvpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD24FI2kMo5Br_s8OsG0379fP9rVFbBN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160323747251-qmisemlindageaa4ondbe229gcvqvvpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
