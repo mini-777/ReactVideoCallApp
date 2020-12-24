@@ -29,7 +29,7 @@ export default class App extends Component<Props, State> {
         super(props)
         this.state = {
             appId: `2254c346a02d4b2b920c0bdbc1930f0d`,
-            token: `0062254c346a02d4b2b920c0bdbc1930f0dIACsJRzI7/OTRT7il99ZmGSpvfWjHBQPeS02iBRSfa68qf5cTtsAAAAAEAB2eXH6p17cXwEAAQCnXtxf`,
+            token: `0062254c346a02d4b2b920c0bdbc1930f0dIAAb9fJKWtsOpgsuP6L5eQEqLW1bSh4MEzME+3B+PpFWEP5cTtsAAAAAEADkOavBVYLlXwEAAQBUguVf`,
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
