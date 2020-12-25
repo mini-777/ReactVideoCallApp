@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import {Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native'
+import React, {Component, useEffect} from 'react'
+import {Alert, Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native'
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
-
+import messaging from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 
@@ -41,6 +41,7 @@ export default class App extends Component<Props, State> {
             })
         }
     }
+   
 
     componentDidMount() {
         this.init()
@@ -95,6 +96,13 @@ export default class App extends Component<Props, State> {
         })
     }
 
+    useEffect = () => {
+        const unsubscribe = messaging().onMessage(async remoteMessage => {
+          Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+        });
+    
+        return unsubscribe;
+      };
     /**
      * @name startCall
      * @description Function to start the call
