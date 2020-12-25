@@ -29,7 +29,7 @@ export default class App extends Component<Props, State> {
         super(props)
         this.state = {
             appId: `2254c346a02d4b2b920c0bdbc1930f0d`,
-            token: `0062254c346a02d4b2b920c0bdbc1930f0dIAAb9fJKWtsOpgsuP6L5eQEqLW1bSh4MEzME+3B+PpFWEP5cTtsAAAAAEADkOavBVYLlXwEAAQBUguVf`,
+            token: `0062254c346a02d4b2b920c0bdbc1930f0dIADLNansvZzZtTfoR/fZTK9MOiQ6xCWJCvtoThwr9GxQlP5cTtsAAAAAEADkOavBNvjmXwEAAQA3+OZf`,
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
@@ -99,6 +99,7 @@ export default class App extends Component<Props, State> {
     useEffect = () => {
         const unsubscribe = messaging().onMessage(async remoteMessage => {
           Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+          console.log("message arrived at foreground")
         });
     
         return unsubscribe;
