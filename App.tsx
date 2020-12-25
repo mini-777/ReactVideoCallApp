@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import {Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native'
+import React, {Component, useEffect} from 'react'
+import {Alert, Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native'
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
-
+import messaging from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 
@@ -29,7 +29,7 @@ export default class App extends Component<Props, State> {
         super(props)
         this.state = {
             appId: `2254c346a02d4b2b920c0bdbc1930f0d`,
-            token: `0062254c346a02d4b2b920c0bdbc1930f0dIACsJRzI7/OTRT7il99ZmGSpvfWjHBQPeS02iBRSfa68qf5cTtsAAAAAEAB2eXH6p17cXwEAAQCnXtxf`,
+            token: `0062254c346a02d4b2b920c0bdbc1930f0dIADLNansvZzZtTfoR/fZTK9MOiQ6xCWJCvtoThwr9GxQlP5cTtsAAAAAEADkOavBNvjmXwEAAQA3+OZf`,
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
@@ -41,6 +41,7 @@ export default class App extends Component<Props, State> {
             })
         }
     }
+   
 
     componentDidMount() {
         this.init()
@@ -95,6 +96,14 @@ export default class App extends Component<Props, State> {
         })
     }
 
+    useEffect = () => {
+        const unsubscribe = messaging().onMessage(async remoteMessage => {
+          Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+          console.log("message arrived at foreground")
+        });
+    
+        return unsubscribe;
+      };
     /**
      * @name startCall
      * @description Function to start the call
