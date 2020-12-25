@@ -23,6 +23,7 @@ interface State {
 }
 
 export default class App extends Component<Props, State> {
+    
     _engine?: RtcEngine
 
     constructor(props) {
@@ -43,8 +44,10 @@ export default class App extends Component<Props, State> {
     }
    
 
+
     componentDidMount() {
         this.init()
+        
     }
 
     /**
@@ -95,15 +98,14 @@ export default class App extends Component<Props, State> {
             })
         })
     }
-
-    useEffect = () => {
+    useEffect(() => {
         const unsubscribe = messaging().onMessage(async remoteMessage => {
           Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-          console.log("message arrived at foreground")
         });
     
         return unsubscribe;
-      };
+      }, []);
+    
     /**
      * @name startCall
      * @description Function to start the call
