@@ -5,6 +5,7 @@ import messaging from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
+import firebase from 'firebase';
 
 interface Props {
 }
