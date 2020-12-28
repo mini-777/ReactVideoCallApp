@@ -24,6 +24,19 @@ interface State {
     peerIds: number[],
 }
 
+const firebaseConfig = {
+    apiKey: "AIzaSyBGIRXseEIEMFOi-VJISR0kfXIP5KNV8Fc",
+    authDomain: "videocall-777.firebaseapp.com",
+    projectId: "videocall-777",
+    storageBucket: "videocall-777.appspot.com",
+    messagingSenderId: "59461738060",
+    appId: "1:59461738060:web:1a43cf54e99b2df1001ee9",
+    measurementId: "G-S7EJQ00TRV"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
 export default class App extends Component<Props, State> {
     
     _engine?: RtcEngine
@@ -48,7 +61,7 @@ export default class App extends Component<Props, State> {
 
     componentDidMount() {
         this.init()
-
+        
         messaging().onMessage(async remoteMessage => {
             Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
         });
