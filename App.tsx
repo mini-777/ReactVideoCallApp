@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react'
+import React, {Component} from 'react'
 import {Alert, Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native'
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
 import messaging from '@react-native-firebase/messaging'
@@ -31,8 +31,7 @@ export default class App extends Component<Props, State> {
         super(props)
         this.state = {
             appId: `17a05d44fa594610ad070bdbfee9594d`,
-            token: `00617a05d44fa594610ad070bdbfee9594dIAAndadWwMeSauJmmn2xL9RRC22/9VTbm397uzJoI0c9Bv5cTtsAAAAAIgDa5PIt/NXqXwQA
-            AQCMkulfAgCMkulfAwCMkulfBACMkulf`,
+            token: ``,
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
