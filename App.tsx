@@ -29,8 +29,8 @@ export default class App extends Component<Props, State> {
     constructor(props) {
         super(props)
         this.state = {
-            appId: `2254c346a02d4b2b920c0bdbc1930f0d`,
-            token: `0062254c346a02d4b2b920c0bdbc1930f0dIADLNansvZzZtTfoR/fZTK9MOiQ6xCWJCvtoThwr9GxQlP5cTtsAAAAAEADkOavBNvjmXwEAAQA3+OZf`,
+            appId: `17a05d44fa594610ad070bdbfee9594d`,
+            token: `8053f737455b40e8bfd4da770544cb99`,
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
@@ -47,7 +47,20 @@ export default class App extends Component<Props, State> {
 
     componentDidMount() {
         this.init()
+
+        messaging().onMessage(async remoteMessage => {
+            Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+        });
         
+        
+    }
+    componentDidUpdate() {
+
+        messaging().onMessage(async remoteMessage => {
+            Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+        });
+     
+      
     }
 
     /**
@@ -98,13 +111,7 @@ export default class App extends Component<Props, State> {
             })
         })
     }
-    useEffect(() => {
-        const unsubscribe = messaging().onMessage(async remoteMessage => {
-          Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-        });
-    
-        return unsubscribe;
-      }, []);
+  
     
     /**
      * @name startCall
