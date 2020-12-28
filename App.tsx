@@ -4,6 +4,7 @@ import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-nat
 import messaging from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
+import axios from 'axios'
 
 interface Props {
 }
@@ -30,7 +31,8 @@ export default class App extends Component<Props, State> {
         super(props)
         this.state = {
             appId: `17a05d44fa594610ad070bdbfee9594d`,
-            token: `8053f737455b40e8bfd4da770544cb99`,
+            token: `00617a05d44fa594610ad070bdbfee9594dIAAndadWwMeSauJmmn2xL9RRC22/9VTbm397uzJoI0c9Bv5cTtsAAAAAIgDa5PIt/NXqXwQA
+            AQCMkulfAgCMkulfAwCMkulfBACMkulf`,
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
@@ -44,13 +46,18 @@ export default class App extends Component<Props, State> {
     }
    
 
-
     componentDidMount() {
         this.init()
 
         messaging().onMessage(async remoteMessage => {
             Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
         });
+
+        axios.get('http://localhost:8080/rtcToken?channelName=videoCall').then((Response)=>{
+            console.log(Response.data);
+        }).catch((Error) => {
+            console.log(Error);
+        })
         
         
     }
