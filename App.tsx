@@ -1,11 +1,34 @@
 import React, {Component} from 'react'
-import {Alert, Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native'
+import {Alert, Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View} from 'react-native'
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
 import messaging from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
 import firebase from 'firebase';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBGIRXseEIEMFOi-VJISR0kfXIP5KNV8Fc",
+    authDomain: "videocall-777.firebaseapp.com",
+    projectId: "videocall-777",
+    storageBucket: "videocall-777.appspot.com",
+    messagingSenderId: "59461738060",
+    appId: "1:59461738060:web:1a43cf54e99b2df1001ee9",
+    measurementId: "G-S7EJQ00TRV"
+  };
+  // Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+console.log(firebase.messaging().getToken())
+// firebase.messaging.requestPermission()
+// .then(function() {
+//     console.log('accept');
+//     return firebase.messaging().getToken();
+// }).then(function(token) {
+//     console.log(token);
+// }).catch(function(err){
+//     console.log('fcmErr : ', err);
+// })
 
 interface Props {
 }
@@ -24,18 +47,7 @@ interface State {
     peerIds: number[],
 }
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBGIRXseEIEMFOi-VJISR0kfXIP5KNV8Fc",
-    authDomain: "videocall-777.firebaseapp.com",
-    projectId: "videocall-777",
-    storageBucket: "videocall-777.appspot.com",
-    messagingSenderId: "59461738060",
-    appId: "1:59461738060:web:1a43cf54e99b2df1001ee9",
-    measurementId: "G-S7EJQ00TRV"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+
 
 export default class App extends Component<Props, State> {
     
