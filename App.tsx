@@ -17,19 +17,33 @@ interface Props {
  * @property channelName Channel Name for the current session
  * @property joinSucceed State variable for storing success
  */
-interface State {
+interface Stated {
     appId: string,
     token: string,
     channelName: string,
     joinSucceed: boolean,
     peerIds: number[],
+    showModal: boolean,
 }
 
+let todo: Stated;
 
+export function Toggle(status:boolean) {
+    console.log('test');
+    try {
+        todo.showModal = status;
+        console.log("showModal is " + todo.showModal);    
+    } catch (error) {
+        console.log("exception is " + error);
+    }
+}
 
-export default class App extends Component<Props, State> {
+export default class App extends Component<Props, Stated> {
     
     _engine?: RtcEngine
+
+    status = {
+    }
 
     constructor(props) {
         super(props)
@@ -39,6 +53,7 @@ export default class App extends Component<Props, State> {
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
+            showModal: false,
         }
         if (Platform.OS === 'android') {
             // Request required permissions from Android
@@ -54,7 +69,7 @@ export default class App extends Component<Props, State> {
         
         messaging().onMessage(async remoteMessage => {
             Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-            console.log('request');
+            this.setState({showModal: true});
         });
 
         axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
@@ -63,6 +78,8 @@ export default class App extends Component<Props, State> {
         }).catch((Error) => {
             console.log(Error);
         })
+
+        
         
         
     }
@@ -70,6 +87,7 @@ export default class App extends Component<Props, State> {
 
         messaging().onMessage(async remoteMessage => {
             Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+            this.setState({showModal: true});
         });
      
       
