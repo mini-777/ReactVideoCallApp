@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "59461738060",
-    "project_id": "videocall-777",
-    "storage_bucket": "videocall-777.appspot.com"
+    "project_number": "160323747251",
+    "firebase_url": "https://react-cam-test-default-rtdb.firebaseio.com",
+    "project_id": "react-cam-test",
+    "storage_bucket": "react-cam-test.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:59461738060:android:4398f72fd87307d2001ee9",
+        "mobilesdk_app_id": "1:160323747251:android:09cd4fe1eedaaa1a4b9fc6",
         "android_client_info": {
           "package_name": "com.agorarnquickstart"
         }
       },
       "oauth_client": [
         {
-          "client_id": "59461738060-n772cspa7n92n462un5ne1rs85k3mmjt.apps.googleusercontent.com",
+          "client_id": "160323747251-qmisemlindageaa4ondbe229gcvqvvpf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARhgXmoMtQf_mkxeI35U_snX3TtOO1LKs"
+          "current_key": "AIzaSyDD24FI2kMo5Br_s8OsG0379fP9rVFbBN8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "59461738060-n772cspa7n92n462un5ne1rs85k3mmjt.apps.googleusercontent.com",
+              "client_id": "160323747251-qmisemlindageaa4ondbe229gcvqvvpf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
