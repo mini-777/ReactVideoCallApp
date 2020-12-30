@@ -9,7 +9,7 @@ import {name as appName} from './app.json';
 import axios from 'axios';
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
-  remoteMessage.data
+  console.log(remoteMessage);
 });
 
 AppRegistry.registerComponent(appName, () => App);
