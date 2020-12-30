@@ -17,7 +17,7 @@ interface Props {
  * @property channelName Channel Name for the current session
  * @property joinSucceed State variable for storing success
  */
-interface Stated {
+interface state {
     appId: string,
     token: string,
     channelName: string,
@@ -26,24 +26,12 @@ interface Stated {
     showModal: boolean,
 }
 
-let todo: Stated;
 
-export function Toggle(status:boolean) {
-    console.log('test');
-    try {
-        todo.showModal = status;
-        console.log("showModal is " + todo.showModal);    
-    } catch (error) {
-        console.log("exception is " + error);
-    }
-}
 
-export default class App extends Component<Props, Stated> {
+
+export default class App extends Component<Props, state> {
     
     _engine?: RtcEngine
-
-    status = {
-    }
 
     constructor(props) {
         super(props)
