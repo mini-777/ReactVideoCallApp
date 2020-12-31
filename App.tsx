@@ -17,7 +17,7 @@ interface Props {
  * @property channelName Channel Name for the current session
  * @property joinSucceed State variable for storing success
  */
-interface State {
+interface state {
     appId: string,
     token: string,
     channelName: string,
@@ -28,7 +28,8 @@ interface State {
 
 
 
-export default class App extends Component<Props, State> {
+
+export default class App extends Component<Props, state> {
     
     _engine?: RtcEngine
 
@@ -65,11 +66,7 @@ export default class App extends Component<Props, State> {
             console.log(Error);
         })
 
-        async () => {
-            
-            console.log('hello');
-        };
-
+        
         
         
     }
