@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
-import {Alert, Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View} from 'react-native'
+import {Alert, Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View, AppRegistry} from 'react-native'
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
 import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
-import RootRouter from './src/Router';
-
+import Modal from 'react-native-simple-modal';
 
 interface Props {
 }
@@ -24,6 +23,8 @@ interface state {
     joinSucceed: boolean,
     peerIds: number[],
     fcmToken: string,
+    open: boolean,
+    offset: number,
 }
 
 
@@ -42,6 +43,8 @@ export default class App extends Component<Props, state> {
             joinSucceed: false,
             peerIds: [],
             fcmToken: ``,
+            open: false,
+            offset: 0
         }
         if (Platform.OS === 'android') {
             // Request required permissions from Android
@@ -56,7 +59,7 @@ export default class App extends Component<Props, state> {
         this.init()
         
         messaging().onMessage(async remoteMessage => {
-            Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+            this.setState({open:true});
         });
 
         axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
@@ -73,7 +76,7 @@ export default class App extends Component<Props, state> {
     componentDidUpdate() {
 
         messaging().onMessage(async remoteMessage => {
-            Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+            this.setState({open:true});
         });
      
       
@@ -151,25 +154,32 @@ export default class App extends Component<Props, state> {
 
     render() {
         return (
-            <RootRouter />
-            // <View style={styles.max}>
-            //     <View style={styles.max}>
-            //         <Text>고객의 요청을 기다리고 있습니다...</Text>
-            //         <View style={styles.buttonHolder}>
-            //             <TouchableOpacity
-            //                 onPress={this.startCall}
-            //                 style={styles.button}>
-            //                 <Text style={styles.buttonText}> Start Call </Text>
-            //             </TouchableOpacity>
-            //             <TouchableOpacity
-            //                 onPress={this.endCall}
-            //                 style={styles.button}>
-            //                 <Text style={styles.buttonText}> End Call </Text>
-            //             </TouchableOpacity>
-            //         </View>
-            //         {this._renderVideos()}
-            //     </View>
-            // </View>
+            <View style={styles.max}>
+                <View style={styles.max}>
+                    <Text>고객의 요청을 기다리고 있습니다...</Text>
+                    <Modal
+                        offset={this.state.offset}
+                        open={this.state.open}
+                        modalDidOpen={() => console.log('modal did open')}
+                        modalDidClose={() => this.setState({open: false})}
+                        >
+                        <View>
+                            <Text style={{fontSize: 20, marginBottom: 10}}>사용자의 문의가 도착했어요!</Text>
+                            <TouchableOpacity
+                                onPress={this.startCall}
+                                style={styles.button}>
+                            <Text style={styles.buttonText}> Start Call </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={this.endCall}
+                                style={styles.button}>
+                            <Text style={styles.buttonText}> End Call </Text>
+                            </TouchableOpacity>
+                        </View>
+                        </Modal>
+                    {this._renderVideos()}
+                </View>
+            </View>
         )
     }
 
