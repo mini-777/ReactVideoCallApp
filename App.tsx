@@ -153,6 +153,7 @@ export default class App extends Component<Props, state> {
         return (
             <View style={styles.max}>
                 <View style={styles.max}>
+                    <Text>고객의 요청을 기다리고 있습니다...</Text>
                     <View style={styles.buttonHolder}>
                         <TouchableOpacity
                             onPress={this.startCall}
