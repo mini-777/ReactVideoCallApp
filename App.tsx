@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Alert, Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View} from 'react-native'
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
-import messaging from '@react-native-firebase/messaging'
+import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
@@ -17,17 +17,19 @@ interface Props {
  * @property channelName Channel Name for the current session
  * @property joinSucceed State variable for storing success
  */
-interface State {
+interface state {
     appId: string,
     token: string,
     channelName: string,
     joinSucceed: boolean,
     peerIds: number[],
+    fcmToken: string,
 }
 
 
 
-export default class App extends Component<Props, State> {
+
+export default class App extends Component<Props, state> {
     
     _engine?: RtcEngine
 
@@ -39,6 +41,7 @@ export default class App extends Component<Props, State> {
             channelName: 'videoCall',
             joinSucceed: false,
             peerIds: [],
+            fcmToken: ``,
         }
         if (Platform.OS === 'android') {
             // Request required permissions from Android
@@ -54,15 +57,16 @@ export default class App extends Component<Props, State> {
         
         messaging().onMessage(async remoteMessage => {
             Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-            console.log('request');
         });
 
         axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
             this.setState({token : Response.data.key});
-            console.log(this.state.token);
+            console.log('RTCtoken...', this.state.token);
         }).catch((Error) => {
             console.log(Error);
         })
+
+        
         
         
     }
@@ -83,7 +87,9 @@ export default class App extends Component<Props, State> {
         const {appId} = this.state
         this._engine = await RtcEngine.create(appId)
         await this._engine.enableVideo()
-
+        await firebase.messaging().registerDeviceForRemoteMessages();
+        const fcmToken = await firebase.messaging().getToken();
+        this.setState({fcmToken})
         this._engine.addListener('Warning', (warn) => {
             console.log('Warning', warn)
         })
