@@ -5,7 +5,7 @@ import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
-
+import RootRouter from './src/Router';
 
 
 interface Props {
@@ -151,24 +151,25 @@ export default class App extends Component<Props, state> {
 
     render() {
         return (
-            <View style={styles.max}>
-                <View style={styles.max}>
-                    <Text>고객의 요청을 기다리고 있습니다...</Text>
-                    <View style={styles.buttonHolder}>
-                        <TouchableOpacity
-                            onPress={this.startCall}
-                            style={styles.button}>
-                            <Text style={styles.buttonText}> Start Call </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={this.endCall}
-                            style={styles.button}>
-                            <Text style={styles.buttonText}> End Call </Text>
-                        </TouchableOpacity>
-                    </View>
-                    {this._renderVideos()}
-                </View>
-            </View>
+            <RootRouter />
+            // <View style={styles.max}>
+            //     <View style={styles.max}>
+            //         <Text>고객의 요청을 기다리고 있습니다...</Text>
+            //         <View style={styles.buttonHolder}>
+            //             <TouchableOpacity
+            //                 onPress={this.startCall}
+            //                 style={styles.button}>
+            //                 <Text style={styles.buttonText}> Start Call </Text>
+            //             </TouchableOpacity>
+            //             <TouchableOpacity
+            //                 onPress={this.endCall}
+            //                 style={styles.button}>
+            //                 <Text style={styles.buttonText}> End Call </Text>
+            //             </TouchableOpacity>
+            //         </View>
+            //         {this._renderVideos()}
+            //     </View>
+            // </View>
         )
     }
 
