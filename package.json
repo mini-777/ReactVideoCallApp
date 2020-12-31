@@ -14,7 +14,6 @@
     "@react-native-firebase/messaging": "^10.3.1",
     "axios": "^0.21.1",
     "firebase": "^8.2.1",
-    "mysql": "^2.18.1",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-agora": "^3.1.5"
