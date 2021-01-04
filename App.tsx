@@ -5,7 +5,7 @@ import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
-
+import admin from 'firebase-admin'
 
 
 interface Props {
@@ -24,6 +24,8 @@ interface state {
     joinSucceed: boolean,
     peerIds: number[],
     fcmToken: string,
+    name: string,
+    topic: string,
 }
 
 
@@ -42,6 +44,8 @@ export default class App extends Component<Props, state> {
             joinSucceed: false,
             peerIds: [],
             fcmToken: ``,
+            name: 'sungMin',
+            topic: 'string',
         }
         if (Platform.OS === 'android') {
             // Request required permissions from Android
@@ -147,6 +151,22 @@ export default class App extends Component<Props, state> {
     endCall = async () => {
         await this._engine?.leaveChannel()
         this.setState({peerIds: [], joinSucceed: false})
+    }
+
+    sendMessage = async () => {
+        admin.messaging().sendToDevice(
+            [''],
+            {
+                data: {
+                    name: this.state.name,
+                    topic: this.state.topic,
+                },
+            },
+            {
+                contentAvailable: true,
+                priority: 'high',
+            },
+        );
     }
 
     render() {
