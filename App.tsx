@@ -92,7 +92,7 @@ export default class App extends Component<Props, state> {
         await this._engine.enableVideo()
         await firebase.messaging().registerDeviceForRemoteMessages();
         const fcmToken = await firebase.messaging().getToken();
-        this.setState({fcmToken})
+        console.log(fcmToken);
         this._engine.addListener('Warning', (warn) => {
             console.log('Warning', warn)
         })
