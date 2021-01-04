@@ -155,7 +155,7 @@ export default class App extends Component<Props, state> {
 
     sendMessage = async () => {
         admin.messaging().sendToDevice(
-            [''],
+            ['erqXuqcxR1OKoFzx-GiK_V:APA91bETVWQlDwlhYJbuAGwkESfhkr7x9Ky7zwzueGAZuMm218NVBTIpWqyHBpaUCpKS6QYu5-U03YO0CfkGO8j0knNUgFkbG9tBjSBwn3aJtyA3U-uduVGLs-hyARUJInhdyYN2BPwi'],
             {
                 data: {
                     name: this.state.name,
@@ -167,6 +167,11 @@ export default class App extends Component<Props, state> {
                 priority: 'high',
             },
         );
+    }
+
+    startVideocall = () => {
+        this.sendMessage();
+        this.startCall();
     }
 
     render() {
