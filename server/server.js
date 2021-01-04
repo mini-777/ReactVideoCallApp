@@ -28,14 +28,7 @@ app.get('/home', function(req, res) {
 });
 
 app.post('/create', function(req, res) {
-  const newBook = {
-    BookID: req.body.bookID,
-    Title: req.body.bookTitle,
-    Author: req.body.bookAuthor,
-  };
-
-  books.push(newBook);
-  console.log(books);
+  console.log(req.body);
 });
 
 //start your server on port 3001

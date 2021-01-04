@@ -22,7 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="" />
+    <list default="true" id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/react-cam-test-firebase-adminsdk-wkx3d-95e75d739e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +42,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
+  <component name="JupyterTrust" id="c4122aa1-6ca8-4b95-9420-b270b59ec91a" />
   <component name="ProjectId" id="1ldJ5tBS5epQ8X1GN93Y7U230h6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,7 +54,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -58,7 +69,13 @@
     <property name="node.js.selected.package.stylelint" value="C:\Users\USER\Desktop\firebaseRTC\samples\node_modules\stylelint" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="ts.external.directory.path" value="C:\Users\USER\Desktop\videocall\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\Desktop\videocall\server" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/firebaseRTC/samples/index.html" useBuiltInWebServerPort="true">
@@ -94,6 +111,7 @@
       <workItem from="1608083307946" duration="1253000" />
       <workItem from="1608086311833" duration="1297000" />
       <workItem from="1608094521954" duration="30000" />
+      <workItem from="1609752415838" duration="1521000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1608025974702</created>
@@ -133,6 +151,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="edit README.md" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1512" y="178" key="#Deployment" timestamp="1609752546984">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1512" y="178" key="#Deployment/0.0.2560.1040@0.0.2560.1040" timestamp="1609752546984" />
+    <state x="1496" y="165" key="#SSH_Configurations" timestamp="1609752544218">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1496" y="165" key="#SSH_Configurations/0.0.2560.1040@0.0.2560.1040" timestamp="1609752544218" />
     <state x="554" y="281" key="FileChooserDialogImpl" timestamp="1608083305253">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -161,6 +187,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="245" y="249" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1608083276147" />
+    <state x="1776" y="415" key="WebDeployment.AddServerDialog.v.1" timestamp="1609752446966">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1776" y="415" key="WebDeployment.AddServerDialog.v.1/0.0.2560.1040@0.0.2560.1040" timestamp="1609752446966" />
     <state x="355" y="100" width="584" height="840" key="find.popup" timestamp="1607934527017">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

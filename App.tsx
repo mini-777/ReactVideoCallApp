@@ -153,11 +153,16 @@ export default class App extends Component<Props, state> {
     }
 
     sendMessage = async () => {
-            const FIREBASE_API_KEY = "AAAAJVQKPbM:APA91bG_lN3r3YEIlnsIvsptmDsa1TVSuqHqJcFxnNPMm973nIlC8flOmtI4CbL1ME9wJGBjoU7Z8IMisuAHAilUlBtha6wO1m9ZRbZQVHqFKJyWDqqxcTwafeYOxkE5chO7l4RDZGff"
-            axios.post('/', {
-                firstName: 'shedrack',
-                lastName: 'akintayo'
-            });
+        axios
+        .post('http://3.35.8.116:3001/send', {
+            token: 'erqXuqcxR1OKoFzx-GiK_V:APA91bETVWQlDwlhYJbuAGwkESfhkr7x9Ky7zwzueGAZuMm218NVBTIpWqyHBpaUCpKS6QYu5-U03YO0CfkGO8j0knNUgFkbG9tBjSBwn3aJtyA3U-uduVGLs-hyARUJInhdyYN2BPwi',
+            title: '브레이크 패드가 고장이 났어요',
+            subject: '브레이크 패드에서 계속 소리가 나는데 고쳐주실 정비사분 구합니다.'
+        })
+        .then(() => console.log('Book Created'))
+        .catch(err => {
+          console.error(err);
+        });
     }
 
     startVideocall = () => {
@@ -171,7 +176,7 @@ export default class App extends Component<Props, state> {
                 <View style={styles.max}>
                     <View style={styles.buttonHolder}>
                         <TouchableOpacity
-                            onPress={this.startVideocall}
+                            onPress={this.sendMessage}
                             style={styles.button}>
                             <Text style={styles.buttonText}> Start Call </Text>
                         </TouchableOpacity>
