@@ -5,6 +5,7 @@ import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
+import admin from 'firebase-admin'
 
 
 interface Props {
@@ -153,11 +154,19 @@ export default class App extends Component<Props, state> {
     }
 
     sendMessage = async () => {
-            const FIREBASE_API_KEY = "AAAAJVQKPbM:APA91bG_lN3r3YEIlnsIvsptmDsa1TVSuqHqJcFxnNPMm973nIlC8flOmtI4CbL1ME9wJGBjoU7Z8IMisuAHAilUlBtha6wO1m9ZRbZQVHqFKJyWDqqxcTwafeYOxkE5chO7l4RDZGff"
-            axios.post('/', {
-                firstName: 'shedrack',
-                lastName: 'akintayo'
-            });
+        admin.messaging().sendToDevice(
+            ['erqXuqcxR1OKoFzx-GiK_V:APA91bETVWQlDwlhYJbuAGwkESfhkr7x9Ky7zwzueGAZuMm218NVBTIpWqyHBpaUCpKS6QYu5-U03YO0CfkGO8j0knNUgFkbG9tBjSBwn3aJtyA3U-uduVGLs-hyARUJInhdyYN2BPwi'],
+            {
+                data: {
+                    name: this.state.name,
+                    topic: this.state.topic,
+                },
+            },
+            {
+                contentAvailable: true,
+                priority: 'high',
+            },
+        );
     }
 
     startVideocall = () => {
@@ -171,7 +180,7 @@ export default class App extends Component<Props, state> {
                 <View style={styles.max}>
                     <View style={styles.buttonHolder}>
                         <TouchableOpacity
-                            onPress={this.startVideocall}
+                            onPress={this.startCall}
                             style={styles.button}>
                             <Text style={styles.buttonText}> Start Call </Text>
                         </TouchableOpacity>
