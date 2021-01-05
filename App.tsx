@@ -58,9 +58,9 @@ export default class App extends Component<Props, state> {
     componentDidMount() {
         this.init()
         
-        messaging().onMessage(async remoteMessage => {
-            Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-        });
+        // messaging().onMessage(async remoteMessage => {
+        //     Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+        // });
 
         axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
             this.setState({token : Response.data.key});
@@ -75,9 +75,9 @@ export default class App extends Component<Props, state> {
     }
     componentDidUpdate() {
 
-        messaging().onMessage(async remoteMessage => {
-            Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-        });
+        // messaging().onMessage(async remoteMessage => {
+        //     Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+        // });
      
       
     }
