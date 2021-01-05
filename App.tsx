@@ -25,6 +25,8 @@ interface state {
     fcmToken: string,
     open: boolean,
     offset: number,
+    message: string,
+    title: string,
 }
 
 
@@ -44,7 +46,9 @@ export default class App extends Component<Props, state> {
             peerIds: [],
             fcmToken: ``,
             open: false,
-            offset: 0
+            offset: 0,
+            message: '',
+            title: '',
         }
         if (Platform.OS === 'android') {
             // Request required permissions from Android
@@ -59,7 +63,7 @@ export default class App extends Component<Props, state> {
         this.init()
         
         messaging().onMessage(async remoteMessage => {
-            this.setState({open:true});
+            this.setState({open:true, });
         });
 
         axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
@@ -76,7 +80,7 @@ export default class App extends Component<Props, state> {
     componentDidUpdate() {
 
         messaging().onMessage(async remoteMessage => {
-            this.setState({open:true});
+            this.setState({open: true});
         });
      
       
@@ -163,17 +167,17 @@ export default class App extends Component<Props, state> {
                         modalDidOpen={() => console.log('modal did open')}
                         modalDidClose={() => this.setState({open: false})}
                         >
-                        <View>
+                        <View style={styles.buttonHolder}>
                             <Text style={{fontSize: 20, marginBottom: 10}}>사용자의 문의가 도착했어요!</Text>
                             <TouchableOpacity
                                 onPress={this.startCall}
                                 style={styles.button}>
-                            <Text style={styles.buttonText}> Start Call </Text>
+                            <Text style={styles.buttonText}> 수락 하기 </Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={this.endCall}
                                 style={styles.button}>
-                            <Text style={styles.buttonText}> End Call </Text>
+                            <Text style={styles.buttonText}> 거절 하기 </Text>
                             </TouchableOpacity>
                         </View>
                         </Modal>
