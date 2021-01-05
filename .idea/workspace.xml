@@ -23,10 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/react-cam-test-firebase-adminsdk-wkx3d-95e75d739e.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App2.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Permission.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Permission.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigations/Navigation.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +65,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -81,11 +86,6 @@
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/firebaseRTC/samples/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.index.html" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -112,6 +112,7 @@
       <workItem from="1608086311833" duration="1297000" />
       <workItem from="1608094521954" duration="30000" />
       <workItem from="1609752415838" duration="1521000" />
+      <workItem from="1609829143419" duration="678000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1608025974702</created>
@@ -159,10 +160,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1496" y="165" key="#SSH_Configurations/0.0.2560.1040@0.0.2560.1040" timestamp="1609752544218" />
-    <state x="554" y="281" key="FileChooserDialogImpl" timestamp="1608083305253">
+    <state x="554" y="281" key="FileChooserDialogImpl" timestamp="1609839321715">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="554" y="281" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1608083305253" />
+    <state x="554" y="281" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1609839321715" />
     <state width="1268" height="278" key="GridCell.Tab.0.bottom" timestamp="1608015359929">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

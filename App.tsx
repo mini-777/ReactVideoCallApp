@@ -1,13 +1,50 @@
 import React, {Component} from 'react'
-import {Alert, Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View} from 'react-native'
+import {Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View, StyleSheet, ViewBase, StatusBar, TextBase} from 'react-native'
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
 import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from './components/Permission'
 import styles from './components/Style'
 import axios from 'axios'
+import Main from "./src/screens/Main";
+import Contact from "./src/screens/Cotact";
+import Login from "./src/screens/Login";
+import Videocall from "./src/screens/Videocall";
+import Signup from "./src/screens/Signup";
+import Splash from "./src/screens/Splash";
+import { createDrawerNavigator } from "react-navigation-drawer";
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from "react-navigation";
 
+const DrawerNavigation = createDrawerNavigator({
+    Splash: Splash,
+    Contact: Contact,
+    Login: Login,
+    Main: Main,
+    Videocall: Videocall,
+    Signup: Signup,
+  });
+  
+  const StackNavigation = createStackNavigator(
+    {
+      DrawerNavigation: {
+        screen: DrawerNavigation
+      },
+      Main: Main,
+      Contact: Contact,
+      Login: Login,
+      Videocall: Videocall,
+      Signup: Signup,
+      Splash: Splash
+    },
+    {
+      headerMode: "none"
+    }
+  );
+  
+const AppContainer = createAppContainer(StackNavigation);
 
 interface Props {
+    navigation: any
 }
 
 /**
@@ -26,7 +63,6 @@ interface state {
     name: string,
     topic: string,
 }
-
 
 
 
@@ -169,26 +205,28 @@ export default class App extends Component<Props, state> {
         this.sendMessage();
         this.startCall();
     }
-
+   
     render() {
+        
         return (
-            <View style={styles.max}>
-                <View style={styles.max}>
-                    <View style={styles.buttonHolder}>
-                        <TouchableOpacity
-                            onPress={this.sendMessage}
-                            style={styles.button}>
-                            <Text style={styles.buttonText}> Start Call </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={this.endCall}
-                            style={styles.button}>
-                            <Text style={styles.buttonText}> End Call </Text>
-                        </TouchableOpacity>
-                    </View>
-                    {this._renderVideos()}
-                </View>
-            </View>
+            <AppContainer />
+            // <View style={styles.max}>
+            //     <View style={styles.max}>
+            //         <View style={styles.buttonHolder}>
+            //             <TouchableOpacity
+            //                 onPress={this.sendMessage}
+            //                 style={styles.button}>
+            //                 <Text style={styles.buttonText}> Start Call </Text>
+            //             </TouchableOpacity>
+            //             <TouchableOpacity
+            //                 onPress={this.endCall}
+            //                 style={styles.button}>
+            //                 <Text style={styles.buttonText}> End Call </Text>
+            //             </TouchableOpacity>
+            //         </View>
+            //         {this._renderVideos()}
+            //     </View>
+            // </View>
         )
     }
 
