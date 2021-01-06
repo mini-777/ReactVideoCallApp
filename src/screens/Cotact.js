@@ -35,7 +35,7 @@ function Contact(props) {
 
   const startVideocall = () => {
     sendMessage(title, subject);
-    
+    props.navigation.navigate("videoCall");
   }
   return (
     <View style={styles.rect}>
@@ -59,7 +59,7 @@ function Contact(props) {
         ></MaterialUnderlineTextbox>
         <MaterialButtonPrimary
           style={styles.materialButtonPrimary}
-          onPress={App.startVideocall()}
+          onPress={startVideocall()}
         ></MaterialButtonPrimary>
       </View>
     </View>

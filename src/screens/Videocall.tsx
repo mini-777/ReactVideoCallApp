@@ -6,7 +6,32 @@ import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from '../../components/Permission'
 import styles from '../../components/Style'
 
-export default class Videocall extends Component {
+
+
+interface Props {
+    navigation: any
+}
+
+/**
+ * @property peerIds Array for storing connected peers
+ * @property appId
+ * @property channelName Channel Name for the current session
+ * @property joinSucceed State variable for storing success
+ */
+interface state {
+    appId: string,
+    token: string,
+    channelName: string,
+    joinSucceed: boolean,
+    peerIds: number[],
+    fcmToken: string,
+    name: string,
+    topic: string,
+}
+
+
+
+export default class Videocall extends Component<Props, state> {
     
   _engine?: RtcEngine
 
@@ -33,14 +58,9 @@ export default class Videocall extends Component {
 
   componentDidMount() {
       this.init()
-      
+      this.startCall();
   }
   componentDidUpdate() {
-
-      // messaging().onMessage(async remoteMessage => {
-      //     Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-      // });
-   
     
   }
 
@@ -122,9 +142,29 @@ export default class Videocall extends Component {
   }
  
   render() {
-      const Engine = this._engine;
+    const styled = StyleSheet.create({
+        rect: {
+          flex: 1,
+          backgroundColor: "rgba(20,31,43,1)"
+        },
+        materialButtonPink1: {
+          height: 46,
+          width: 316,
+          borderRadius: 37,
+          marginTop: 572,
+          alignSelf: "center"
+        }
+      });
       return (
-          <AppContainer />
+        <View style={styled.rect}>
+        <StatusBar hidden />
+        {this._renderVideos()}
+       <MaterialButtonPink1
+         style={styled.materialButtonPink1}
+         onPress={this.endCall}
+        ></MaterialButtonPink1>
+       
+      </View>
           // <View style={styles.max}>
           //     <View style={styles.max}>
           //         <View style={styles.buttonHolder}>
@@ -143,8 +183,9 @@ export default class Videocall extends Component {
           //     </View>
           // </View>
       )
+      
   }
-
+ 
   _renderVideos = () => {
       const {joinSucceed} = this.state
       return joinSucceed ? (
@@ -185,29 +226,10 @@ export default class Videocall extends Component {
 //     _engine ?: RtcEngine
    
 //   return (
-//     <View style={styles.rect}>
-//       <StatusBar hidden />
-//       {App._renderVideos()}
-//       <MaterialButtonPink1
-//         style={styles.materialButtonPink1}
-//       ></MaterialButtonPink1>
-      
-//     </View>
+     
 //   );
 // }
 
-// const styles = StyleSheet.create({
-//   rect: {
-//     flex: 1,
-//     backgroundColor: "rgba(20,31,43,1)"
-//   },
-//   materialButtonPink1: {
-//     height: 46,
-//     width: 316,
-//     borderRadius: 37,
-//     marginTop: 572,
-//     alignSelf: "center"
-//   }
-// });
+
 
 // export default Videocall;
