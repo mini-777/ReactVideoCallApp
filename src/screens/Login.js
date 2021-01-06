@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   로그인3: {
     color: "#ffffff",
     fontSize: 24,
-    lineHeight: 20,
+    lineHeight: 30,
     alignSelf: "center"
   },
   로그인4: {

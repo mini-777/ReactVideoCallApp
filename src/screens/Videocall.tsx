@@ -5,7 +5,7 @@ import {Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View,
 import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from '../../components/Permission'
 import styles from '../../components/Style'
-
+import axios from 'axios'
 
 
 interface Props {
@@ -57,7 +57,13 @@ export default class Videocall extends Component<Props, state> {
  
 
   componentDidMount() {
-      this.init()
+      this.init();
+      axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
+        this.setState({token : Response.data.key});
+        console.log('RTCtoken...', this.state.token);
+    }).catch((Error) => {
+        console.log(Error);
+    })
       
   }
   componentDidUpdate() {
@@ -174,33 +180,21 @@ export default class Videocall extends Component<Props, state> {
          
       });
       return (
-        <View style={styled.rect}>
-             <View style={styles.max}>
-             <View style={styles.max}>
-            {this._renderVideos()}
-
-    <TouchableOpacity style={[styled.container, styled.materialButtonPink1]}
+       
+    
+    
+          <View style={styles.max}>
+              <View style={styled.rect}>
+                  <View style={styles.buttonHolder}>
+                  <TouchableOpacity style={[styled.container, styled.materialButtonPink1]}
         onPress={this.startCall}>
       <Text style={styled.상담종료}>상담 종료</Text>
     </TouchableOpacity>
-      </View>
-      </View>
-           </View>
+                  </View>
+                  {this._renderVideos()}
+              </View>
+          </View>
       )
-          //         <View style={styles.buttonHolder}>
-          //             <TouchableOpacity
-          //                 onPress={this.sendMessage}
-          //                 style={styles.button}>
-          //                 <Text style={styles.buttonText}> Start Call </Text>
-          //             </TouchableOpacity>
-          //             <TouchableOpacity
-          //                 onPress={this.endCall}
-          //                 style={styles.button}>
-          //                 <Text style={styles.buttonText}> End Call </Text>
-          //             </TouchableOpacity>
-          //         </View>
-          //         {this._renderVideos()}
-          //    
       
   }
  

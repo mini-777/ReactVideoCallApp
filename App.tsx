@@ -47,31 +47,31 @@ interface Props {
  * @property channelName Channel Name for the current session
  * @property joinSucceed State variable for storing success
  */
-interface state {
-  appId: string;
-  token: string;
-  channelName: string;
-  joinSucceed: boolean;
-  peerIds: number[];
-  fcmToken: string;
-  name: string;
-  topic: string;
-}
+// interface state {
+//   appId: string;
+//   token: string;
+//   channelName: string;
+//   joinSucceed: boolean;
+//   peerIds: number[];
+//   fcmToken: string;
+//   name: string;
+//   topic: string;
+// }
 
-export default class App extends Component<Props, state> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      appId: `17a05d44fa594610ad070bdbfee9594d`,
-      token: ``,
-      channelName: 'videoCall',
-      joinSucceed: false,
-      peerIds: [],
-      fcmToken: ``,
-      name: 'sungMin',
-      topic: 'string',
-    };
-  }
+export default class App extends Component<Props> {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     appId: `17a05d44fa594610ad070bdbfee9594d`,
+  //     token: ``,
+  //     channelName: 'videoCall',
+  //     joinSucceed: false,
+  //     peerIds: [],
+  //     fcmToken: ``,
+  //     name: 'sungMin',
+  //     topic: 'string',
+  //   };
+  // }
 
   render() {
     return (

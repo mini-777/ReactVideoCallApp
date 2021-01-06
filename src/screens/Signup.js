@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   다음: {
     color: "#ffffff",
     fontSize: 24,
-    lineHeight: 20,
+    lineHeight: 30,
     alignSelf: "center"
   },
   textInput2Column: {

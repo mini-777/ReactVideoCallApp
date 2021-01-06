@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#141f2b"
   },
   rect2: {
-    height: 84,
+    height: 70,
     backgroundColor: "#1c2a38",
     flexDirection: "row"
   },
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   로그인1: {
     color: "#ffffff",
     fontSize: 24,
-    lineHeight: 20,
+    lineHeight: 30,
     alignSelf: "center"
   },
   materialUnderlineTextboxStack: {
