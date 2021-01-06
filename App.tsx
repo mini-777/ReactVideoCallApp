@@ -10,6 +10,7 @@ import {
   ViewBase,
   StatusBar,
   TextBase,
+  Alert,
 } from 'react-native';
 import RtcEngine, {
   RtcLocalView,
@@ -100,7 +101,11 @@ export default class App extends Component<Props, state> {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    messaging().onMessage(async remoteMessage => {
+      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+    });
+  }
   componentDidUpdate() {}
 
   render() {
