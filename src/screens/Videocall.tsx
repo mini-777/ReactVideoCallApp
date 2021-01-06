@@ -58,10 +58,10 @@ export default class Videocall extends Component<Props, state> {
 
   componentDidMount() {
       this.init()
-      this.startCall();
+      
   }
   componentDidUpdate() {
-    
+   
   }
 
   /**
@@ -136,11 +136,6 @@ export default class Videocall extends Component<Props, state> {
 
   
 
-  startVideocall = () => {
-      this.startCall();
-      
-  }
- 
   render() {
     const styled = StyleSheet.create({
         rect: {
@@ -148,25 +143,50 @@ export default class Videocall extends Component<Props, state> {
           backgroundColor: "rgba(20,31,43,1)"
         },
         materialButtonPink1: {
-          height: 46,
-          width: 316,
-          borderRadius: 37,
-          marginTop: 572,
-          alignSelf: "center"
-        }
+            height: 46,
+            width: 316,
+            borderRadius: 37,
+            marginTop: 572,
+            alignSelf: "center"
+          },
+        container: {
+            backgroundColor: "#E91E63",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "row",
+            borderRadius: 2,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 1
+            },
+            shadowOpacity: 0.35,
+            shadowRadius: 5,
+            elevation: 2,
+            minWidth: 88,
+            paddingLeft: 16,
+            paddingRight: 16
+          },
+          상담종료: {
+            color: "#fff",
+            fontSize: 14
+          },
+         
       });
       return (
         <View style={styled.rect}>
-        <StatusBar hidden />
-        {this._renderVideos()}
-       <MaterialButtonPink1
-         style={styled.materialButtonPink1}
-         onPress={this.endCall}
-        ></MaterialButtonPink1>
-       
+             <View style={styles.max}>
+             <View style={styles.max}>
+            {this._renderVideos()}
+
+    <TouchableOpacity style={[styled.container, styled.materialButtonPink1]}
+        onPress={this.startCall}>
+      <Text style={styled.상담종료}>상담 종료</Text>
+    </TouchableOpacity>
       </View>
-          // <View style={styles.max}>
-          //     <View style={styles.max}>
+      </View>
+           </View>
+      )
           //         <View style={styles.buttonHolder}>
           //             <TouchableOpacity
           //                 onPress={this.sendMessage}
@@ -180,9 +200,7 @@ export default class Videocall extends Component<Props, state> {
           //             </TouchableOpacity>
           //         </View>
           //         {this._renderVideos()}
-          //     </View>
-          // </View>
-      )
+          //    
       
   }
  

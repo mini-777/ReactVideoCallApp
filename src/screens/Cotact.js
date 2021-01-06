@@ -22,7 +22,7 @@ function Contact(props) {
   const sendMessage = async (title, subject) => {
     axios
     .post('http://3.35.8.116:3001/send', {
-        token: 'erqXuqcxR1OKoFzx-GiK_V:APA91bETVWQlDwlhYJbuAGwkESfhkr7x9Ky7zwzueGAZuMm218NVBTIpWqyHBpaUCpKS6QYu5-U03YO0CfkGO8j0knNUgFkbG9tBjSBwn3aJtyA3U-uduVGLs-hyARUJInhdyYN2BPwi',
+        token: 'djNASZCCRyaAionysSlH6E:APA91bEBTxhAN3U15AhVlDcY0mkVVCjeLJVjXfAjvUSXWLdat9MQUEF1uZ6CGu9BSO5OJmhdYcaAV8x66WSmBtSIXrxLKf1P-wDpT90va2wlJby1vvw4D0rBBj4yBQnHld2tG8h11J8k',
         title: title,
         subject: subject,
     })
@@ -31,40 +31,44 @@ function Contact(props) {
       console.error(err);
     });
   }
-
-
-  const startVideocall = () => {
-    sendMessage(title, subject);
-    props.navigation.navigate("videoCall");
+  const startVideocall = (title, subject) => {
+    sendMessage();
+    props.navigation.navigate("Videocall")
   }
+
+
+    
+    
+
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
       <View style={styles.rect2}>
-        <View style={styles.buttonStack}>
-          <Text style={styles.문의하기}>문의하기</Text>
-        </View>
-        <View style={styles.buttonStackFiller}></View>
+        <Text style={styles.문의하기}>문의하기</Text>
+        <View style={styles.문의하기Filler}></View>
         <View style={styles.rect3}></View>
       </View>
-      <View style={styles.rect2Filler}></View>
       <View style={styles.rect4}>
         <MaterialStackedLabelTextbox
           style={styles.materialStackedLabelTextbox}
-          onChangeText={(title) => setTitle(title)}
         ></MaterialStackedLabelTextbox>
-        <MaterialUnderlineTextbox
-          style={styles.materialUnderlineTextbox}
-          onChangeText={(subject) => setSubject(subject)}
-        ></MaterialUnderlineTextbox>
-        <MaterialButtonPrimary
-          style={styles.materialButtonPrimary}
-          onPress={startVideocall()}
-        ></MaterialButtonPrimary>
+        <View style={styles.materialUnderlineTextboxStack}>
+          <MaterialUnderlineTextbox
+            style={styles.materialUnderlineTextbox}
+          ></MaterialUnderlineTextbox>
+          <TouchableOpacity
+            onPress={startVideocall}
+            style={styles.button1}
+          >
+            <Text style={styles.로그인1}>로그인</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
+  
 }
+
 
 const styles = StyleSheet.create({
   rect: {
@@ -76,27 +80,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#1c2a38",
     flexDirection: "row"
   },
-  button: {
-    top: 0,
-    left: 0,
-    width: 50,
-    height: 50,
-    position: "absolute"
-  },
   문의하기: {
-    top: 23,
-    left: 14,
     color: "rgba(255,255,255,1)",
-    position: "absolute",
-    fontSize: 24
+    fontSize: 24,
+    marginLeft: 31,
+    marginTop: 28
   },
-  buttonStack: {
-    width: 110,
-    height: 55,
-    marginLeft: 17,
-    marginTop: 17
-  },
-  buttonStackFiller: {
+  문의하기Filler: {
     flex: 1,
     flexDirection: "row"
   },
@@ -106,43 +96,48 @@ const styles = StyleSheet.create({
     marginRight: 18,
     marginTop: 28
   },
-  rect2Filler: {
-    flex: 1
-  },
   rect4: {
     width: 338,
     height: 562,
     backgroundColor: "#E6E6E6",
     borderRadius: 21,
-    marginBottom: 67,
+    marginTop: 5,
     alignSelf: "center"
   },
   materialStackedLabelTextbox: {
     height: 60,
     width: 284,
-    marginTop: 48,
+    marginTop: 70,
     alignSelf: "center"
   },
   materialUnderlineTextbox: {
     height: 351,
     width: 297,
-    marginTop: 11,
+    position: "absolute",
+    top: 0,
+    left: 0
+  },
+  button1: {
+    top: 349,
+    width: 284,
+    height: 50,
+    backgroundColor: "#1da1f2",
+    position: "absolute",
+    borderRadius: 100,
+    left: 7,
+    justifyContent: "center"
+  },
+  로그인1: {
+    color: "#ffffff",
+    fontSize: 24,
+    lineHeight: 20,
     alignSelf: "center"
   },
-  materialButtonPrimary: {
-    height: 50,
-    width: 316,
-    borderRadius: 24,
-    shadowColor: "rgba(0,0,0,1)",
-    shadowOffset: {
-      width: 3,
-      height: 3
-    },
-    elevation: 5,
-    shadowOpacity: 0.35,
-    shadowRadius: 0,
-    marginTop: 18,
-    marginLeft: 11
+  materialUnderlineTextboxStack: {
+    width: 297,
+    height: 399,
+    marginTop: 11,
+    marginLeft: 20
   }
 });
 

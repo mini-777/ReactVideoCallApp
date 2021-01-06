@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
 function MaterialButtonPrimary(props) {
   return (
-    <TouchableOpacity style={[styles.container, props.style]}>
+    <TouchableOpacity style={[styles.container, props.style]} onPress={() => props.navigation.navigate("Videocall")}>
       <Text style={styles.통화하기}>통화하기</Text>
     </TouchableOpacity>
   );

@@ -22,7 +22,6 @@ function Signup(props) {
         ></TextInput>
         <Text style={styles.text2}>20</Text>
         <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
-        <Icon name="arrow-back" style={styles.icon2}></Icon>
       </View>
       <View style={styles.textInputColumnFiller}></View>
       <View style={styles.textInput2Column}>
@@ -129,7 +128,13 @@ const styles = StyleSheet.create({
     width: 375,
     marginBottom: 29,
     marginLeft: -7
-  }
+  },
+  login: {
+    color: "rgba(255,255,255,1)",
+    fontSize: 24,
+    marginLeft: 31,
+    marginTop: 28
+  },
 });
 
 export default Signup;

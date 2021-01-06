@@ -1,27 +1,5 @@
 import React, {Component} from 'react';
-import {
-  Platform,
-  PushNotificationIOS,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-  ViewBase,
-  StatusBar,
-  TextBase,
-  Alert,
-} from 'react-native';
-import RtcEngine, {
-  RtcLocalView,
-  RtcRemoteView,
-  VideoRenderMode,
-} from 'react-native-agora';
-import messaging, {firebase} from '@react-native-firebase/messaging';
-import requestCameraAndAudioPermission from './components/Permission';
-import styles from './components/Style';
-import axios from 'axios';
-import Main from './src/screens/Main';
+import messaging from '@react-native-firebase/messaging';
 import Contact from './src/screens/Cotact';
 import Login from './src/screens/Login';
 import Videocall from './src/screens/Videocall';
@@ -35,7 +13,7 @@ const DrawerNavigation = createDrawerNavigator({
   Start: Start,
   Contact: Contact,
   Login: Login,
-  Main: Main,
+  // Main: Main,
   Videocall: Videocall,
   Signup: Signup,
 });
@@ -45,7 +23,7 @@ const StackNavigation = createStackNavigator(
     DrawerNavigation: {
       screen: DrawerNavigation,
     },
-    Main: Main,
+    // Main: Main,
     Contact: Contact,
     Login: Login,
     Videocall: Videocall,
@@ -93,20 +71,7 @@ export default class App extends Component<Props, state> {
       name: 'sungMin',
       topic: 'string',
     };
-    if (Platform.OS === 'android') {
-      // Request required permissions from Android
-      requestCameraAndAudioPermission().then(() => {
-        console.log('requested!');
-      });
-    }
   }
-
-  componentDidMount() {
-    messaging().onMessage(async remoteMessage => {
-      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-    });
-  }
-  componentDidUpdate() {}
 
   render() {
     return (

@@ -15,7 +15,7 @@ function Login(props) {
       <StatusBar hidden />
       <View style={styles.무진콜에로그인하세요Column}>
         <Text style={styles.무진콜에로그인하세요}>무진콜에 로그인하세요</Text>
-        <View style={styles.rect2}></View>
+        <View style={styles.rect2}><Text style={styles.로그인4}>로그인</Text></View>
         <Text style={styles.id3}>ID</Text>
         <Text style={styles.text4}>Password</Text>
         <TextInput
@@ -127,7 +127,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 20,
     alignSelf: "center"
-  }
+  },
+  로그인4: {
+    color: "rgba(255,255,255,1)",
+    fontSize: 24,
+    marginTop: 33,
+    marginLeft: 31
+  },
 });
 
 export default Login;

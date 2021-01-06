@@ -27,10 +27,8 @@ interface state {
   topic: string,
 }
 
-
-
 export default class Main extends Component<Props, state> {
-  
+
 _engine?: RtcEngine
 
 constructor(props) {
@@ -53,15 +51,12 @@ constructor(props) {
     }
 }
 
-
 componentDidMount() {
-    this.init()
-    this.startCall();
-    
-    
+  this.init()
+
 }
 componentDidUpdate() {
-  
+
 }
 
 /**
@@ -75,6 +70,7 @@ init = async () => {
     await firebase.messaging().registerDeviceForRemoteMessages();
     const fcmToken = await firebase.messaging().getToken();
     this.setState({fcmToken})
+    console.log(fcmToken);
     this._engine.addListener('Warning', (warn) => {
         console.log('Warning', warn)
     })
@@ -115,7 +111,6 @@ init = async () => {
     })
 }
 
-
 /**
  * @name startCall
  * @description Function to start the call
@@ -134,11 +129,9 @@ endCall = async () => {
     this.setState({peerIds: [], joinSucceed: false})
 }
 
-
-
 startVideocall = () => {
     this.startCall();
-    
+
 }
 
 render() {
@@ -214,8 +207,6 @@ render() {
         // </View>
   )
 }
-    
-
 
 _renderVideos = () => {
     const {joinSucceed} = this.state
@@ -251,5 +242,3 @@ _renderRemoteVideos = () => {
     )
 }
 }
-
-
