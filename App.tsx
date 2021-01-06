@@ -169,7 +169,10 @@ export default class App extends Component<Props, state> {
                         >
                         <View style={styles.buttonHolder}>
                             <Text style={{fontSize: 20, marginBottom: 10}}>사용자의 문의가 도착했어요!</Text>
-                            <TouchableOpacity
+                            
+                        </View>
+                        </Modal>
+                        <TouchableOpacity
                                 onPress={this.startCall}
                                 style={styles.button}>
                             <Text style={styles.buttonText}> 수락 하기 </Text>
@@ -179,8 +182,6 @@ export default class App extends Component<Props, state> {
                                 style={styles.button}>
                             <Text style={styles.buttonText}> 거절 하기 </Text>
                             </TouchableOpacity>
-                        </View>
-                        </Modal>
                     {this._renderVideos()}
                 </View>
             </View>
