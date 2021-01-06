@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -9,17 +9,39 @@ import {
 import MaterialStackedLabelTextbox from "../components/MaterialStackedLabelTextbox";
 import MaterialUnderlineTextbox from "../components/MaterialUnderlineTextbox";
 import MaterialButtonPrimary from "../components/MaterialButtonPrimary";
+import axios from 'axios'
+import App from '../../App'
+
+
+
 
 function Contact(props) {
+  const [title, setTitle] = useState('');
+  const [subject, setSubject] = useState('');
+
+  const sendMessage = async (title, subject) => {
+    axios
+    .post('http://3.35.8.116:3001/send', {
+        token: 'erqXuqcxR1OKoFzx-GiK_V:APA91bETVWQlDwlhYJbuAGwkESfhkr7x9Ky7zwzueGAZuMm218NVBTIpWqyHBpaUCpKS6QYu5-U03YO0CfkGO8j0knNUgFkbG9tBjSBwn3aJtyA3U-uduVGLs-hyARUJInhdyYN2BPwi',
+        title: title,
+        subject: subject,
+    })
+    .then(() => console.log('Book Created'))
+    .catch(err => {
+      console.error(err);
+    });
+  }
+
+
+  const startVideocall = () => {
+    sendMessage(title, subject);
+    
+  }
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
       <View style={styles.rect2}>
         <View style={styles.buttonStack}>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate("DrawerPanel")}
-            style={styles.button}
-          ></TouchableOpacity>
           <Text style={styles.문의하기}>문의하기</Text>
         </View>
         <View style={styles.buttonStackFiller}></View>
@@ -29,12 +51,15 @@ function Contact(props) {
       <View style={styles.rect4}>
         <MaterialStackedLabelTextbox
           style={styles.materialStackedLabelTextbox}
+          onChangeText={(title) => setTitle(title)}
         ></MaterialStackedLabelTextbox>
         <MaterialUnderlineTextbox
           style={styles.materialUnderlineTextbox}
+          onChangeText={(subject) => setSubject(subject)}
         ></MaterialUnderlineTextbox>
         <MaterialButtonPrimary
           style={styles.materialButtonPrimary}
+          onPress={App.startVideocall()}
         ></MaterialButtonPrimary>
       </View>
     </View>

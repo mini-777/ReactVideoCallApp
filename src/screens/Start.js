@@ -7,12 +7,12 @@ import {
   TouchableOpacity
 } from "react-native";
 
-function Splash(props) {
+function Start(props) {
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
       <View style={styles.자동차문의는무진콜Column}>
-        <Text style={styles.자동차문의는무진콜}>자동차 문의는{"\n"}무진콜</Text>
+        <Text style={styles.자동차문의는무진콜}>자동차 문의는{"\n"}무진</Text>
         <TouchableOpacity
           onPress={() => props.navigation.navigate("Signup")}
           style={styles.button}
@@ -74,4 +74,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Splash;
+export default Start;

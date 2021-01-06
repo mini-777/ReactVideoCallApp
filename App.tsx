@@ -10,13 +10,13 @@ import Contact from "./src/screens/Cotact";
 import Login from "./src/screens/Login";
 import Videocall from "./src/screens/Videocall";
 import Signup from "./src/screens/Signup";
-import Splash from "./src/screens/Splash";
+import Start from "./src/screens/Start";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 
 const DrawerNavigation = createDrawerNavigator({
-    Splash: Splash,
+    Start: Start,
     Contact: Contact,
     Login: Login,
     Main: Main,
@@ -34,7 +34,7 @@ const DrawerNavigation = createDrawerNavigator({
       Login: Login,
       Videocall: Videocall,
       Signup: Signup,
-      Splash: Splash
+      Start: Start
     },
     {
       headerMode: "none"
@@ -71,7 +71,7 @@ export default class App extends Component<Props, state> {
     _engine?: RtcEngine
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             appId: `17a05d44fa594610ad070bdbfee9594d`,
             token: ``,
@@ -188,26 +188,15 @@ export default class App extends Component<Props, state> {
         this.setState({peerIds: [], joinSucceed: false})
     }
 
-    sendMessage = async () => {
-        axios
-        .post('http://3.35.8.116:3001/send', {
-            token: 'erqXuqcxR1OKoFzx-GiK_V:APA91bETVWQlDwlhYJbuAGwkESfhkr7x9Ky7zwzueGAZuMm218NVBTIpWqyHBpaUCpKS6QYu5-U03YO0CfkGO8j0knNUgFkbG9tBjSBwn3aJtyA3U-uduVGLs-hyARUJInhdyYN2BPwi',
-            title: '브레이크 패드가 고장이 났어요',
-            subject: '브레이크 패드에서 계속 소리가 나는데 고쳐주실 정비사분 구합니다.'
-        })
-        .then(() => console.log('Book Created'))
-        .catch(err => {
-          console.error(err);
-        });
-    }
+    
 
     startVideocall = () => {
-        this.sendMessage();
         this.startCall();
+        
     }
    
     render() {
-        
+        const Engine = this._engine;
         return (
             <AppContainer />
             // <View style={styles.max}>

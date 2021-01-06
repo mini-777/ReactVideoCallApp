@@ -30,7 +30,7 @@ function Login(props) {
       <View style={styles.rect4}>
         <Divider style={styles.divider}></Divider>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("Home")}
+          onPress={() => props.navigation.navigate("Contact")}
           style={styles.button2}
         >
           <Text style={styles.로그인3}>로그인</Text>
