@@ -23,7 +23,7 @@ function Login(props) {
           secureTextEntry={true}
           style={styles.textInput}
         ></TextInput>
-        <Text style={styles.text5}>Forgotten your password?</Text>
+        <Text style={styles.text5}>비밀번호를 잊으셨나요?</Text>
         <TextInput placeholder="" style={styles.textInput2}></TextInput>
       </View>
       <View style={styles.무진콜에로그인하세요ColumnFiller}></View>

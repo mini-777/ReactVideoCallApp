@@ -4,13 +4,15 @@ import {
   View,
   StatusBar,
   TouchableOpacity,
-  Text
+  Text,
+  TextInput 
 } from "react-native";
 import MaterialStackedLabelTextbox from "../components/MaterialStackedLabelTextbox";
 import MaterialUnderlineTextbox from "../components/MaterialUnderlineTextbox";
 import MaterialButtonPrimary from "../components/MaterialButtonPrimary";
 import axios from 'axios'
 import App from '../../App'
+import { sub } from "react-native-reanimated";
 
 
 
@@ -20,9 +22,10 @@ function Contact(props) {
   const [subject, setSubject] = useState('');
 
   const sendMessage = async (title, subject) => {
+    console.log(title, subject);
     axios
     .post('http://3.35.8.116:3001/send', {
-        token: 'djNASZCCRyaAionysSlH6E:APA91bEBTxhAN3U15AhVlDcY0mkVVCjeLJVjXfAjvUSXWLdat9MQUEF1uZ6CGu9BSO5OJmhdYcaAV8x66WSmBtSIXrxLKf1P-wDpT90va2wlJby1vvw4D0rBBj4yBQnHld2tG8h11J8k',
+        token: 'eqXVprSUS0uAxOUMJITf7K:APA91bHXMSZqDFX2tKJuTQf2faYiM1d18cycPGf0omcI7UK93EaUGT00M_fFKbGnkTduZSYh4pzmhZUZ2qiAGOCon4JsGo9xhmVRkr-uRWAPdCfbKjqZbUA84vdu1I9iK5fTw9c1eK4d',
         title: title,
         subject: subject,
     })
@@ -31,8 +34,8 @@ function Contact(props) {
       console.error(err);
     });
   }
-  const startVideocall = (title, subject) => {
-    sendMessage();
+  const startVideocall = () => {
+    sendMessage(title, subject);
     props.navigation.navigate("Videocall")
   }
 
@@ -49,13 +52,13 @@ function Contact(props) {
         <View style={styles.rect3}></View>
       </View>
       <View style={styles.rect4}>
-        <MaterialStackedLabelTextbox
-          style={styles.materialStackedLabelTextbox}
-        ></MaterialStackedLabelTextbox>
+          <View style={[styles.container, props.style, styles.materialStackedLabelTextbox]}>
+      <TextInput placeholder="제목" style={styles.inputStyle} onChangeText={text => setTitle(text)}></TextInput>
+    </View>
         <View style={styles.materialUnderlineTextboxStack}>
-          <MaterialUnderlineTextbox
-            style={styles.materialUnderlineTextbox}
-          ></MaterialUnderlineTextbox>
+      <View style={[styles.container, props.style, styles.materialUnderlineTextbox]}>
+      <TextInput placeholder="상세 내용" style={styles.inputStyle} onChangeText={text => setSubject(text)}></TextInput>
+    </View>
           <TouchableOpacity
             onPress={startVideocall}
             style={styles.button1}
@@ -138,6 +141,20 @@ const styles = StyleSheet.create({
     height: 399,
     marginTop: 11,
     marginLeft: 20
+  },
+  container: {
+    borderBottomWidth: 1,
+    borderColor: "#D9D5DC",
+    backgroundColor: "transparent"
+  },
+  inputStyle: {
+    color: "#000",
+    fontSize: 16,
+    alignSelf: "stretch",
+    flex: 1,
+    lineHeight: 16,
+    paddingTop: 8,
+    paddingBottom: 8
   }
 });
 

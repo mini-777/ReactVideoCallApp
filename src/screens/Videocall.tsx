@@ -81,6 +81,7 @@ export default class Videocall extends Component<Props, state> {
       await firebase.messaging().registerDeviceForRemoteMessages();
       const fcmToken = await firebase.messaging().getToken();
       this.setState({fcmToken})
+      console.log(fcmToken)
       this._engine.addListener('Warning', (warn) => {
           console.log('Warning', warn)
       })
@@ -152,7 +153,7 @@ export default class Videocall extends Component<Props, state> {
             height: 46,
             width: 316,
             borderRadius: 37,
-            marginTop: 572,
+            marginTop: 0,
             alignSelf: "center"
           },
         container: {

@@ -1,11 +1,42 @@
-import React, {Component} from 'react';
+// @ts-ignore
+import React, {Component, useState, useEffect} from 'react';
 import {StyleSheet, View, StatusBar, Text} from 'react-native';
 import MaterialChipBasic from '../components/MaterialChipBasic';
+import Modal from 'react-native-simple-modal';
+import messaging from '@react-native-firebase/messaging'
 
+// @ts-ignore
 function Vendor(props) {
+  const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState('');
+  // @ts-ignore
+  const [subject, setSubject] = useState('');
+
+  useEffect(() => {
+    messaging().onMessage(async remoteMessage => {
+      // @ts-ignore
+      setTitle(remoteMessage.data.title);
+      // @ts-ignore
+      setSubject(remoteMessage.data.subject);
+      setOpen(true);
+    });
+  }, []);
+
   return (
     <View style={styles.rect}>
+      <Modal
+                        offset={0}
+                        open={open}
+                        modalDidOpen={() => console.log(title)}
+                        modalDidClose={() => setOpen(false)}
+                        >
+                            
+                            <Text style={{fontSize: 20, marginBottom: 10}}>사용자의 문의가 도착했어요!</Text>
+                            
+                    
+                        </Modal>
       <StatusBar hidden />
+      
       <View style={styles.rect1}>
         <View style={styles.문의하기1Stack}>
           <Text style={styles.문의하기1} />
