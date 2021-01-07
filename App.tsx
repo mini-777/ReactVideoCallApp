@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import messaging from '@react-native-firebase/messaging';
 import Contact from './src/screens/Cotact';
 import Login from './src/screens/Login';
 import Videocall from './src/screens/Videocall';
 import Signup from './src/screens/Signup';
 import Start from './src/screens/Start';
+import Vendor from './src/screens/Vendor';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
@@ -13,7 +13,7 @@ const DrawerNavigation = createDrawerNavigator({
   Start: Start,
   Contact: Contact,
   Login: Login,
-  // Main: Main,
+  Vendor: Vendor,
   Videocall: Videocall,
   Signup: Signup,
 });
@@ -23,7 +23,7 @@ const StackNavigation = createStackNavigator(
     DrawerNavigation: {
       screen: DrawerNavigation,
     },
-    // Main: Main,
+    Vendor: Vendor,
     Contact: Contact,
     Login: Login,
     Videocall: Videocall,
