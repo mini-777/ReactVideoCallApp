@@ -16,7 +16,7 @@ function Signup(props) {
       <StatusBar hidden />
       <View style={styles.textInputColumn}>
         <TextInput
-          placeholder="Name"
+          placeholder="아이디"
           placeholderTextColor="#788793"
           style={styles.textInput}
         ></TextInput>
@@ -26,7 +26,7 @@ function Signup(props) {
       <View style={styles.textInputColumnFiller}></View>
       <View style={styles.textInput2Column}>
         <TextInput
-          placeholder="email address"
+          placeholder="비밀번호"
           placeholderTextColor="rgba(120,135,147,1)"
           secureTextEntry={true}
           style={styles.textInput2}

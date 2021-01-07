@@ -16,8 +16,8 @@ function Login(props) {
       <View style={styles.무진콜에로그인하세요Column}>
         <Text style={styles.무진콜에로그인하세요}>무진콜에 로그인하세요</Text>
         <View style={styles.rect2}><Text style={styles.로그인4}>로그인</Text></View>
-        <Text style={styles.id3}>ID</Text>
-        <Text style={styles.text4}>Password</Text>
+        <Text style={styles.id3}>아이디</Text>
+        <Text style={styles.text4}>비밀번호</Text>
         <TextInput
           placeholder=""
           secureTextEntry={true}

@@ -1,10 +1,10 @@
 // @ts-ignore
 import React, {Component, useState, useEffect} from 'react';
-import {StyleSheet, View, StatusBar, Text} from 'react-native';
+import {StyleSheet, View, StatusBar, Text, TouchableOpacity} from 'react-native';
 import MaterialChipBasic from '../components/MaterialChipBasic';
 import Modal from 'react-native-simple-modal';
 import messaging from '@react-native-firebase/messaging'
-
+import styled from '../../components/Style'
 // @ts-ignore
 function Vendor(props) {
   const [open, setOpen] = useState(false);
@@ -23,18 +23,9 @@ function Vendor(props) {
   }, []);
 
   return (
+    
     <View style={styles.rect}>
-      <Modal
-                        offset={0}
-                        open={open}
-                        modalDidOpen={() => console.log(title)}
-                        modalDidClose={() => setOpen(false)}
-                        >
-                            
-                            <Text style={{fontSize: 20, marginBottom: 10}}>사용자의 문의가 도착했어요!</Text>
-                            
-                    
-                        </Modal>
+     
       <StatusBar hidden />
       
       <View style={styles.rect1}>
@@ -44,6 +35,29 @@ function Vendor(props) {
         </View>
       </View>
       <MaterialChipBasic style={styles.materialChipBasic} />
+      <Modal
+                        offset={0}
+                        open={open}
+                        modalDidOpen={() => console.log(title)}
+                        modalDidClose={() => setOpen(false)}
+                        >
+                            
+                            <Text style={{fontSize: 20, margin: 10}}>사용자의 문의가 도착했어요!</Text>
+                            <Text style={{fontSize: 20, margin: 10}}>{title}</Text>
+                            <Text style={{fontSize: 20, margin: 10}}>{subject}</Text>
+                            
+                            <TouchableOpacity
+                                onPress={() => props.navigation.navigate("Videocall")}
+                                style={styled.button}
+                                >
+                            <Text style={styled.buttonText}> 수락 하기 </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => setOpen(false)}
+                                style={styled.button}>
+                            <Text style={styled.buttonText}> 거절 하기 </Text>
+                            </TouchableOpacity>
+                        </Modal>
     </View>
   );
 }

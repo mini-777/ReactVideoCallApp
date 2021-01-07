@@ -24,14 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App2.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Permission.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Permission.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigations/Navigation.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Videocall.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Videocall.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,13 +56,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -74,7 +71,7 @@
     <property name="node.js.selected.package.stylelint" value="C:\Users\USER\Desktop\firebaseRTC\samples\node_modules\stylelint" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
-    <property name="ts.external.directory.path" value="C:\Users\USER\Desktop\videocall\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\videocall\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -113,6 +110,7 @@
       <workItem from="1608094521954" duration="30000" />
       <workItem from="1609752415838" duration="1521000" />
       <workItem from="1609829143419" duration="678000" />
+      <workItem from="1610008249455" duration="1935000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1608025974702</created>

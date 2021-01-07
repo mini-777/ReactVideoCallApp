@@ -64,6 +64,7 @@ export default class Videocall extends Component<Props, state> {
     }).catch((Error) => {
         console.log(Error);
     })
+
       
   }
   componentDidUpdate() {
@@ -120,6 +121,7 @@ export default class Videocall extends Component<Props, state> {
               joinSucceed: true
           })
       })
+      await this._engine?.joinChannel(this.state.token, this.state.channelName, null, 0)
   }
 
   
@@ -188,7 +190,7 @@ export default class Videocall extends Component<Props, state> {
               <View style={styled.rect}>
                   <View style={styles.buttonHolder}>
                   <TouchableOpacity style={[styled.container, styled.materialButtonPink1]}
-        onPress={this.startCall}>
+        onPress={this.endCall}>
       <Text style={styled.상담종료}>상담 종료</Text>
     </TouchableOpacity>
                   </View>
