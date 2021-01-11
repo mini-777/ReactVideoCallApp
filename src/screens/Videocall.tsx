@@ -141,6 +141,7 @@ export default class Videocall extends Component<Props, state> {
   endCall = async () => {
       await this._engine?.leaveChannel()
       this.setState({peerIds: [], joinSucceed: false})
+      this.props.navigation.navigate("Contact")
   }
 
   
@@ -153,7 +154,7 @@ export default class Videocall extends Component<Props, state> {
         },
         materialButtonPink1: {
             height: 46,
-            width: 316,
+            width: 256,
             borderRadius: 37,
             marginTop: 0,
             alignSelf: "center"

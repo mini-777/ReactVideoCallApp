@@ -21,8 +21,7 @@ function Contact(props) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
 
-  const sendMessage = async (title, subject) => {
-    console.log(title, subject);
+  const sendMessage = (title, subject) => {
     axios
     .post('http://3.35.8.116:3001/send', {
         token: 'eqXVprSUS0uAxOUMJITf7K:APA91bHXMSZqDFX2tKJuTQf2faYiM1d18cycPGf0omcI7UK93EaUGT00M_fFKbGnkTduZSYh4pzmhZUZ2qiAGOCon4JsGo9xhmVRkr-uRWAPdCfbKjqZbUA84vdu1I9iK5fTw9c1eK4d',
@@ -34,7 +33,7 @@ function Contact(props) {
       console.error(err);
     });
   }
-  const startVideocall = () => {
+  const startVideocall = async () => {
     sendMessage(title, subject);
     props.navigation.navigate("Videocall")
   }
@@ -63,7 +62,7 @@ function Contact(props) {
             onPress={startVideocall}
             style={styles.button1}
           >
-            <Text style={styles.로그인1}>로그인</Text>
+            <Text style={styles.로그인1}>상담 신청</Text>
           </TouchableOpacity>
         </View>
       </View>

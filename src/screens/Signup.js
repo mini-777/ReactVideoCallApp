@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -9,8 +9,49 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Divider from "../components/Divider";
+import firebase from '../../database/firebase';
+import { Value } from "react-native-reanimated";
 
 function Signup(props) {
+  const [displayName, setDisplayName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+
+  
+  // const updateInputVal = (val, prop) => {
+  //   const state = state;
+  //   state[prop] = val;
+  //   this.setState(state);
+  // }
+
+  // const registerUser = () => {
+  //   if(this.state.email === '' && this.state.password === '') {
+  //     Alert.alert('Enter details to signup!')
+  //   } else {
+  //     this.setState({
+  //       isLoading: true,
+  //     })
+  //     firebase
+  //     .auth()
+  //     .createUserWithEmailAndPassword(this.state.email, this.state.password)
+  //     .then((res) => {
+  //       res.user.updateProfile({
+  //         displayName: this.state.displayName
+  //       })
+  //       console.log('User registered successfully!')
+  //       this.setState({
+  //         isLoading: false,
+  //         displayName: '',
+  //         email: '', 
+  //         password: ''
+  //       })
+  //       this.props.navigation.navigate('Login')
+  //     })
+  //     .catch(error => this.setState({ errorMessage: error.message }))      
+  //   }
+  // }
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
@@ -19,6 +60,8 @@ function Signup(props) {
           placeholder="아이디"
           placeholderTextColor="#788793"
           style={styles.textInput}
+          value={displayName}
+          onChangeText={()=>console.log('hello')}
         ></TextInput>
         <Text style={styles.text2}>20</Text>
         <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>

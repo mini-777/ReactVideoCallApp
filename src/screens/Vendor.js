@@ -15,9 +15,9 @@ function Vendor(props) {
   useEffect(() => {
     messaging().onMessage(async remoteMessage => {
       // @ts-ignore
-      setTitle(remoteMessage.data.title);
-      // @ts-ignore
-      setSubject(remoteMessage.data.subject);
+      setTitle(remoteMessage.notification.title);
+     // @ts-ignore
+      setSubject(remoteMessage.notification.body);
       setOpen(true);
     });
   }, []);

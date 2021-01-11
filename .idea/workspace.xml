@@ -23,11 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Cotact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Cotact.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Vendor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Videocall.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Videocall.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +111,7 @@
       <workItem from="1609752415838" duration="1521000" />
       <workItem from="1609829143419" duration="678000" />
       <workItem from="1610008249455" duration="1935000" />
+      <workItem from="1610087826981" duration="130000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1608025974702</created>
