@@ -12,7 +12,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^10.3.0",
-    "@react-native-firebase/messaging": "^10.3.1",
+    "@react-native-firebase/messaging": "^10.3.0",
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "cors": "^2.8.5",
@@ -31,7 +31,8 @@
     "react-native-vector-icons": "^7.1.0",
     "react-navigation": "^4.4.3",
     "react-navigation-drawer": "^2.6.0",
-    "react-navigation-stack": "^2.10.2"
+    "react-navigation-stack": "^2.10.2",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
