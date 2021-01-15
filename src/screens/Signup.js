@@ -60,10 +60,10 @@ function Signup(props) {
           placeholder="아이디"
           placeholderTextColor="#788793"
           style={styles.textInput}
-          value={displayName}
           onChangeText={()=>console.log('hello')}
         ></TextInput>
-        <Text style={styles.text2}>20</Text>
+        {/* <Text style={styles.text2}>20</Text>  
+        TODO: 여기에 추후에 입력할때마다 숫자 줄어드는 function 작성 */}
         <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
       </View>
       <View style={styles.textInputColumnFiller}></View>
