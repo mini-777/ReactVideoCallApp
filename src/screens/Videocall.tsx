@@ -79,7 +79,7 @@ export default class Videocall extends Component<Props, state> {
       const {appId} = this.state
       this._engine = await RtcEngine.create(appId)
       await this._engine.enableVideo()
-      await firebase.messaging().registerDeviceForRemoteMessages();
+      // await firebase.messaging().registerDeviceForRemoteMessages();
       const fcmToken = await firebase.messaging().getToken();
       this.setState({fcmToken})
       console.log(fcmToken)

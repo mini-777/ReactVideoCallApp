@@ -8,15 +8,19 @@ import Vendor from './src/screens/Vendor';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
+import Loading from './src/screens/Loading';
 
-const DrawerNavigation = createDrawerNavigator({
-  Start: Start,
-  Contact: Contact,
-  Login: Login,
-  Vendor: Vendor,
-  Videocall: Videocall,
-  Signup: Signup,
-});
+// const DrawerNavigation = createDrawerNavigator({
+//   Start: Start,
+//   Contact: Contact,
+//   Login: Login,
+//   Vendor: Vendor,
+//   Videocall: Videocall,
+//   Signup: Signup,
+//   Loading: Loading,
+// });
+
+// TODO: 위쪽에 DrawerNavigation 추후에 추가해서 화면간 이동 자유롭게 하도록 수정
 
 const StackNavigation = createStackNavigator(
   {
@@ -29,6 +33,7 @@ const StackNavigation = createStackNavigator(
     Videocall: Videocall,
     Signup: Signup,
     Start: Start,
+    Loading: Loading,
   },
   {
     headerMode: 'none',

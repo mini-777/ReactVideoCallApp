@@ -12,14 +12,16 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		18ED38EB25B049A900E8755A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18ED38EA25B049A900E8755A /* GoogleService-Info.plist */; };
-		19E094F1A905F61EC6049B4A /* Pods_AgoraRNQuickstart_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B427B9F6D56DC529134BE564 /* Pods_AgoraRNQuickstart_tvOSTests.framework */; };
+		183AD55325B5185E00E46405 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AD55225B5185E00E46405 /* GoogleService-Info.plist */; };
+		183AD55425B5185E00E46405 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AD55225B5185E00E46405 /* GoogleService-Info.plist */; };
+		1E3C602D1DDB3E1080F80E8B /* libPods-AgoraRNQuickstart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C15B019676784B4A584538 /* libPods-AgoraRNQuickstart.a */; };
+		24C0C2FA2F28C20F5F337E1D /* libPods-AgoraRNQuickstart-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A0E88ACD6DD53A2F4511CC /* libPods-AgoraRNQuickstart-tvOSTests.a */; };
+		25D21E78869F461E4D5E6463 /* libPods-AgoraRNQuickstartTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F14B80416E576858BBE9AE73 /* libPods-AgoraRNQuickstartTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* AgoraRNQuickstartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AgoraRNQuickstartTests.m */; };
-		78AD58159642089B0CD0BC2B /* Pods_AgoraRNQuickstartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D07941A856008F714B9C3F /* Pods_AgoraRNQuickstartTests.framework */; };
-		B73E492A597D39C54D7E3B99 /* Pods_AgoraRNQuickstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31F32F8E2DA26C761573A25 /* Pods_AgoraRNQuickstart.framework */; };
+		F032F75B115FE686800B3D92 /* libPods-AgoraRNQuickstart-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A65A6231D8C827CA97D9320A /* libPods-AgoraRNQuickstart-tvOS.a */; };
 		F558AEB824B44C0E00CCD4BB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558AEB724B44C0E00CCD4BB /* File.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,20 +54,23 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AgoraRNQuickstart/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AgoraRNQuickstart/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AgoraRNQuickstart/main.m; sourceTree = "<group>"; };
-		18ED38EA25B049A900E8755A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		25D07941A856008F714B9C3F /* Pods_AgoraRNQuickstartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgoraRNQuickstartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14D9A33FB6C50F044A0011A7 /* Pods-AgoraRNQuickstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart.debug.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart.debug.xcconfig"; sourceTree = "<group>"; };
+		162B1998533AFA4560F65AB3 /* Pods-AgoraRNQuickstart-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart-tvOS.release.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart-tvOS/Pods-AgoraRNQuickstart-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		183AD55225B5185E00E46405 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22A0E88ACD6DD53A2F4511CC /* libPods-AgoraRNQuickstart-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgoraRNQuickstart-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* AgoraRNQuickstart-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AgoraRNQuickstart-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AgoraRNQuickstart-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AgoraRNQuickstart-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A3486681C785A5143C9910E /* Pods-AgoraRNQuickstartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstartTests.debug.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstartTests/Pods-AgoraRNQuickstartTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6C5444299DE4EA404C7623F2 /* Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart-tvOSTests/Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7376CCC5F0FEEAF9275D5B45 /* Pods-AgoraRNQuickstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart.debug.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart.debug.xcconfig"; sourceTree = "<group>"; };
-		B427B9F6D56DC529134BE564 /* Pods_AgoraRNQuickstart_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgoraRNQuickstart_tvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC5DF875FDC317E1B0B4E50A /* Pods-AgoraRNQuickstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart.release.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart.release.xcconfig"; sourceTree = "<group>"; };
-		C86242C9E46D13A9708F81B1 /* Pods-AgoraRNQuickstartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstartTests.release.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstartTests/Pods-AgoraRNQuickstartTests.release.xcconfig"; sourceTree = "<group>"; };
-		D31F32F8E2DA26C761573A25 /* Pods_AgoraRNQuickstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgoraRNQuickstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8B48EC1CE40B7A8448D663C /* Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart-tvOSTests/Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		43BD0D6FCBC389D089FC008F /* Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart-tvOSTests/Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4D40CCC5F409405923039A0F /* Pods-AgoraRNQuickstart-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart-tvOS/Pods-AgoraRNQuickstart-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		531AC52AB929820480DF361B /* Pods-AgoraRNQuickstartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstartTests.release.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstartTests/Pods-AgoraRNQuickstartTests.release.xcconfig"; sourceTree = "<group>"; };
+		73C15B019676784B4A584538 /* libPods-AgoraRNQuickstart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgoraRNQuickstart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A1351886937F86EC7A0D877 /* Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart-tvOSTests/Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8CA96B2B1177F9CBE0623508 /* Pods-AgoraRNQuickstartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstartTests.debug.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstartTests/Pods-AgoraRNQuickstartTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9DF87B4CC2EB32AFF5ACC255 /* Pods-AgoraRNQuickstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraRNQuickstart.release.xcconfig"; path = "Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart.release.xcconfig"; sourceTree = "<group>"; };
+		A65A6231D8C827CA97D9320A /* libPods-AgoraRNQuickstart-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgoraRNQuickstart-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F14B80416E576858BBE9AE73 /* libPods-AgoraRNQuickstartTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgoraRNQuickstartTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F558AEB624B44C0D00CCD4BB /* AgoraRNQuickstart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AgoraRNQuickstart-Bridging-Header.h"; sourceTree = "<group>"; };
 		F558AEB724B44C0E00CCD4BB /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78AD58159642089B0CD0BC2B /* Pods_AgoraRNQuickstartTests.framework in Frameworks */,
+				25D21E78869F461E4D5E6463 /* libPods-AgoraRNQuickstartTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B73E492A597D39C54D7E3B99 /* Pods_AgoraRNQuickstart.framework in Frameworks */,
+				1E3C602D1DDB3E1080F80E8B /* libPods-AgoraRNQuickstart.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F032F75B115FE686800B3D92 /* libPods-AgoraRNQuickstart-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E094F1A905F61EC6049B4A /* Pods_AgoraRNQuickstart_tvOSTests.framework in Frameworks */,
+				24C0C2FA2F28C20F5F337E1D /* libPods-AgoraRNQuickstart-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +131,7 @@
 		13B07FAE1A68108700A75B9A /* AgoraRNQuickstart */ = {
 			isa = PBXGroup;
 			children = (
-				18ED38EA25B049A900E8755A /* GoogleService-Info.plist */,
+				183AD55225B5185E00E46405 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -144,9 +150,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				D31F32F8E2DA26C761573A25 /* Pods_AgoraRNQuickstart.framework */,
-				B427B9F6D56DC529134BE564 /* Pods_AgoraRNQuickstart_tvOSTests.framework */,
-				25D07941A856008F714B9C3F /* Pods_AgoraRNQuickstartTests.framework */,
+				73C15B019676784B4A584538 /* libPods-AgoraRNQuickstart.a */,
+				A65A6231D8C827CA97D9320A /* libPods-AgoraRNQuickstart-tvOS.a */,
+				22A0E88ACD6DD53A2F4511CC /* libPods-AgoraRNQuickstart-tvOSTests.a */,
+				F14B80416E576858BBE9AE73 /* libPods-AgoraRNQuickstartTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,12 +161,14 @@
 		569739F2758C5D7827CDD02B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7376CCC5F0FEEAF9275D5B45 /* Pods-AgoraRNQuickstart.debug.xcconfig */,
-				BC5DF875FDC317E1B0B4E50A /* Pods-AgoraRNQuickstart.release.xcconfig */,
-				6C5444299DE4EA404C7623F2 /* Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig */,
-				E8B48EC1CE40B7A8448D663C /* Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig */,
-				6A3486681C785A5143C9910E /* Pods-AgoraRNQuickstartTests.debug.xcconfig */,
-				C86242C9E46D13A9708F81B1 /* Pods-AgoraRNQuickstartTests.release.xcconfig */,
+				14D9A33FB6C50F044A0011A7 /* Pods-AgoraRNQuickstart.debug.xcconfig */,
+				9DF87B4CC2EB32AFF5ACC255 /* Pods-AgoraRNQuickstart.release.xcconfig */,
+				4D40CCC5F409405923039A0F /* Pods-AgoraRNQuickstart-tvOS.debug.xcconfig */,
+				162B1998533AFA4560F65AB3 /* Pods-AgoraRNQuickstart-tvOS.release.xcconfig */,
+				8A1351886937F86EC7A0D877 /* Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig */,
+				43BD0D6FCBC389D089FC008F /* Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig */,
+				8CA96B2B1177F9CBE0623508 /* Pods-AgoraRNQuickstartTests.debug.xcconfig */,
+				531AC52AB929820480DF361B /* Pods-AgoraRNQuickstartTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -204,7 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AgoraRNQuickstartTests" */;
 			buildPhases = (
-				BE1B1105AF5BC11BC81EE937 /* [CP] Check Pods Manifest.lock */,
+				B1E7D1B67BFDC8C583D7584E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -223,12 +232,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AgoraRNQuickstart" */;
 			buildPhases = (
-				394116B70A13F258751ADB63 /* [CP] Check Pods Manifest.lock */,
+				2E2A9AEC97F62F414BCDB0BC /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				B1CB3B9FE987F21C0D267FEF /* [CP] Embed Pods Frameworks */,
+				7ADDF43DC4E51D0698AF252A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AgoraRNQuickstart-tvOS" */;
 			buildPhases = (
+				491EEB06D5D91F62620CE367 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -262,7 +274,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AgoraRNQuickstart-tvOSTests" */;
 			buildPhases = (
-				6809668715AA6BE367316A77 /* [CP] Check Pods Manifest.lock */,
+				84C33CE66BD88CE0C292DFBB /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -331,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183AD55425B5185E00E46405 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +353,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				18ED38EB25B049A900E8755A /* GoogleService-Info.plist in Resources */,
+				183AD55325B5185E00E46405 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +403,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		394116B70A13F258751ADB63 /* [CP] Check Pods Manifest.lock */ = {
+		2E2A9AEC97F62F414BCDB0BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -412,7 +425,77 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6809668715AA6BE367316A77 /* [CP] Check Pods Manifest.lock */ = {
+		491EEB06D5D91F62620CE367 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AgoraRNQuickstart-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ADDF43DC4E51D0698AF252A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84C33CE66BD88CE0C292DFBB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -434,7 +517,27 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BE1B1105AF5BC11BC81EE937 /* [CP] Check Pods Manifest.lock */ = {
+		B1CB3B9FE987F21C0D267FEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart-frameworks.sh",
+				"${PODS_ROOT}/AgoraRtcEngine_iOS_Crypto/Agora_Native_SDK_for_iOS_FULL/libs/AgoraRtcKit.framework",
+				"${PODS_ROOT}/AgoraRtcEngine_iOS_Crypto/Agora_Native_SDK_for_iOS_FULL/libs/AgoraRtcCryptoLoader.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AgoraRtcKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AgoraRtcCryptoLoader.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgoraRNQuickstart/Pods-AgoraRNQuickstart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1E7D1B67BFDC8C583D7584E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -562,10 +665,11 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A3486681C785A5143C9910E /* Pods-AgoraRNQuickstartTests.debug.xcconfig */;
+			baseConfigurationReference = 8CA96B2B1177F9CBE0623508 /* Pods-AgoraRNQuickstartTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -586,11 +690,12 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C86242C9E46D13A9708F81B1 /* Pods-AgoraRNQuickstartTests.release.xcconfig */;
+			baseConfigurationReference = 531AC52AB929820480DF361B /* Pods-AgoraRNQuickstartTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = AgoraRNQuickstartTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -607,13 +712,13 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7376CCC5F0FEEAF9275D5B45 /* Pods-AgoraRNQuickstart.debug.xcconfig */;
+			baseConfigurationReference = 14D9A33FB6C50F044A0011A7 /* Pods-AgoraRNQuickstart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = AgoraRNQuickstart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -632,12 +737,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC5DF875FDC317E1B0B4E50A /* Pods-AgoraRNQuickstart.release.xcconfig */;
+			baseConfigurationReference = 9DF87B4CC2EB32AFF5ACC255 /* Pods-AgoraRNQuickstart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = AgoraRNQuickstart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -655,6 +760,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D40CCC5F409405923039A0F /* Pods-AgoraRNQuickstart-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -664,6 +770,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "AgoraRNQuickstart-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -682,6 +789,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162B1998533AFA4560F65AB3 /* Pods-AgoraRNQuickstart-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -691,6 +799,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "AgoraRNQuickstart-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -709,7 +818,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C5444299DE4EA404C7623F2 /* Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 8A1351886937F86EC7A0D877 /* Pods-AgoraRNQuickstart-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -718,6 +827,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "AgoraRNQuickstart-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -736,7 +846,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8B48EC1CE40B7A8448D663C /* Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 43BD0D6FCBC389D089FC008F /* Pods-AgoraRNQuickstart-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -745,6 +855,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "AgoraRNQuickstart-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -792,6 +903,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -845,6 +957,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
