@@ -5,10 +5,11 @@ import Videocall from './src/screens/Videocall';
 import Signup from './src/screens/Signup';
 import Start from './src/screens/Start';
 import Vendor from './src/screens/Vendor';
-import {createDrawerNavigator} from 'react-navigation-drawer';
+// import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import Loading from './src/screens/Loading';
+import Main from './src/screens/';
 
 // const DrawerNavigation = createDrawerNavigator({
 //   Start: Start,
@@ -24,9 +25,9 @@ import Loading from './src/screens/Loading';
 
 const StackNavigation = createStackNavigator(
   {
-    DrawerNavigation: {
-      screen: DrawerNavigation,
-    },
+    // DrawerNavigation: {
+    //   screen: DrawerNavigation,
+    // },
     Vendor: Vendor,
     Contact: Contact,
     Login: Login,
@@ -34,6 +35,7 @@ const StackNavigation = createStackNavigator(
     Signup: Signup,
     Start: Start,
     Loading: Loading,
+    Main: Main,
   },
   {
     headerMode: 'none',
