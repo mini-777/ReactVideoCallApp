@@ -13,7 +13,7 @@ function Main(props) {
       <StatusBar hidden />
       <View style={styles.자동차문의는무진콜Column}>
         <Text style={styles.자동차문의는무진콜}>
-          {currentUser} 님 반갑습니다{' '}
+          {/* {currentUser} 님 반갑습니다{' '} */}
         </Text>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('Contact')}
