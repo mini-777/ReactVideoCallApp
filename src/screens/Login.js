@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   로그인4: {
     color: 'rgba(255,255,255,1)',
     fontSize: 24,
-    marginTop: 33,
+    marginTop: 53,
     marginLeft: 31,
   },
 });

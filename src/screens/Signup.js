@@ -54,18 +54,17 @@ function Signup(props) {
     <View style={styles.rect}>
       <StatusBar hidden />
       <View style={styles.textInputColumn}>
-        <TextInput
-          placeholder="아이디"
-          placeholderTextColor="#788793"
-          style={styles.textInput}
-          onChangeText={() => console.log('hello')}
-        />
         {/* <Text style={styles.text2}>20</Text>  
         TODO: 여기에 추후에 입력할때마다 숫자 줄어드는 function 작성 */}
         <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
       </View>
       <View style={styles.textInputColumnFiller} />
       <View style={styles.textInput2Column}>
+        <TextInput
+          placeholder="이메일"
+          placeholderTextColor="rgba(120,135,147,1)"
+          style={styles.textInput}
+        />
         <TextInput
           placeholder="비밀번호"
           placeholderTextColor="rgba(120,135,147,1)"
@@ -99,8 +98,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     fontSize: 18,
     lineHeight: 20,
-    marginTop: 226,
-    marginLeft: 6,
+    marginTop: 0,
+    marginLeft: 36,
+    marginBottom: 80,
   },
   text2: {
     color: '#757575',
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,1)',
     fontSize: 30,
     lineHeight: 50,
-    marginTop: -207,
+    marginTop: 157,
   },
   icon2: {
     color: '#1da1f2',

@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#141f2b',
   },
   rect2: {
-    height: 70,
+    height: 100,
     backgroundColor: '#1c2a38',
     flexDirection: 'row',
   },
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,1)',
     fontSize: 24,
     marginLeft: 31,
-    marginTop: 28,
+    marginTop: 58,
   },
   문의하기Filler: {
     flex: 1,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     height: 562,
     backgroundColor: '#E6E6E6',
     borderRadius: 21,
-    marginTop: 5,
+    marginTop: 50,
     alignSelf: 'center',
   },
   materialStackedLabelTextbox: {
@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     left: 0,
   },
   button1: {
+    marginTop: -500,
     top: 349,
     width: 284,
     height: 50,
