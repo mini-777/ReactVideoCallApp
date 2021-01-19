@@ -9,15 +9,31 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Divider from '../components/Divider';
+<<<<<<< HEAD
 import firebase from '../../database/firebase';
 import {Value} from 'react-native-reanimated';
+=======
+import {Value} from 'react-native-reanimated';
+import firebase from 'react-native-firebase';
+>>>>>>> 72bf85bd00f4d10a3d4c6bd0a0ae78c15234e283
 
 function Signup(props) {
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
+<<<<<<< HEAD
+=======
+  const handleSignUp = () => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => props.navigation.navigate('Contact'))
+      .catch(error => setErrorMessage(error.message));
+  };
+>>>>>>> 72bf85bd00f4d10a3d4c6bd0a0ae78c15234e283
   // const updateInputVal = (val, prop) => {
   //   const state = state;
   //   state[prop] = val;
@@ -56,9 +72,12 @@ function Signup(props) {
       <View style={styles.textInputColumn}>
         {/* <Text style={styles.text2}>20</Text>  
         TODO: 여기에 추후에 입력할때마다 숫자 줄어드는 function 작성 */}
-        <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
       </View>
       <View style={styles.textInputColumnFiller} />
+<<<<<<< HEAD
+=======
+      <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
+>>>>>>> 72bf85bd00f4d10a3d4c6bd0a0ae78c15234e283
       <View style={styles.textInput2Column}>
         <TextInput
           placeholder="이메일"
@@ -98,9 +117,15 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     fontSize: 18,
     lineHeight: 20,
+<<<<<<< HEAD
     marginTop: 0,
     marginLeft: 36,
     marginBottom: 80,
+=======
+    marginTop: 126,
+    marginBottom: 50,
+    marginLeft: 36,
+>>>>>>> 72bf85bd00f4d10a3d4c6bd0a0ae78c15234e283
   },
   text2: {
     color: '#757575',
@@ -114,7 +139,12 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,1)',
     fontSize: 30,
     lineHeight: 50,
+<<<<<<< HEAD
     marginTop: 157,
+=======
+    marginTop: -107,
+    marginLeft: 30,
+>>>>>>> 72bf85bd00f4d10a3d4c6bd0a0ae78c15234e283
   },
   icon2: {
     color: '#1da1f2',
