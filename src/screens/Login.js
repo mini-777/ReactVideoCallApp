@@ -133,11 +133,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,1)',
     fontSize: 24,
     marginTop: 53,
-<<<<<<< HEAD
     marginLeft: 31,
-=======
-    marginLeft: 31
->>>>>>> 72bf85bd00f4d10a3d4c6bd0a0ae78c15234e283
   },
 });
 
