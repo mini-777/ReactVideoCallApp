@@ -66,6 +66,7 @@ function Signup(props) {
       <View style={styles.textInput2Column}>
         <TextInput
           placeholder="이메일"
+          autoCapitalize="none"
           placeholderTextColor="rgba(120,135,147,1)"
           style={styles.textInput}
         />

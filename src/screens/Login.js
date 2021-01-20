@@ -18,9 +18,10 @@ function Login(props) {
         <View style={styles.rect2}>
           <Text style={styles.로그인4}>로그인</Text>
         </View>
-        <Text style={styles.id3}>아이디</Text>
+        <Text style={styles.id3}>이메일</Text>
         <Text style={styles.text4}>비밀번호</Text>
         <TextInput
+          autoCapitalize="none"
           placeholder=""
           secureTextEntry={true}
           style={styles.textInput}

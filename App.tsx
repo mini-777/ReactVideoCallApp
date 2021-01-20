@@ -5,24 +5,24 @@ import Videocall from './src/screens/Videocall';
 import Signup from './src/screens/Signup';
 import Start from './src/screens/Start';
 import Vendor from './src/screens/Vendor';
-// import {createDrawerNavigator} from 'react-navigation-drawer';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 
-// const DrawerNavigation = createDrawerNavigator({
-//   Start: Start,
-//   Contact: Contact,
-//   Login: Login,
-//   Vendor: Vendor,
-//   Videocall: Videocall,
-//   Signup: Signup,
-// }); // 추후에 왼쪽 NAV바 만들때 사용
+const DrawerNavigation = createDrawerNavigator({
+  Start: Start,
+  Contact: Contact,
+  Login: Login,
+  Vendor: Vendor,
+  Videocall: Videocall,
+  Signup: Signup,
+}); // 추후에 왼쪽 NAV바 만들때 사용
 
 const StackNavigation = createStackNavigator(
   {
-    // DrawerNavigation: {
-    //   screen: DrawerNavigation,
-    // },
+    DrawerNavigation: {
+      screen: DrawerNavigation,
+    },
     Vendor: Vendor,
     Contact: Contact,
     Login: Login,
