@@ -11,6 +11,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Divider from '../components/Divider';
 import firebase from '../../database/firebase';
 import {Value} from 'react-native-reanimated';
+import axios from 'axios';
+
 
 function Signup(props) {
   const [displayName, setDisplayName] = useState('');
@@ -20,7 +22,17 @@ function Signup(props) {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const handleSignUp = () => {
-    //계정 생성 rest API 호출
+    axios
+      .post('http://3.35.8.116:3001/send', {
+        token:
+          'eqXVprSUS0uAxOUMJITf7K:APA91bHXMSZqDFX2tKJuTQf2faYiM1d18cycPGf0omcI7UK93EaUGT00M_fFKbGnkTduZSYh4pzmhZUZ2qiAGOCon4JsGo9xhmVRkr-uRWAPdCfbKjqZbUA84vdu1I9iK5fTw9c1eK4d',
+        email: email,
+        password: password,
+      })
+      .then(() => console.log('Book Created'))
+      .catch(err => {
+        console.error(err);
+      });
   };
   // const updateInputVal = (val, prop) => {
   //   const state = state;
@@ -69,6 +81,7 @@ function Signup(props) {
           autoCapitalize="none"
           placeholderTextColor="rgba(120,135,147,1)"
           style={styles.textInput}
+          
         />
         <TextInput
           placeholder="비밀번호"
