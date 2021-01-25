@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MaterialButtonPink1 from "../components/MaterialButtonPink1";
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
 import {Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View, StyleSheet, ViewBase, StatusBar, TextBase} from 'react-native'
-import messaging, { firebase } from '@react-native-firebase/messaging'
+// import messaging, { firebase } from '@react-native-firebase/messaging'
 import requestCameraAndAudioPermission from '../../components/Permission'
 import styles from '../../components/Style'
 import axios from 'axios'

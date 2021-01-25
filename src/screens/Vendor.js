@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import MaterialChipBasic from '../components/MaterialChipBasic';
 import Modal from 'react-native-simple-modal';
-import messaging from '@react-native-firebase/messaging';
+// import messaging from '@react-native-firebase/messaging';
 import styled from '../../components/Style';
 // @ts-ignore
 function Vendor(props) {
