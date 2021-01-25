@@ -12,7 +12,7 @@ import MaterialUnderlineTextbox from '../components/MaterialUnderlineTextbox';
 import MaterialButtonPrimary from '../components/MaterialButtonPrimary';
 import axios from 'axios';
 import App from '../../App';
-import {sub} from 'react-native-reanimated';
+// import {sub} from 'react-native-reanimated';
 
 function Contact(props) {
   const [title, setTitle] = useState('');
