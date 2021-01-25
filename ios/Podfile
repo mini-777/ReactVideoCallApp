@@ -40,6 +40,8 @@ target 'AgoraRNQuickstart' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   post_install do |installer|
     installer.pods_project.build_configurations.each do |config|
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
