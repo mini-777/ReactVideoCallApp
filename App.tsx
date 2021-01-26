@@ -8,7 +8,8 @@ import Vendor from './src/screens/Vendor';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-
+import messaging from '@react-native-firebase/messaging';
+import {Alert} from 'react-native';
 const DrawerNavigation = createDrawerNavigator({
   Start: Start,
   Contact: Contact,
@@ -18,7 +19,7 @@ const DrawerNavigation = createDrawerNavigator({
   Signup: Signup,
 }); // 추후에 왼쪽 NAV바 만들때 사용
 
-const StackNavigation = createStackNavigator(
+var StackNavigation = createStackNavigator(
   {
     DrawerNavigation: {
       screen: DrawerNavigation,
@@ -34,8 +35,6 @@ const StackNavigation = createStackNavigator(
     headerMode: 'none',
   },
 );
-
-const AppContainer = createAppContainer(StackNavigation);
 
 interface Props {
   navigation: any;
@@ -73,7 +72,114 @@ export default class App extends Component<Props> {
   //   };
   // }
 
+  async componentDidMount() {
+    this._checkPermission();
+    this._listenForNotifications();
+  }
+
+  componentWillUnmount() {
+    this.notificationOpenedListener();
+  }
+
+  async _checkPermission() {
+    const enabled = await messaging().hasPermission();
+    if (enabled) {
+      // user has permissions
+      console.log(enabled);
+      // this._updateTokenToServer();
+    } else {
+      // user doesn't have permission
+      this._requestPermission();
+    }
+  }
+
+  async _requestPermission() {
+    try {
+      // User has authorised
+      await messaging().requestPermission();
+      // await this._updateTokenToServer();
+    } catch (error) {
+      // User has rejected permissions
+      Alert.alert("you can't handle push notification");
+    }
+  }
+
+  // async _updateTokenToServer() {
+  //   const fcmToken = await messaging().getToken();
+  //   console.log(fcmToken);
+
+  //   const header = {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //       Cache: 'no-cache',
+  //     },
+  //     body: JSON.stringify({
+  //       user_id: 'CURRENT_USER_ID',
+  //       firebase_token: fcmToken,
+  //     }),
+  //     credentials: 'include',
+  //   };
+  //   const url = 'http://YOUR_SERVER_URL';
+
+  //   // if you want to notification using server,
+  //   // do registry current user token
+
+  //   // await fetch(url, header);
+  // }
+  notificationOpenedListener = messaging().onNotificationOpenedApp(
+    notificationOpen => {
+      console.log('onNotificationOpened', notificationOpen);
+      StackNavigation = createStackNavigator(
+        {
+          DrawerNavigation: {
+            screen: DrawerNavigation,
+          },
+          Contact: Contact,
+          Login: Login,
+          Videocall: Videocall,
+          Signup: Signup,
+          Start: Start,
+          Vendor: Vendor,
+        },
+        {
+          headerMode: 'none',
+        },
+      );
+    },
+  );
+
+  async _listenForNotifications() {
+    messaging().onNotificationOpenedApp(notificationOpen => {
+      console.log('onNotificationOpened', notificationOpen);
+      StackNavigation = createStackNavigator(
+        {
+          DrawerNavigation: {
+            screen: DrawerNavigation,
+          },
+          Contact: Contact,
+          Login: Login,
+          Videocall: Videocall,
+          Signup: Signup,
+          Start: Start,
+          Vendor: Vendor,
+        },
+        {
+          headerMode: 'none',
+        },
+      );
+    });
+
+    const notificationOpen = await messaging().getInitialNotification();
+    if (notificationOpen) {
+      console.log('getInitialNotification', notificationOpen);
+    }
+  }
+
   render() {
+    const AppContainer = createAppContainer(StackNavigation);
+
     return (
       <AppContainer />
       // <View style={styles.max}>
