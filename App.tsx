@@ -58,20 +58,6 @@ interface Props {
 // }
 
 export default class App extends Component<Props> {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     appId: `17a05d44fa594610ad070bdbfee9594d`,
-  //     token: ``,
-  //     channelName: 'videoCall',
-  //     joinSucceed: false,
-  //     peerIds: [],
-  //     fcmToken: ``,
-  //     name: 'sungMin',
-  //     topic: 'string',
-  //   };
-  // }
-
   async componentDidMount() {
     this._checkPermission();
     this._listenForNotifications();
