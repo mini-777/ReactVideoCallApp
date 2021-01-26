@@ -13,7 +13,6 @@ import firebase from '../../database/firebase';
 import {Value} from 'react-native-reanimated';
 import axios from 'axios';
 
-
 function Signup(props) {
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
@@ -81,7 +80,6 @@ function Signup(props) {
           autoCapitalize="none"
           placeholderTextColor="rgba(120,135,147,1)"
           style={styles.textInput}
-          
         />
         <TextInput
           placeholder="비밀번호"

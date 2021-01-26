@@ -1,15 +1,7 @@
 import React from 'react';
 import {View, Text, ActivityIndicator, StyleSheet} from 'react-native';
-import axios from 'axios';
 
-
-function Loading(props) {
-  const componentDidMount = () => {
-    
-  };
-  
-
-
+function Loading() {
   const styles = StyleSheet.create({
     container: {
       flex: 1,

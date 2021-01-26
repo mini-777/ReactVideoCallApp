@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -7,18 +7,14 @@ import {
   Text,
   TextInput,
 } from 'react-native';
-import MaterialStackedLabelTextbox from '../components/MaterialStackedLabelTextbox';
-import MaterialUnderlineTextbox from '../components/MaterialUnderlineTextbox';
-import MaterialButtonPrimary from '../components/MaterialButtonPrimary';
+
 import axios from 'axios';
-import App from '../../App';
-import {sub} from 'react-native-reanimated';
 
 function Contact(props) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
 
-  const sendMessage = (title, subject) => {
+  const sendMessage = () => {
     axios
       .post('http://3.35.8.116:3001/send', {
         token:
@@ -32,7 +28,7 @@ function Contact(props) {
       });
   };
   const startVideocall = async () => {
-    sendMessage(title, subject);
+    sendMessage();
     props.navigation.navigate('Videocall');
   };
 
