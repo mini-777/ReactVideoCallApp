@@ -9,7 +9,6 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
-import {Alert} from 'react-native';
 
 interface Props {
   navigation: any;
@@ -41,53 +40,54 @@ import {
 import Main from './src/screens/Main';
 
 function App() {
-  useEffect(() => {
-    _checkPermission();
-    _listenForNotifications();
+  // useEffect(() => {
+  //   _checkPermission();
+  //   _listenForNotifications();
 
-    return function cleanup() {
-      notificationOpenedListener();
-    };
-  });
-  const _checkPermission = async () => {
-    const enabled = await messaging().hasPermission();
-    if (enabled) {
-      // user has permissions
-      console.log('FCM Permission Success');
-      // this._updateTokenToServer();
-    } else {
-      // user doesn't have permission
-      _requestPermission();
-    }
-  };
+  //   return function cleanup() {
+  //     notificationOpenedListener();
+  //   };
+  // });
+  // const _checkPermission = async () => {
+  //   const enabled = await messaging().hasPermission();
+  //   if (enabled) {
+  //     // user has permissions
+  //     console.log('FCM Permission Success');
+  //     // this._updateTokenToServer();
+  //   } else {
+  //     // user doesn't have permission
+  //     _requestPermission();
+  //   }
+  // };
 
-  const _requestPermission = async () => {
-    try {
-      // User has authorised
-      await messaging().requestPermission();
-      // await this._updateTokenToServer();
-    } catch (error) {
-      // User has rejected permissions
-      Alert.alert("you can't handle push notification");
-    }
-  };
+  // const _requestPermission = async () => {
+  //   try {
+  //     // User has authorised
+  //     await messaging().requestPermission();
+  //     // await this._updateTokenToServer();
+  //   } catch (error) {
+  //     // User has rejected permissions
+  //     Alert.alert("you can't handle push notification");
+  //   }
+  // };
 
-  const notificationOpenedListener = messaging().onNotificationOpenedApp(
-    notificationOpen => {
-      console.log('onNotificationOpened', notificationOpen);
-    },
-  );
+  // const notificationOpenedListener = messaging().onNotificationOpenedApp(
+  //   notificationOpen => {
+  //     console.log('onNotificationOpened', notificationOpen);
+  //   },
+  // );
 
-  const _listenForNotifications = async () => {
-    messaging().onNotificationOpenedApp(notificationOpen => {
-      console.log('onNotificationOpened', notificationOpen);
-    });
+  // const _listenForNotifications = async () => {
+  //   messaging().onNotificationOpenedApp(notificationOpen => {
+  //     console.log('onNotificationOpened', notificationOpen);
+  //   });
 
-    const notificationOpen = await messaging().getInitialNotification();
-    if (notificationOpen) {
-      console.log('getInitialNotification', notificationOpen);
-    }
-  };
+  //   const notificationOpen = await messaging().getInitialNotification();
+  //   if (notificationOpen) {
+  //     console.log('getInitialNotification', notificationOpen);
+  //     navigation.navigate('Vendor');
+  //   }
+  // };
 
   const Stack = createStackNavigator();
 

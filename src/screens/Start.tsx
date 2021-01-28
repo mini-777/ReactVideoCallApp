@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   View,
@@ -6,8 +6,59 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import messaging from '@react-native-firebase/messaging';
+import {Alert} from 'react-native';
 
 function Start({navigation}) {
+  useEffect(() => {
+    _checkPermission();
+    _listenForNotifications();
+
+    return function cleanup() {
+      notificationOpenedListener();
+    };
+  });
+  const _checkPermission = async () => {
+    const enabled = await messaging().hasPermission();
+    if (enabled) {
+      // user has permissions
+      console.log('FCM Permission Success');
+      // this._updateTokenToServer();
+    } else {
+      // user doesn't have permission
+      _requestPermission();
+    }
+  };
+
+  const _requestPermission = async () => {
+    try {
+      // User has authorised
+      await messaging().requestPermission();
+      // await this._updateTokenToServer();
+    } catch (error) {
+      // User has rejected permissions
+      Alert.alert("you can't handle push notification");
+    }
+  };
+
+  const notificationOpenedListener = messaging().onNotificationOpenedApp(
+    notificationOpen => {
+      console.log('onNotificationOpened', notificationOpen);
+    },
+  );
+
+  const _listenForNotifications = async () => {
+    messaging().onNotificationOpenedApp(notificationOpen => {
+      console.log('onNotificationOpened', notificationOpen);
+    });
+
+    const notificationOpen = await messaging().getInitialNotification();
+    if (notificationOpen) {
+      console.log('getInitialNotification', notificationOpen);
+      navigation.navigate('Vendor', notificationOpen);
+    }
+  };
+
   return (
     <View style={styles.rect}>
       <StatusBar hidden />

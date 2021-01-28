@@ -12,13 +12,18 @@ import Modal from 'react-native-simple-modal';
 import messaging from '@react-native-firebase/messaging';
 import styled from '../../components/Style';
 // @ts-ignore
-function Vendor(props) {
+function Vendor({route, navigation}) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   // @ts-ignore
   const [subject, setSubject] = useState('');
 
   useEffect(() => {
+    if (route) {
+      setTitle(route.params.notification.title);
+      setSubject(route.params.notification.body);
+      setOpen(true);
+    }
     messaging().onMessage(async remoteMessage => {
       // @ts-ignore
       setTitle(remoteMessage.notification.title);
@@ -26,7 +31,7 @@ function Vendor(props) {
       setSubject(remoteMessage.notification.body);
       setOpen(true);
     });
-  }, []);
+  }, [route]);
 
   return (
     <View style={styles.rect}>
@@ -51,7 +56,7 @@ function Vendor(props) {
         <Text style={{fontSize: 20, margin: 10}}>{subject}</Text>
 
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Videocall')}
+          onPress={() => navigation.navigate('Videocall')}
           style={styled.button}>
           <Text style={styled.buttonText}> 수락 하기 </Text>
         </TouchableOpacity>
