@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import Contact from './src/screens/Cotact';
 import Login from './src/screens/Login';
 import Videocall from './src/screens/Videocall';
@@ -6,35 +6,10 @@ import Signup from './src/screens/Signup';
 import Start from './src/screens/Start';
 import Vendor from './src/screens/Vendor';
 import {createDrawerNavigator} from 'react-navigation-drawer';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
 import {Alert} from 'react-native';
-const DrawerNavigation = createDrawerNavigator({
-  Start: Start,
-  Contact: Contact,
-  Login: Login,
-  Vendor: Vendor,
-  Videocall: Videocall,
-  Signup: Signup,
-}); // 추후에 왼쪽 NAV바 만들때 사용
-
-var StackNavigation = createStackNavigator(
-  {
-    // DrawerNavigation: {
-    //   screen: DrawerNavigation,
-    // },
-    Vendor: Vendor,
-    Contact: Contact,
-    Login: Login,
-    Videocall: Videocall,
-    Signup: Signup,
-    Start: Start,
-  },
-  {
-    headerMode: 'none',
-  },
-);
 
 interface Props {
   navigation: any;
@@ -56,18 +31,25 @@ interface Props {
 //   name: string;
 //   topic: string;
 // }
+import {
+  StyleSheet,
+  View,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
+import Main from './src/screens/Main';
 
-export default class App extends Component<Props> {
-  async componentDidMount() {
-    this._checkPermission();
-    this._listenForNotifications();
-  }
+function App() {
+  useEffect(() => {
+    _checkPermission();
+    _listenForNotifications();
 
-  componentWillUnmount() {
-    this.notificationOpenedListener();
-  }
-
-  async _checkPermission() {
+    return function cleanup() {
+      notificationOpenedListener();
+    };
+  });
+  const _checkPermission = async () => {
     const enabled = await messaging().hasPermission();
     if (enabled) {
       // user has permissions
@@ -75,11 +57,11 @@ export default class App extends Component<Props> {
       // this._updateTokenToServer();
     } else {
       // user doesn't have permission
-      this._requestPermission();
+      _requestPermission();
     }
-  }
+  };
 
-  async _requestPermission() {
+  const _requestPermission = async () => {
     try {
       // User has authorised
       await messaging().requestPermission();
@@ -88,119 +70,75 @@ export default class App extends Component<Props> {
       // User has rejected permissions
       Alert.alert("you can't handle push notification");
     }
-  }
+  };
 
-  // async _updateTokenToServer() {
-  //   const fcmToken = await messaging().getToken();
-  //   console.log(fcmToken);
-
-  //   const header = {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //       Cache: 'no-cache',
-  //     },
-  //     body: JSON.stringify({
-  //       user_id: 'CURRENT_USER_ID',
-  //       firebase_token: fcmToken,
-  //     }),
-  //     credentials: 'include',
-  //   };
-  //   const url = 'http://YOUR_SERVER_URL';
-
-  //   // if you want to notification using server,
-  //   // do registry current user token
-
-  //   // await fetch(url, header);
-  // }
-  notificationOpenedListener = messaging().onNotificationOpenedApp(
+  const notificationOpenedListener = messaging().onNotificationOpenedApp(
     notificationOpen => {
       console.log('onNotificationOpened', notificationOpen);
-      StackNavigation = createStackNavigator(
-        {
-          // DrawerNavigation: {
-          //   screen: DrawerNavigation,
-          // },
-          Contact: Contact,
-          Login: Login,
-          Videocall: Videocall,
-          Signup: Signup,
-          Start: Start,
-          Vendor: Vendor,
-        },
-        {
-          headerMode: 'none',
-        },
-      );
     },
   );
 
-  async _listenForNotifications() {
+  const _listenForNotifications = async () => {
     messaging().onNotificationOpenedApp(notificationOpen => {
       console.log('onNotificationOpened', notificationOpen);
-      StackNavigation = createStackNavigator(
-        {
-          DrawerNavigation: {
-            screen: DrawerNavigation,
-          },
-          Contact: Contact,
-          Login: Login,
-          Videocall: Videocall,
-          Signup: Signup,
-          Start: Start,
-          Vendor: Vendor,
-        },
-        {
-          headerMode: 'none',
-        },
-      );
     });
 
     const notificationOpen = await messaging().getInitialNotification();
     if (notificationOpen) {
       console.log('getInitialNotification', notificationOpen);
-      StackNavigation = createStackNavigator(
-        {
-          DrawerNavigation: {
-            screen: DrawerNavigation,
-          },
-          Contact: Contact,
-          Login: Login,
-          Videocall: Videocall,
-          Signup: Signup,
-          Start: Start,
-          Vendor: Vendor,
-        },
-        {
-          headerMode: 'none',
-        },
-      );
     }
-  }
+  };
 
-  render() {
-    const AppContainer = createAppContainer(StackNavigation);
+  const Stack = createStackNavigator();
 
-    return (
-      <AppContainer />
-      // <View style={styles.max}>
-      //     <View style={styles.max}>
-      //         <View style={styles.buttonHolder}>
-      //             <TouchableOpacity
-      //                 onPress={this.sendMessage}
-      //                 style={styles.button}>
-      //                 <Text style={styles.buttonText}> Start Call </Text>
-      //             </TouchableOpacity>
-      //             <TouchableOpacity
-      //                 onPress={this.endCall}
-      //                 style={styles.button}>
-      //                 <Text style={styles.buttonText}> End Call </Text>
-      //             </TouchableOpacity>
-      //         </View>
-      //         {this._renderVideos()}
-      //     </View>
-      // </View>
-    );
-  }
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="videoCall"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#1c2a38',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}>
+        <Stack.Screen name="Start" component={Start} />
+        <Stack.Screen name="Contact" component={Contact} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="Vendor" component={Vendor} />
+        <Stack.Screen name="Videocall" component={Videocall} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
+
+export default App;
+
+// async _updateTokenToServer() {
+//   const fcmToken = await messaging().getToken();
+//   console.log(fcmToken);
+
+//   const header = {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//       Cache: 'no-cache',
+//     },
+//     body: JSON.stringify({
+//       user_id: 'CURRENT_USER_ID',
+//       firebase_token: fcmToken,
+//     }),
+//     credentials: 'include',
+//   };
+//   const url = 'http://YOUR_SERVER_URL';
+
+//   // if you want to notification using server,
+//   // do registry current user token
+
+//   // await fetch(url, header);
+// }

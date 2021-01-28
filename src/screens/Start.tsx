@@ -7,21 +7,23 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-function Start(props) {
+function Start({navigation}) {
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
       <View style={styles.자동차문의는무진콜Column}>
         <Text style={styles.자동차문의는무진콜}>자동차 문의는{'\n'}무진</Text>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Signup')}
+          onPress={() =>
+            navigation.navigate('Signup', {name: 'Custom profile header'})
+          }
           style={styles.button}>
           <Text style={styles.계정생성하기}>계정 생성하기</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.자동차문의는무진콜ColumnFiller} />
       <View style={styles.rect2}>
-        <TouchableOpacity onPress={() => props.navigation.navigate('Vendor')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Vendor')}>
           <Text style={styles.이미계정이있으신가요}>
             이미 계정이 있으신가요?
           </Text>
