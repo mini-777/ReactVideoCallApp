@@ -19,7 +19,7 @@ function Vendor({route, navigation}) {
   const [subject, setSubject] = useState('');
 
   useEffect(() => {
-    if (route) {
+    if (route.notification) {
       setTitle(route.params.notification.title);
       setSubject(route.params.notification.body);
       setOpen(true);
