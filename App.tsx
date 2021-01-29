@@ -40,6 +40,20 @@ import {
 import Main from './src/screens/Main';
 
 function App() {
+  useEffect(() => {
+    requestUserPermission();
+  });
+
+  async function requestUserPermission() {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+    if (enabled) {
+      console.log('Authorization status:', authStatus);
+    }
+  }
   // useEffect(() => {
   //   _checkPermission();
   //   _listenForNotifications();
@@ -104,13 +118,46 @@ function App() {
             fontWeight: 'bold',
           },
         }}>
-        <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Contact" component={Contact} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="Vendor" component={Vendor} />
-        <Stack.Screen name="Videocall" component={Videocall} />
+        <Stack.Screen
+          name="Start"
+          component={Start}
+          options={{
+            title: '시작하기',
+            headerStyle: {
+              backgroundColor: 'rgba(21,31,40,1)',
+            },
+            headerTintColor: 'rgba(21,31,40,1)',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Contact"
+          component={Contact}
+          options={{title: '문의하기'}}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{title: '로그인'}}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
+          options={{title: '회원가입'}}
+        />
+        <Stack.Screen name="Main" component={Main} options={{title: '메인'}} />
+        <Stack.Screen
+          name="Vendor"
+          component={Vendor}
+          options={{title: '고객 상담'}}
+        />
+        <Stack.Screen
+          name="Videocall"
+          component={Videocall}
+          options={{title: '영상통화'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
