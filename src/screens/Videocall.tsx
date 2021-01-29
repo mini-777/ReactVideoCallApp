@@ -56,11 +56,16 @@ export default class Videocall extends Component<Props, state> {
   }
  
 
-  componentDidMount() {
+  async componentDidMount() {
+    const fcmToken = await firebase.messaging().getToken();
+    this.setState({fcmToken})
+    console.log(fcmToken)
       this.init();
+
       axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
         this.setState({token : Response.data.key});
         console.log('RTCtoken...', this.state.token);
+
     }).catch((Error) => {
         console.log(Error);
     })
@@ -80,9 +85,7 @@ export default class Videocall extends Component<Props, state> {
       this._engine = await RtcEngine.create(appId)
       await this._engine.enableVideo()
       // await firebase.messaging().registerDeviceForRemoteMessages();
-      const fcmToken = await firebase.messaging().getToken();
-      this.setState({fcmToken})
-      console.log(fcmToken)
+      
       this._engine.addListener('Warning', (warn) => {
           console.log('Warning', warn)
       })
