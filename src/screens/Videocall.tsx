@@ -7,7 +7,6 @@ import requestCameraAndAudioPermission from '../../components/Permission'
 import styles from '../../components/Style'
 import axios from 'axios'
 
-
 interface Props {
     navigation: any
 }
@@ -35,15 +34,16 @@ export default class Videocall extends Component<Props, state> {
     
   _engine?: RtcEngine
 
-  constructor(props) {
-      super(props);
+  constructor(Props, route) {
+      super(Props);
+      console.log('navigation', Props, 'route',  route);
       this.state = {
           appId: `17a05d44fa594610ad070bdbfee9594d`,
           token: ``,
           channelName: 'videoCall',
           joinSucceed: false,
           peerIds: [],
-          fcmToken: ``,
+          fcmToken: `${navigation.route.params.params}`,
           name: 'sungMin',
           topic: 'string',
       }
@@ -62,13 +62,7 @@ export default class Videocall extends Component<Props, state> {
     console.log(fcmToken)
       this.init();
 
-      axios.get('http://3.35.8.116:8080/rtcToken?channelName=videoCall').then((Response)=>{
-        this.setState({token : Response.data.key});
-        console.log('RTCtoken...', this.state.token);
-
-    }).catch((Error) => {
-        console.log(Error);
-    })
+     
 
       
   }
@@ -144,7 +138,7 @@ export default class Videocall extends Component<Props, state> {
   endCall = async () => {
       await this._engine?.leaveChannel()
       this.setState({peerIds: [], joinSucceed: false})
-      this.props.navigation.navigate("Contact")
+      navigation.navigate("Contact")
   }
 
   
@@ -159,7 +153,7 @@ export default class Videocall extends Component<Props, state> {
             height: 46,
             width: 256,
             borderRadius: 37,
-            marginTop: 0,
+            marginTop: 25,
             alignSelf: "center"
           },
         container: {
@@ -240,15 +234,4 @@ export default class Videocall extends Component<Props, state> {
   }
 }
 
-// function Videocall(props) {
-    
-//     _engine ?: RtcEngine
-   
-//   return (
-     
-//   );
-// }
 
-
-
-// export default Videocall;
