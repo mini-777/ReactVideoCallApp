@@ -10,7 +10,7 @@ import {
 
 import axios from 'axios';
 
-function Contact(props) {
+function Contact({navigation, route}) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
 
@@ -29,22 +29,18 @@ function Contact(props) {
   };
   const startVideocall = async () => {
     sendMessage();
-    props.navigation.navigate('Videocall');
+    console.log(route);
+    navigation.navigate('Videocall', route);
   };
 
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
-      <View style={styles.rect2}>
-        <Text style={styles.문의하기}>문의하기</Text>
-        <View style={styles.문의하기Filler} />
-        <View style={styles.rect3} />
-      </View>
       <View style={styles.rect4}>
         <View
           style={[
             styles.container,
-            props.style,
+            navigation.style,
             styles.materialStackedLabelTextbox,
           ]}>
           <TextInput
@@ -57,7 +53,7 @@ function Contact(props) {
           <View
             style={[
               styles.container,
-              props.style,
+              navigation.style,
               styles.materialUnderlineTextbox,
             ]}>
             <TextInput
@@ -106,7 +102,7 @@ const styles = StyleSheet.create({
     height: 562,
     backgroundColor: '#E6E6E6',
     borderRadius: 21,
-    marginTop: 50,
+    marginTop: 10,
     alignSelf: 'center',
   },
   materialStackedLabelTextbox: {
@@ -123,7 +119,7 @@ const styles = StyleSheet.create({
     left: 0,
   },
   button1: {
-    marginTop: -500,
+    marginTop: 10,
     top: 349,
     width: 284,
     height: 50,

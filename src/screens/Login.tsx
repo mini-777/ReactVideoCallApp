@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -8,16 +8,26 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Divider from '../components/Divider';
+import axios from 'axios';
 
-function Login(props) {
+function Login({navigation}) {
+  useEffect(() => {
+    axios
+      .get('http://3.35.8.116:8080/rtcToken?channelName=videoCall')
+      .then(Response => {
+        setToken(Response.data.key);
+        console.log('RTCtoken...', token);
+      })
+      .catch(Error => {
+        console.log(Error);
+      });
+  });
+  const [token, setToken] = useState('');
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
       <View style={styles.무진콜에로그인하세요Column}>
         <Text style={styles.무진콜에로그인하세요}>무진콜에 로그인하세요</Text>
-        <View style={styles.rect2}>
-          <Text style={styles.로그인4}>로그인</Text>
-        </View>
         <Text style={styles.id3}>이메일</Text>
         <Text style={styles.text4}>비밀번호</Text>
         <TextInput
@@ -33,7 +43,7 @@ function Login(props) {
       <View style={styles.rect4}>
         <Divider style={styles.divider} />
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Contact')}
+          onPress={() => navigation.navigate('Contact', token)}
           style={styles.button2}>
           <Text style={styles.로그인3}>로그인</Text>
         </TouchableOpacity>

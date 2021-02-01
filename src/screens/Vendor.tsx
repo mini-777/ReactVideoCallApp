@@ -11,49 +11,42 @@ import MaterialChipBasic from '../components/MaterialChipBasic';
 import Modal from 'react-native-simple-modal';
 import messaging from '@react-native-firebase/messaging';
 import styled from '../../components/Style';
-// @ts-ignore
+
 function Vendor({route, navigation}) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
-  // @ts-ignore
   const [subject, setSubject] = useState('');
 
   useEffect(() => {
-    if (route.notification) {
+    console.log(route)
+    if (route.params) {
+      console.log(route)
       setTitle(route.params.notification.title);
       setSubject(route.params.notification.body);
       setOpen(true);
     }
     messaging().onMessage(async remoteMessage => {
-      // @ts-ignore
-      setTitle(remoteMessage.notification.title);
-      // @ts-ignore
-      setSubject(remoteMessage.notification.body);
-      setOpen(true);
+      if (remoteMessage.notification?.title && remoteMessage.notification.body) {
+        setTitle(remoteMessage.notification.title);
+        setSubject(remoteMessage.notification.body);
+        setOpen(true);
+      }
     });
-  }, [route]);
+  }, []);
 
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
 
-      <View style={styles.rect1}>
-        <View style={styles.문의하기1Stack}>
-          <Text style={styles.문의하기1} />
-          <Text style={styles.문의하기2}>문의하기</Text>
-        </View>
-      </View>
       <MaterialChipBasic style={styles.materialChipBasic} />
       <Modal
         offset={0}
         open={open}
         modalDidOpen={() => console.log(title)}
         modalDidClose={() => setOpen(false)}>
-        <Text style={{fontSize: 20, margin: 10}}>
-          사용자의 문의가 도착했어요!
-        </Text>
-        <Text style={{fontSize: 20, margin: 10}}>{title}</Text>
-        <Text style={{fontSize: 20, margin: 10}}>{subject}</Text>
+        <Text style={styles.vendorText}>사용자의 문의가 도착했어요!</Text>
+        <Text style={styles.vendorText}>{title}</Text>
+        <Text style={styles.vendorText}>{subject}</Text>
 
         <TouchableOpacity
           onPress={() => navigation.navigate('Videocall')}
@@ -90,6 +83,10 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,1)',
     position: 'absolute',
     fontSize: 24,
+  },
+  vendorText: {
+    fontSize: 20,
+    margin: 10,
   },
   문의하기1Stack: {
     width: 96,

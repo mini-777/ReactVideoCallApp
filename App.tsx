@@ -123,13 +123,14 @@ function App() {
           component={Start}
           options={{
             title: '시작하기',
-            headerStyle: {
-              backgroundColor: 'rgba(21,31,40,1)',
-            },
-            headerTintColor: 'rgba(21,31,40,1)',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
+            headerShown: false,
+            // headerStyle: {
+            //   backgroundColor: 'rgba(21,31,40,1)',
+            // },
+            // headerTintColor: 'rgba(21,31,40,1)',
+            // headerTitleStyle: {
+            //   fontWeight: 'bold',
+            // },
           }}
         />
         <Stack.Screen
@@ -156,7 +157,7 @@ function App() {
         <Stack.Screen
           name="Videocall"
           component={Videocall}
-          options={{title: '영상통화'}}
+          options={{title: '영상통화', headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

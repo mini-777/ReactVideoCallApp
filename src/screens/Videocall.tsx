@@ -34,16 +34,17 @@ export default class Videocall extends Component<Props, state> {
     
   _engine?: RtcEngine
 
-  constructor(Props, route) {
-      super(Props);
-      console.log('navigation', Props, 'route',  route);
+  constructor(props, route) {
+      super(props);
+      console.log('navigation', props, 'route',  route);
+      
       this.state = {
           appId: `17a05d44fa594610ad070bdbfee9594d`,
-          token: ``,
+          token: props.route.params.params,
           channelName: 'videoCall',
           joinSucceed: false,
           peerIds: [],
-          fcmToken: `${navigation.route.params.params}`,
+          fcmToken: '',
           name: 'sungMin',
           topic: 'string',
       }
@@ -61,6 +62,7 @@ export default class Videocall extends Component<Props, state> {
     this.setState({fcmToken})
     console.log(fcmToken)
       this.init();
+      
 
      
 
@@ -138,7 +140,8 @@ export default class Videocall extends Component<Props, state> {
   endCall = async () => {
       await this._engine?.leaveChannel()
       this.setState({peerIds: [], joinSucceed: false})
-      navigation.navigate("Contact")
+
+      this.props.navigation.navigate("Contact")
   }
 
   
