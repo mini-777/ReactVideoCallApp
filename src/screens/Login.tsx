@@ -36,7 +36,6 @@ function Login({navigation}) {
           secureTextEntry={true}
           style={styles.textInput}
         />
-        <Text style={styles.text5}>비밀번호를 잊으셨나요?</Text>
         <TextInput placeholder="" style={styles.textInput2} />
       </View>
       <View style={styles.무진콜에로그인하세요ColumnFiller} />

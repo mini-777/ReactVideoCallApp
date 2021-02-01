@@ -7,7 +7,6 @@ import {
   Text,
   TextInput,
 } from 'react-native';
-
 import axios from 'axios';
 
 function Contact({navigation, route}) {
@@ -30,7 +29,7 @@ function Contact({navigation, route}) {
   const startVideocall = async () => {
     sendMessage();
     console.log(route);
-    navigation.navigate('Videocall', route);
+    navigation.navigate('Videocall', route.params);
   };
 
   return (

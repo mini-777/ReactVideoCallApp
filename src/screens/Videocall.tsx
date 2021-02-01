@@ -34,13 +34,13 @@ export default class Videocall extends Component<Props, state> {
     
   _engine?: RtcEngine
 
-  constructor(props, route) {
+  constructor(props) {
       super(props);
-      console.log('navigation', props, 'route',  route);
+        console.log(props);
       
       this.state = {
           appId: `17a05d44fa594610ad070bdbfee9594d`,
-          token: props.route.params.params,
+          token: props.route.params,
           channelName: 'videoCall',
           joinSucceed: false,
           peerIds: [],
@@ -140,8 +140,7 @@ export default class Videocall extends Component<Props, state> {
   endCall = async () => {
       await this._engine?.leaveChannel()
       this.setState({peerIds: [], joinSucceed: false})
-
-      this.props.navigation.navigate("Contact")
+      this.props.navigation.goBack();
   }
 
   
@@ -156,7 +155,7 @@ export default class Videocall extends Component<Props, state> {
             height: 46,
             width: 256,
             borderRadius: 37,
-            marginTop: 25,
+            marginTop: 0,
             alignSelf: "center"
           },
         container: {
@@ -189,13 +188,13 @@ export default class Videocall extends Component<Props, state> {
     
           <View style={styles.max}>
               <View style={styled.rect}>
+                      {this._renderVideos()}
                   <View style={styles.buttonHolder}>
                   <TouchableOpacity style={[styled.container, styled.materialButtonPink1]}
         onPress={this.endCall}>
       <Text style={styled.상담종료}>상담 종료</Text>
     </TouchableOpacity>
                   </View>
-                  {this._renderVideos()}
               </View>
           </View>
       )

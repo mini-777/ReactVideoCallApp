@@ -11,14 +11,23 @@ import MaterialChipBasic from '../components/MaterialChipBasic';
 import Modal from 'react-native-simple-modal';
 import messaging from '@react-native-firebase/messaging';
 import styled from '../../components/Style';
+import axios from 'axios';
 
 function Vendor({route, navigation}) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
-
+  const [token, setToken] = useState('');
   useEffect(() => {
-    console.log(route)
+    axios
+      .get('http://3.35.8.116:8080/rtcToken?channelName=videoCall')
+      .then(Response => {
+        setToken(Response.data.key);
+        console.log('RTCtoken...', token);
+      })
+      .catch(Error => {
+        console.log(Error);
+      });
     if (route.params) {
       console.log(route)
       setTitle(route.params.notification.title);
@@ -49,7 +58,10 @@ function Vendor({route, navigation}) {
         <Text style={styles.vendorText}>{subject}</Text>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('Videocall')}
+          onPress={() => {
+            navigation.navigate('Videocall', token);
+            setOpen(false)
+          }}
           style={styled.button}>
           <Text style={styled.buttonText}> 수락 하기 </Text>
         </TouchableOpacity>

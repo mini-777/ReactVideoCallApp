@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,1)',
     fontSize: 30,
     lineHeight: 50,
-    marginTop: -107,
+    marginTop: -40,
     marginLeft: 30,
   },
   icon2: {
