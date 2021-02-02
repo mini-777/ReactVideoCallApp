@@ -5,38 +5,10 @@ import Videocall from './src/screens/Videocall';
 import Signup from './src/screens/Signup';
 import Start from './src/screens/Start';
 import Vendor from './src/screens/Vendor';
-import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
 
-interface Props {
-  navigation: any;
-}
-
-/**
- * @property peerIds Array for storing connected peers
- * @property appId
- * @property channelName Channel Name for the current session
- * @property joinSucceed State variable for storing success
- */
-// interface state {
-//   appId: string;
-//   token: string;
-//   channelName: string;
-//   joinSucceed: boolean;
-//   peerIds: number[];
-//   fcmToken: string;
-//   name: string;
-//   topic: string;
-// }
-import {
-  StyleSheet,
-  View,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
 import Main from './src/screens/Main';
 
 function App() {

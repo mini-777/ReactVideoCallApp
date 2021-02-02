@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 import {Alert} from 'react-native';
-
 function Start({navigation}) {
   useEffect(() => {
     _checkPermission();
@@ -58,6 +57,9 @@ function Start({navigation}) {
       navigation.navigate('Vendor', notificationOpen);
     }
   };
+  // Set an initializing state whilst Firebase connects
+
+  // Handle user state changes
 
   return (
     <View style={styles.rect}>

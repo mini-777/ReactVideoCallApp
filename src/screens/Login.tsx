@@ -34,9 +34,14 @@ function Login({navigation}) {
           autoCapitalize="none"
           placeholder=""
           secureTextEntry={true}
+          style={styles.textInput2}
+        />
+        <TextInput
+          autoCapitalize="none"
+          placeholder=""
+          secureTextEntry={true}
           style={styles.textInput}
         />
-        <TextInput placeholder="" style={styles.textInput2} />
       </View>
       <View style={styles.무진콜에로그인하세요ColumnFiller} />
       <View style={styles.rect4}>
@@ -91,7 +96,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     fontSize: 18,
     lineHeight: 20,
-    marginTop: 2,
+    marginTop: 70,
     marginLeft: 17,
   },
   text5: {
@@ -105,12 +110,12 @@ const styles = StyleSheet.create({
     width: 339,
     height: 42,
     color: '#1da1f2',
-    borderColor: '#1da1f2',
+    borderColor: 'rgba(123,139,151,1)',
     borderWidth: 0,
     borderBottomWidth: 2,
     fontSize: 18,
     lineHeight: 20,
-    marginTop: -220,
+    marginTop: -110,
     marginLeft: 17,
   },
   무진콜에로그인하세요Column: {},
