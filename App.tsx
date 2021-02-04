@@ -13,31 +13,7 @@ import messaging from '@react-native-firebase/messaging';
 import Main from './src/screens/Main';
 
 const Stack = createStackNavigator();
-const Auth = () => {
-  // Stack Navigator for Login and Sign up Screen
-  return (
-    <Stack.Navigator initialRouteName="Auth">
-      <Stack.Screen
-        name="Start"
-        component={Start}
-        options={{
-          title: '시작하기',
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{title: '로그인'}}
-      />
-      <Stack.Screen
-        name="Signup"
-        component={Signup}
-        options={{title: '회원가입'}}
-      />
-    </Stack.Navigator>
-  );
-};
+
 function App() {
   useEffect(() => {
     requestUserPermission();
@@ -74,8 +50,24 @@ function App() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Auth" component={Auth} />
-
+        <Stack.Screen
+          name="Start"
+          component={Start}
+          options={{
+            title: '시작하기',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{title: '로그인'}}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
+          options={{title: '회원가입'}}
+        />
         <Stack.Screen
           name="Contact"
           component={Contact}

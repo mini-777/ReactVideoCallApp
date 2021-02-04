@@ -8,25 +8,12 @@ import {
 } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 import {Alert} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 
 function Start({navigation}) {
-  const [animating, setAnimating] = useState(true);
   useEffect(() => {
     _checkPermission();
     _listenForNotifications();
-    //check auth
-    setTimeout(() => {
-      setAnimating(false);
-      //Check if user_id is set or not
-      //If not then send for Authentication
-      //else send to Home Screen
-      AsyncStorage.getItem('user_id').then(value =>
-        navigation.replace(
-          value === null ? 'Signup' : 'DrawerNavigationRoutes',
-        ),
-      );
-    }, 5000);
+
     return function cleanup() {
       notificationOpenedListener();
     };
