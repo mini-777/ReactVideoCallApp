@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ActivityIndicator, View, StyleSheet, Image} from 'react-native';
+import {ActivityIndicator, View, StyleSheet} from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -14,10 +14,10 @@ const SplashScreen = ({navigation}) => {
       //If not then send for Authentication
       //else send to Home Screen
       AsyncStorage.getItem('user_id').then(value =>
-        navigation.replace(value === null ? 'Auth' : 'DrawerNavigationRoutes'),
+        navigation.replace(value === null ? 'Auth' : 'Contact'),
       );
     }, 5000);
-  }, []);
+  });
 
   return (
     <View style={styles.container}>

@@ -15,7 +15,7 @@ function Contact({navigation, route}) {
 
   const sendMessage = () => {
     axios
-      .post('http://3.35.8.116:3001/send', {
+      .post('http://3.34.124.138:3001/send', {
         token:
           'eqXVprSUS0uAxOUMJITf7K:APA91bHXMSZqDFX2tKJuTQf2faYiM1d18cycPGf0omcI7UK93EaUGT00M_fFKbGnkTduZSYh4pzmhZUZ2qiAGOCon4JsGo9xhmVRkr-uRWAPdCfbKjqZbUA84vdu1I9iK5fTw9c1eK4d',
         title: title,

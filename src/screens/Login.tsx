@@ -6,14 +6,23 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import Divider from '../components/Divider';
 import axios from 'axios';
+import AsyncStorage from '@react-native-community/async-storage';
+import Loading from './Loading';
 
 function Login({navigation}) {
+  const [displayName, setDisplayName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
   useEffect(() => {
     axios
-      .get('http://3.35.8.116:8080/rtcToken?channelName=videoCall')
+      .get('http://3.34.124.138:8080/rtcToken?channelName=videoCall')
       .then(Response => {
         setToken(Response.data.key);
         console.log('RTCtoken...', token);
@@ -22,12 +31,45 @@ function Login({navigation}) {
         console.log(Error);
       });
   });
+  const handleSubmitPress = () => {
+    setErrorMessage('');
+    if (!email) {
+      Alert.alert('Please fill Email');
+      return;
+    }
+    if (!password) {
+      Alert.alert('Please fill Password');
+      return;
+    }
+    setIsLoading(true);
+    axios
+      .post('http://3.34.124.138:3000/login', {
+        email: email,
+        password: password,
+      })
+      .then(Response => {
+        setIsLoading(false);
+        if (Response.data.message) {
+          AsyncStorage.setItem('user_id', Response.data.email);
+          navigation.replace('DrawerNavigationRoutes');
+        } else {
+          setErrorMessage(Response.data.msg);
+          console.log('Please check your email id or password');
+        }
+        console.log(Response.data.message);
+      })
+      .catch(error => {
+        setIsLoading(false);
+        console.error(error);
+      });
+  };
   const [token, setToken] = useState('');
   return (
     <View style={styles.rect}>
+      <Loading loading={isLoading} />
       <StatusBar hidden />
       <View style={styles.무진콜에로그인하세요Column}>
-        <Text style={styles.무진콜에로그인하세요}>무진콜에 로그인하세요</Text>
+        <Text style={styles.무진콜에로그인하세요}>무진에 로그인하세요</Text>
         <Text style={styles.id3}>이메일</Text>
         <Text style={styles.text4}>비밀번호</Text>
         <TextInput
@@ -46,9 +88,7 @@ function Login({navigation}) {
       <View style={styles.무진콜에로그인하세요ColumnFiller} />
       <View style={styles.rect4}>
         <Divider style={styles.divider} />
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Contact', token)}
-          style={styles.button2}>
+        <TouchableOpacity onPress={handleSubmitPress} style={styles.button2}>
           <Text style={styles.로그인3}>로그인</Text>
         </TouchableOpacity>
       </View>
