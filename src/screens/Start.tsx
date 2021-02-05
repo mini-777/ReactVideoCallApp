@@ -77,7 +77,7 @@ function Start({navigation}) {
       </View>
       <View style={styles.자동차문의는무진콜ColumnFiller} />
       <View style={styles.rect2}>
-        <TouchableOpacity onPress={() => navigation.navigate('Vendor')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text style={styles.이미계정이있으신가요}>
             이미 계정이 있으신가요?
           </Text>

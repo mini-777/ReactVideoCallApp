@@ -87,6 +87,23 @@ function Signup(props) {
           secureTextEntry={true}
           style={styles.textInput2}
         />
+        <TextInput
+          placeholder="전화번호"
+          autoCapitalize="none"
+          placeholderTextColor="rgba(120,135,147,1)"
+          style={styles.textInput3}
+        />
+        <TextInput
+          placeholder="인증번호"
+          placeholderTextColor="rgba(120,135,147,1)"
+          secureTextEntry={true}
+          style={styles.textInput4}
+        />
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Login')}
+          style={styles.textInput5}>
+          <Text style={styles.다음}>인증확인</Text>
+        </TouchableOpacity>
         <View style={styles.rect2}>
           <Divider style={styles.divider} />
           <TouchableOpacity
@@ -114,7 +131,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     fontSize: 18,
     lineHeight: 20,
-    marginTop: 126,
+    marginTop: 36,
     marginBottom: 50,
     marginLeft: 36,
   },
@@ -155,7 +172,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     fontSize: 18,
     lineHeight: 20,
-    marginBottom: 193,
+    marginBottom: 50,
     marginLeft: 36,
   },
   rect2: {
@@ -191,6 +208,48 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginLeft: 31,
     marginTop: 28,
+  },
+  textInput3: {
+    width: 300,
+    height: 42,
+    color: '#1da1f2',
+    borderColor: 'rgba(123,139,151,1)',
+    borderWidth: 0,
+    borderBottomWidth: 2,
+    fontSize: 18,
+    lineHeight: 20,
+    marginTop: 0,
+    marginBottom: 50,
+    marginLeft: 36,
+  },
+  textInput4: {
+    width: 300,
+    height: 42,
+    color: '#1da1f2',
+    borderColor: 'rgba(123,139,151,1)',
+    borderWidth: 0,
+    borderBottomWidth: 2,
+    fontSize: 18,
+    lineHeight: 20,
+    marginTop: 0,
+    marginBottom: 50,
+    marginLeft: 36,
+  },
+  textInput5: {
+    color: '#1da1f2',
+    borderColor: 'rgba(123,139,151,1)',
+    borderWidth: 0,
+    borderBottomWidth: 2,
+    fontSize: 18,
+    lineHeight: 20,
+    marginTop: 0,
+    marginBottom: 50,
+    marginLeft: 36,
+    width: 109,
+    height: 50,
+    backgroundColor: '#1da1f2',
+    borderRadius: 100,
+    justifyContent: 'center',
   },
 });
 

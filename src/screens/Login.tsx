@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  Keyboard,
 } from 'react-native';
 import Divider from '../components/Divider';
 import axios from 'axios';
@@ -15,23 +16,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loading from './Loading';
 
 function Login({navigation}) {
-  const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    axios
-      .get('http://3.34.124.138:8080/rtcToken?channelName=videoCall')
-      .then(Response => {
-        setToken(Response.data.key);
-        console.log('RTCtoken...', token);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  });
+  useEffect(() => {});
   const handleSubmitPress = () => {
     setErrorMessage('');
     if (!email) {
@@ -50,6 +40,7 @@ function Login({navigation}) {
       })
       .then(Response => {
         setIsLoading(false);
+        console.log(Response.data);
         if (Response.data.message) {
           AsyncStorage.setItem('user_id', Response.data.email);
           navigation.replace('DrawerNavigationRoutes');
@@ -64,7 +55,6 @@ function Login({navigation}) {
         console.error(error);
       });
   };
-  const [token, setToken] = useState('');
   return (
     <View style={styles.rect}>
       <Loading loading={isLoading} />
@@ -76,14 +66,21 @@ function Login({navigation}) {
         <TextInput
           autoCapitalize="none"
           placeholder=""
-          secureTextEntry={true}
+          secureTextEntry={false}
           style={styles.textInput2}
+          onChangeText={userEmail => setEmail(userEmail)}
+          keyboardType="email-address"
+          returnKeyType="next"
+          onSubmitEditing={Keyboard.dismiss}
         />
         <TextInput
           autoCapitalize="none"
           placeholder=""
           secureTextEntry={true}
           style={styles.textInput}
+          onChangeText={UserPassword => setPassword(UserPassword)}
+          keyboardType="default"
+          onSubmitEditing={Keyboard.dismiss}
         />
       </View>
       <View style={styles.무진콜에로그인하세요ColumnFiller} />
@@ -129,7 +126,7 @@ const styles = StyleSheet.create({
     marginLeft: 17,
   },
   textInput: {
-    width: 339,
+    width: 300,
     height: 42,
     color: '#1da1f2',
     borderColor: 'rgba(123,139,151,1)',
@@ -148,7 +145,7 @@ const styles = StyleSheet.create({
     marginLeft: 82,
   },
   textInput2: {
-    width: 339,
+    width: 300,
     height: 42,
     color: '#1da1f2',
     borderColor: 'rgba(123,139,151,1)',

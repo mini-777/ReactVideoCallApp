@@ -16,8 +16,8 @@ const SplashScreen = ({navigation}) => {
       AsyncStorage.getItem('user_id').then(value =>
         navigation.replace(value === null ? 'Start' : 'Contact'),
       );
-    }, 5000);
-  });
+    }, 1000);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
