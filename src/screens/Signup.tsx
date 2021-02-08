@@ -15,10 +15,11 @@ import axios from 'axios';
 import Loading from './Loading';
 import messaging, {firebase} from '@react-native-firebase/messaging';
 import {auth} from 'firebase-admin';
+import {red} from 'chalk';
 
 function Signup(props) {
   const [token, setToken] = useState('');
-  const [displayName, setDisplayName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNum, setPhoneNum] = useState('');
@@ -48,12 +49,19 @@ function Signup(props) {
         phoneNum: phoneNum,
         authNum: result.toString(),
       })
-      .then(() => console.log('sendAuthNum !'));
+      .then(() => Alert.alert('인증번호가 전송되었습니다 !'));
   };
   const handleSignUp = () => {
+    if (!name) {
+      Alert.alert('이름을 입력해주세요');
+    }
     if (!email) {
       Alert.alert('이메일을 입력해주세요');
       return;
+    }
+    var re = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(email)) {
+      Alert.alert('올바른 이메일 양식을 입력하세요');
     }
     if (!password) {
       Alert.alert('비밀번호를 입력하세요');
@@ -63,14 +71,17 @@ function Signup(props) {
       Alert.alert('휴대폰 인증을 받으세요');
       return;
     }
+    Alert.alert('회원가입이 완료되었습니다.');
     setIsLoading(true);
     axios
       .post('http://3.35.8.116:3001/signup', {
-        token: token,
-        email: email,
-        password: password,
+        token,
+        email,
+        password,
+        phoneNum,
+        name,
       })
-      .then(() => console.log('Book Created'))
+      .then(() => setIsLoading(false))
       .catch(err => {
         console.error(err);
       });
@@ -87,18 +98,25 @@ function Signup(props) {
   return (
     <View style={styles.rect}>
       <Loading loading={isLoading} />
-      <View style={styles.textInput2Column}>
-        {/* <Text style={styles.text2}>20</Text>  
-        TODO: 여기에 추후에 입력할때마다 숫자 줄어드는 function 작성 */}
-      </View>
+      <View style={styles.textInput2Column} />
       <View style={styles.textInputColumnFiller} />
       <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
       <View style={styles.textInput2Column}>
         <TextInput
+          placeholder="이름"
+          autoCapitalize="none"
+          secureTextEntry={false}
+          style={styles.input}
+          onChangeText={userName => setName(userName)}
+          keyboardType="default"
+          returnKeyType="next"
+          placeholderTextColor="rgba(120,135,147,1)"
+        />
+        <TextInput
           placeholder="이메일"
           autoCapitalize="none"
           secureTextEntry={false}
-          style={styles.textInput2}
+          style={styles.email}
           onChangeText={userEmail => setEmail(userEmail)}
           keyboardType="email-address"
           returnKeyType="next"
@@ -108,7 +126,7 @@ function Signup(props) {
           placeholder="비밀번호"
           placeholderTextColor="rgba(120,135,147,1)"
           secureTextEntry={true}
-          style={styles.textInput2}
+          style={styles.input}
           autoCapitalize="none"
           onChangeText={UserPassword => setPassword(UserPassword)}
           keyboardType="default"
@@ -181,7 +199,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,1)',
     fontSize: 30,
     lineHeight: 50,
-    marginBottom: 50,
+
     marginLeft: 30,
   },
   icon2: {
@@ -193,7 +211,7 @@ const styles = StyleSheet.create({
   textInputColumnFiller: {
     flex: 1,
   },
-  textInput2: {
+  email: {
     width: 300,
     height: 42,
     color: '#1da1f2',
@@ -202,7 +220,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     fontSize: 18,
     lineHeight: 20,
-    marginBottom: 50,
+    marginLeft: 36,
+  },
+  input: {
+    width: 300,
+    height: 42,
+    color: '#1da1f2',
+    borderColor: 'rgba(123,139,151,1)',
+    borderWidth: 0,
+    borderBottomWidth: 2,
+    fontSize: 18,
+    lineHeight: 20,
+    marginBottom: 20,
     marginLeft: 36,
   },
   rect2: {
@@ -239,7 +268,7 @@ const styles = StyleSheet.create({
     marginTop: 28,
   },
   textInput3: {
-    width: 180,
+    width: 150,
     height: 42,
     color: '#1da1f2',
     borderColor: 'rgba(123,139,151,1)',
@@ -272,7 +301,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 20,
     marginTop: 0,
-    marginBottom: 50,
+    marginBottom: 20,
     width: 99,
     height: 40,
     backgroundColor: '#1da1f2',
@@ -288,7 +317,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 20,
     marginTop: 0,
-    marginBottom: 50,
+    marginBottom: 20,
     width: 139,
     height: 40,
     backgroundColor: '#1da1f2',
