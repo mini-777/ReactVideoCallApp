@@ -17,7 +17,7 @@ import messaging, {firebase} from '@react-native-firebase/messaging';
 import {auth} from 'firebase-admin';
 import {red} from 'chalk';
 
-function Signup(props) {
+function Signup({navigation}) {
   const [token, setToken] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -60,7 +60,7 @@ function Signup(props) {
       return;
     }
     var re = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(email)) {
+    if (!re.test(email)) {
       Alert.alert('올바른 이메일 양식을 입력하세요');
     }
     if (!password) {
@@ -71,17 +71,18 @@ function Signup(props) {
       Alert.alert('휴대폰 인증을 받으세요');
       return;
     }
-    Alert.alert('회원가입이 완료되었습니다.');
-    setIsLoading(true);
     axios
-      .post('http://3.35.8.116:3001/signup', {
-        token,
-        email,
-        password,
-        phoneNum,
-        name,
+      .post('http://3.34.124.138:3001/signup', {
+        token: token,
+        email: email,
+        password: password,
+        phoneNum: phoneNum,
+        name: name,
       })
-      .then(() => setIsLoading(false))
+      .then(() => {
+        Alert.alert('회원가입이 완료되었습니다 !');
+        navigation.replace('Login');
+      })
       .catch(err => {
         console.error(err);
       });
@@ -116,7 +117,7 @@ function Signup(props) {
           placeholder="이메일"
           autoCapitalize="none"
           secureTextEntry={false}
-          style={styles.email}
+          style={styles.input}
           onChangeText={userEmail => setEmail(userEmail)}
           keyboardType="email-address"
           returnKeyType="next"
@@ -211,17 +212,7 @@ const styles = StyleSheet.create({
   textInputColumnFiller: {
     flex: 1,
   },
-  email: {
-    width: 300,
-    height: 42,
-    color: '#1da1f2',
-    borderColor: 'rgba(123,139,151,1)',
-    borderWidth: 0,
-    borderBottomWidth: 2,
-    fontSize: 18,
-    lineHeight: 20,
-    marginLeft: 36,
-  },
+
   input: {
     width: 300,
     height: 42,
