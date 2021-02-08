@@ -12,6 +12,7 @@ import Modal from 'react-native-simple-modal';
 import messaging from '@react-native-firebase/messaging';
 import styled from '../../components/Style';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Vendor({route, navigation}) {
   const [open, setOpen] = useState(false);
@@ -42,12 +43,18 @@ function Vendor({route, navigation}) {
       }
     });
   }, []);
-
+  const logout = () => {
+    AsyncStorage.clear();
+    navigation.replace('Start');
+  };
   return (
     <View style={styles.rect}>
       <StatusBar hidden />
 
       <MaterialChipBasic style={styles.materialChipBasic} />
+      <TouchableOpacity onPress={logout} style={styles.button2}>
+        <Text style={styles.로그인3}>로그아웃</Text>
+      </TouchableOpacity>
       <Modal
         offset={0}
         open={open}
@@ -111,6 +118,21 @@ const styles = StyleSheet.create({
     height: 59,
     marginTop: 256,
     marginLeft: 56,
+  },
+  로그인3: {
+    color: '#ffffff',
+    fontSize: 24,
+    lineHeight: 30,
+    alignSelf: 'center',
+  },
+  button2: {
+    width: 109,
+    height: 50,
+    backgroundColor: '#1da1f2',
+    borderRadius: 100,
+    justifyContent: 'center',
+    marginTop: 20,
+    marginLeft: 240,
   },
 });
 

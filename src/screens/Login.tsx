@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
-  StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
@@ -37,8 +36,11 @@ function Login({navigation}) {
       })
       .then(Response => {
         if (Response.data.auth && Response.data.vendor) {
-          AsyncStorage.setItem('user_id', email);
+          AsyncStorage.setItem('vendor_id', email);
           navigation.replace('Vendor');
+        } else if (Response.data.auth && !Response.data.vendor) {
+          AsyncStorage.setItem('user_id', email);
+          navigation.replace('Contact');
         } else {
           Alert.alert('비밀번호나 이메일이 잘못되었습니다.');
         }

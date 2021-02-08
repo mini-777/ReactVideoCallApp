@@ -1,21 +1,15 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   View,
-  StatusBar,
   TextInput,
   Text,
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import Divider from '../components/Divider';
-import {Value} from 'react-native-reanimated';
 import axios from 'axios';
-import Loading from './Loading';
-import messaging, {firebase} from '@react-native-firebase/messaging';
-import {auth} from 'firebase-admin';
-import {red} from 'chalk';
+import {firebase} from '@react-native-firebase/messaging';
 
 function Signup({navigation}) {
   const [token, setToken] = useState('');
@@ -26,7 +20,6 @@ function Signup({navigation}) {
   const [authNum, setAuthNum] = useState('');
   const [authInput, setAuthInput] = useState('');
   const [phoneAuth, setPhoneAuth] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fcmToken();
@@ -98,7 +91,6 @@ function Signup({navigation}) {
   };
   return (
     <View style={styles.rect}>
-      <Loading loading={isLoading} />
       <View style={styles.textInput2Column} />
       <View style={styles.textInputColumnFiller} />
       <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
