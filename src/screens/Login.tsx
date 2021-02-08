@@ -36,11 +36,10 @@ function Login({navigation}) {
         password: password,
       })
       .then(Response => {
-        if (Response.data.auth) {
+        if (Response.data.auth && Response.data.vendor) {
           AsyncStorage.setItem('user_id', email);
-          navigation.replace('Contact');
+          navigation.replace('Vendor');
         } else {
-          setErrorMessage(Response.data.msg);
           Alert.alert('비밀번호나 이메일이 잘못되었습니다.');
         }
       })
