@@ -81,7 +81,10 @@ function App() {
         <Stack.Screen
           name="Contact"
           component={Contact}
-          options={{title: '문의하기'}}
+          options={{
+            title: '문의하기',
+            headerShown: false,
+          }}
         />
         <Stack.Screen name="Main" component={Main} options={{title: '메인'}} />
         <Stack.Screen

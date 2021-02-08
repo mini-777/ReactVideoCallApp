@@ -8,11 +8,15 @@ import {
   TextInput,
 } from 'react-native';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Contact({navigation, route}) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
-
+  const logout = () => {
+    AsyncStorage.clear();
+    navigation.replace('Start');
+  };
   const sendMessage = () => {
     axios
       .post('http://3.34.124.138:3001/send', {
@@ -66,6 +70,9 @@ function Contact({navigation, route}) {
           </TouchableOpacity>
         </View>
       </View>
+      <TouchableOpacity onPress={logout} style={styles.button2}>
+        <Text style={styles.로그인3}>로그아웃</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -101,7 +108,7 @@ const styles = StyleSheet.create({
     height: 562,
     backgroundColor: '#E6E6E6',
     borderRadius: 21,
-    marginTop: 10,
+    marginTop: 100,
     alignSelf: 'center',
   },
   materialStackedLabelTextbox: {
@@ -134,6 +141,12 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     alignSelf: 'center',
   },
+  로그인3: {
+    color: '#ffffff',
+    fontSize: 24,
+    lineHeight: 30,
+    alignSelf: 'center',
+  },
   materialUnderlineTextboxStack: {
     width: 297,
     height: 399,
@@ -153,6 +166,15 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     paddingTop: 8,
     paddingBottom: 8,
+  },
+  button2: {
+    width: 109,
+    height: 50,
+    backgroundColor: '#1da1f2',
+    borderRadius: 100,
+    justifyContent: 'center',
+    marginTop: 20,
+    marginLeft: 240,
   },
 });
 

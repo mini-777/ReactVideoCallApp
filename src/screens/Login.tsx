@@ -19,11 +19,8 @@ function Login({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {});
-  const handleSubmitPress = () => {
-    setErrorMessage('');
+  const handleSubmitPress = async () => {
     if (!email) {
       Alert.alert('Please fill Email');
       return;
@@ -33,56 +30,53 @@ function Login({navigation}) {
       return;
     }
     setIsLoading(true);
-    axios
-      .post('http://3.34.124.138:3000/login', {
+    await axios
+      .post('http://3.34.124.138:3001/login', {
         email: email,
         password: password,
       })
       .then(Response => {
-        setIsLoading(false);
-        console.log(Response.data);
-        if (Response.data.message) {
-          AsyncStorage.setItem('user_id', Response.data.email);
-          navigation.replace('DrawerNavigationRoutes');
+        if (Response.data.auth) {
+          AsyncStorage.setItem('user_id', email);
+          navigation.replace('Contact');
         } else {
           setErrorMessage(Response.data.msg);
-          console.log('Please check your email id or password');
+          Alert.alert('비밀번호나 이메일이 잘못되었습니다.');
         }
-        console.log(Response.data.message);
       })
       .catch(error => {
         setIsLoading(false);
         console.error(error);
       });
+    setIsLoading(false);
   };
   return (
     <View style={styles.rect}>
       <Loading loading={isLoading} />
-      <StatusBar hidden />
-      <View style={styles.무진콜에로그인하세요Column}>
-        <Text style={styles.무진콜에로그인하세요}>무진에 로그인하세요</Text>
-        <Text style={styles.id3}>이메일</Text>
-        <Text style={styles.text4}>비밀번호</Text>
-        <TextInput
-          autoCapitalize="none"
-          placeholder=""
-          secureTextEntry={false}
-          style={styles.textInput2}
-          onChangeText={userEmail => setEmail(userEmail)}
-          keyboardType="email-address"
-          returnKeyType="next"
-          onSubmitEditing={Keyboard.dismiss}
-        />
-        <TextInput
-          autoCapitalize="none"
-          placeholder=""
-          secureTextEntry={true}
-          style={styles.textInput}
-          onChangeText={UserPassword => setPassword(UserPassword)}
-          keyboardType="default"
-          onSubmitEditing={Keyboard.dismiss}
-        />
-      </View>
+
+      <Text style={styles.무진콜에로그인하세요}>무진에 로그인하세요</Text>
+      <Text style={styles.id3}>이메일</Text>
+      <Text style={styles.text4}>비밀번호</Text>
+      <TextInput
+        autoCapitalize="none"
+        placeholder=""
+        secureTextEntry={false}
+        style={styles.textInput2}
+        onChangeText={userEmail => setEmail(userEmail)}
+        keyboardType="email-address"
+        returnKeyType="next"
+        onSubmitEditing={Keyboard.dismiss}
+      />
+      <TextInput
+        autoCapitalize="none"
+        placeholder=""
+        secureTextEntry={true}
+        style={styles.textInput}
+        onChangeText={UserPassword => setPassword(UserPassword)}
+        keyboardType="default"
+        onSubmitEditing={Keyboard.dismiss}
+      />
+
       <View style={styles.무진콜에로그인하세요ColumnFiller} />
       <View style={styles.rect4}>
         <Divider style={styles.divider} />
@@ -101,9 +95,9 @@ const styles = StyleSheet.create({
   },
   무진콜에로그인하세요: {
     color: 'rgba(255,255,255,1)',
-    fontSize: 24,
+    fontSize: 30,
     lineHeight: 50,
-    marginTop: 118,
+    marginTop: 158,
     marginLeft: 17,
   },
   rect2: {
@@ -115,7 +109,7 @@ const styles = StyleSheet.create({
     color: 'rgba(123,139,151,1)',
     fontSize: 16,
     lineHeight: 20,
-    marginTop: 102,
+    marginTop: 40,
     marginLeft: 18,
   },
   text4: {
@@ -156,7 +150,7 @@ const styles = StyleSheet.create({
     marginTop: -110,
     marginLeft: 17,
   },
-  무진콜에로그인하세요Column: {},
+
   무진콜에로그인하세요ColumnFiller: {
     flex: 1,
   },
