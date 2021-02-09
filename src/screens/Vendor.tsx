@@ -1,4 +1,3 @@
-// @ts-ignore
 import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
@@ -20,15 +19,6 @@ function Vendor({route, navigation}) {
   const [subject, setSubject] = useState('');
   const [token, setToken] = useState('');
   useEffect(() => {
-    axios
-      .get('http://3.35.8.116:8080/rtcToken?channelName=videoCall')
-      .then(Response => {
-        setToken(Response.data.key);
-        console.log('RTCtoken...', token);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
     if (route.params) {
       console.log(route)
       setTitle(route.params.notification.title);
@@ -42,9 +32,21 @@ function Vendor({route, navigation}) {
         setOpen(true);
       }
     });
-  }, []);
+    
+  });
+  const clearAll = async () => {
+    try {
+      await AsyncStorage.clear()
+    } catch(e) {
+      // clear error
+    }
+  
+    console.log('Done.')
+  }
+  
+
   const logout = () => {
-    AsyncStorage.clear();
+    clearAll();
     navigation.replace('Start');
   };
   return (

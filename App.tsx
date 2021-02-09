@@ -9,25 +9,13 @@ import Splash from './src/screens/Splash';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
-
 import Main from './src/screens/Main';
-import axios from 'axios';
 const Stack = createStackNavigator();
 
 function App() {
-  const [token, setToken] = useState('');
   useEffect(() => {
     requestUserPermission();
-    axios
-      .get('http://3.34.124.138:8080/rtcToken?channelName=videoCall')
-      .then(Response => {
-        setToken(Response.data.key);
-        console.log('RTCtoken...', token);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [token]);
+  });
 
   async function requestUserPermission() {
     const authStatus = await messaging().requestPermission();
@@ -90,7 +78,7 @@ function App() {
         <Stack.Screen
           name="Vendor"
           component={Vendor}
-          options={{title: '고객 상담'}}
+          options={{title: '고객 상담', headerShown: false}}
         />
         <Stack.Screen
           name="Videocall"

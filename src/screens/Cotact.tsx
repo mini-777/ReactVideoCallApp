@@ -14,7 +14,7 @@ function Contact({navigation, route}) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
   const logout = () => {
-    AsyncStorage.clear();
+    clearAll();
     navigation.replace('Start');
   };
   const sendMessage = () => {
@@ -34,6 +34,15 @@ function Contact({navigation, route}) {
     sendMessage();
     console.log(route);
     navigation.navigate('Videocall', route.params);
+  };
+  const clearAll = async () => {
+    try {
+      await AsyncStorage.clear();
+    } catch (e) {
+      // clear error
+    }
+
+    console.log('Done.');
   };
 
   return (

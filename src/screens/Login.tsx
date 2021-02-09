@@ -29,17 +29,18 @@ function Login({navigation}) {
       return;
     }
     setIsLoading(true);
+
     await axios
       .post('http://3.34.124.138:3001/login', {
         email: email,
         password: password,
       })
-      .then(Response => {
+      .then(async Response => {
         if (Response.data.auth && Response.data.vendor) {
-          AsyncStorage.setItem('vendor_id', email);
+          await storeUserData('vendor');
           navigation.replace('Vendor');
         } else if (Response.data.auth && !Response.data.vendor) {
-          AsyncStorage.setItem('user_id', email);
+          await storeUserData('user');
           navigation.replace('Contact');
         } else {
           Alert.alert('비밀번호나 이메일이 잘못되었습니다.');
@@ -50,6 +51,14 @@ function Login({navigation}) {
         console.error(error);
       });
     setIsLoading(false);
+  };
+  const storeUserData = async value => {
+    try {
+      await AsyncStorage.setItem('@user_id', value);
+    } catch (e) {
+      // saving error
+      console.log(e);
+    }
   };
   return (
     <View style={styles.rect}>
