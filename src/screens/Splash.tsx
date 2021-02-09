@@ -6,31 +6,26 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const SplashScreen = ({navigation}) => {
   //State for ActivityIndicator animation
   const [animating, setAnimating] = useState(true);
-  const [rtctoken, setToken] = useState('');
 
   useEffect(() => {
+    setAnimating(true);
     axios
       .get('http://3.34.124.138:8080/rtcToken?channelName=videoCall')
       .then(Response => {
-        setToken(Response.data.key);
-        console.log('RTCtoken...', rtctoken);
+        AsyncStorage.getItem('@user_id').then(value => {
+          if (value === 'vendor') {
+            navigation.replace('Vendor', Response.data.key);
+          } else if (value === 'user') {
+            navigation.replace('Contact', Response.data.key);
+          } else {
+            navigation.replace('Start', Response.data.key);
+          }
+        });
       })
       .catch(Error => {
         console.log(Error);
       });
-    setTimeout(() => {
-      setAnimating(false);
-      AsyncStorage.getItem('@user_id').then(value => {
-        if (value === 'vendor') {
-          navigation.replace('Vendor');
-        } else if (value === 'user') {
-          navigation.replace('Contact');
-        } else {
-          navigation.replace('Start');
-        }
-      });
-    }, 1000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setAnimating(false);
   }, [navigation]);
 
   return (

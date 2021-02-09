@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Contact from './src/screens/Cotact';
 import Login from './src/screens/Login';
 import Videocall from './src/screens/Videocall';
