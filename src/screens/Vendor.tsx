@@ -8,9 +8,8 @@ import {
 } from 'react-native';
 import MaterialChipBasic from '../components/MaterialChipBasic';
 import Modal from 'react-native-simple-modal';
-import messaging from '@react-native-firebase/messaging';
 import styled from '../../components/Style';
-import axios from 'axios';
+import messaging from '@react-native-firebase/messaging';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Vendor({route, navigation}) {
@@ -19,6 +18,7 @@ function Vendor({route, navigation}) {
   const [subject, setSubject] = useState('');
   const [token, setToken] = useState('');
   useEffect(() => {
+    console.log(route);
     if (route.params) {
       console.log(route)
       setTitle(route.params.notification.title);
@@ -32,12 +32,12 @@ function Vendor({route, navigation}) {
         setOpen(true);
       }
     });
-    
   });
   const clearAll = async () => {
     try {
       await AsyncStorage.clear()
     } catch(e) {
+      
       // clear error
     }
   
