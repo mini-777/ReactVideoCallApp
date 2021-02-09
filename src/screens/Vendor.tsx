@@ -19,12 +19,17 @@ function Vendor({route, navigation}) {
   const [token, setToken] = useState('');
   useEffect(() => {
     console.log(route);
-    if (route.params) {
-      console.log(route)
-      setTitle(route.params.notification.title);
-      setSubject(route.params.notification.body);
-      setOpen(true);
+    try {
+      if (route.params.notification) {
+        console.log(route)
+        setTitle(route.params.notification.notification.title);
+        setSubject(route.params.notification.notification.body);
+        setOpen(true);
+      }
+    }catch(e){
+      console.log(e);
     }
+   
     messaging().onMessage(async remoteMessage => {
       if (remoteMessage.notification?.title && remoteMessage.notification.body) {
         setTitle(remoteMessage.notification.title);
@@ -32,13 +37,12 @@ function Vendor({route, navigation}) {
         setOpen(true);
       }
     });
-  });
+  }, [route.params.notification]);
   const clearAll = async () => {
     try {
       await AsyncStorage.clear()
     } catch(e) {
-      
-      // clear error
+      console.log(e);
     }
   
     console.log('Done.')
@@ -49,13 +53,14 @@ function Vendor({route, navigation}) {
     clearAll();
     navigation.replace('Start');
   };
+
   return (
-    <View style={styles.rect}>
+    <View style={styles.frame}>
       <StatusBar hidden />
 
       <MaterialChipBasic style={styles.materialChipBasic} />
-      <TouchableOpacity onPress={logout} style={styles.button2}>
-        <Text style={styles.로그인3}>로그아웃</Text>
+      <TouchableOpacity onPress={logout} style={styles.logout}>
+        <Text style={styles.login}>로그아웃</Text>
       </TouchableOpacity>
       <Modal
         offset={0}
@@ -68,7 +73,7 @@ function Vendor({route, navigation}) {
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Videocall', token);
+            navigation.navigate('Videocall', route.params.fcmToken);
             setOpen(false)
           }}
           style={styled.button}>
@@ -83,37 +88,13 @@ function Vendor({route, navigation}) {
 }
 
 const styles = StyleSheet.create({
-  rect: {
+  frame: {
     flex: 1,
     backgroundColor: '#141f28',
-  },
-  rect1: {
-    height: 84,
-    backgroundColor: '#1c2a38',
-  },
-  문의하기1: {
-    top: 14,
-    left: 0,
-    color: 'rgba(255,255,255,1)',
-    position: 'absolute',
-    fontSize: 24,
-  },
-  문의하기2: {
-    top: 0,
-    left: 0,
-    color: 'rgba(255,255,255,1)',
-    position: 'absolute',
-    fontSize: 24,
   },
   vendorText: {
     fontSize: 20,
     margin: 10,
-  },
-  문의하기1Stack: {
-    width: 96,
-    height: 32,
-    marginTop: 26,
-    marginLeft: 31,
   },
   materialChipBasic: {
     width: 249,
@@ -121,13 +102,13 @@ const styles = StyleSheet.create({
     marginTop: 256,
     marginLeft: 56,
   },
-  로그인3: {
+  login: {
     color: '#ffffff',
     fontSize: 24,
     lineHeight: 30,
     alignSelf: 'center',
   },
-  button2: {
+  logout: {
     width: 109,
     height: 50,
     backgroundColor: '#1da1f2',

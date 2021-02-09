@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -6,60 +6,8 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import messaging from '@react-native-firebase/messaging';
-import {Alert} from 'react-native';
 
-function Start({navigation}) {
-  useEffect(() => {
-    _checkPermission();
-    _listenForNotifications();
-
-    return function cleanup() {
-      notificationOpenedListener();
-    };
-  });
-  const _checkPermission = async () => {
-    const enabled = await messaging().hasPermission();
-    if (enabled) {
-      // user has permissions
-      console.log('FCM Permission Success');
-      // this._updateTokenToServer();
-    } else {
-      // user doesn't have permission
-      _requestPermission();
-    }
-  };
-
-  const _requestPermission = async () => {
-    try {
-      // User has authorised
-      await messaging().requestPermission();
-      // await this._updateTokenToServer();
-    } catch (error) {
-      // User has rejected permissions
-      Alert.alert("you can't handle push notification");
-    }
-  };
-
-  const notificationOpenedListener = messaging().onNotificationOpenedApp(
-    notificationOpen => {
-      console.log('onNotificationOpened', notificationOpen);
-    },
-  );
-
-  const _listenForNotifications = async () => {
-    messaging().onNotificationOpenedApp(notificationOpen => {
-      console.log('onNotificationOpened', notificationOpen);
-    });
-
-    const notificationOpen = await messaging().getInitialNotification();
-    if (notificationOpen) {
-      console.log('getInitialNotification', notificationOpen);
-      navigation.navigate('Vendor', notificationOpen);
-    }
-  };
-  // Set an initializing state whilst Firebase connects
-
+function Start({navigation, route}) {
   // Handle user state changes
 
   return (
@@ -68,16 +16,15 @@ function Start({navigation}) {
       <View style={styles.자동차문의는무진콜Column}>
         <Text style={styles.자동차문의는무진콜}>자동차 문의는{'\n'}무진</Text>
         <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Signup', {name: 'Custom profile header'})
-          }
+          onPress={() => navigation.navigate('Signup', route.params)}
           style={styles.button}>
           <Text style={styles.계정생성하기}>계정 생성하기</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.자동차문의는무진콜ColumnFiller} />
       <View style={styles.rect2}>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Login', route.params)}>
           <Text style={styles.이미계정이있으신가요}>
             이미 계정이 있으신가요?
           </Text>

@@ -21,11 +21,11 @@ function Contact({navigation, route}) {
     axios
       .post('http://3.34.124.138:3001/send', {
         token:
-          'eqXVprSUS0uAxOUMJITf7K:APA91bHXMSZqDFX2tKJuTQf2faYiM1d18cycPGf0omcI7UK93EaUGT00M_fFKbGnkTduZSYh4pzmhZUZ2qiAGOCon4JsGo9xhmVRkr-uRWAPdCfbKjqZbUA84vdu1I9iK5fTw9c1eK4d',
+          'fGJG2mKdRYS0BPMtgtLZMk:APA91bHwtKbJF8o8KinjjpUGPMdCORM2OKPXf-bFDUwrMEcWn2kCoEzguZjAu5cl-sbsZ80tNPfal_8iE6-vdHltP09qXw7dpzcD0v_HAJ30U4XFikKaVlxrL0d3htHTsay6iNPYn1cS',
         title: title,
         subject: subject,
       })
-      .then(() => console.log('Book Created'))
+      .then(() => console.log('Sendit !!!'))
       .catch(err => {
         console.error(err);
       });
@@ -46,9 +46,9 @@ function Contact({navigation, route}) {
   };
 
   return (
-    <View style={styles.rect}>
+    <View style={styles.frame}>
       <StatusBar hidden />
-      <View style={styles.rect4}>
+      <View style={styles.insideFrame}>
         <View
           style={[
             styles.container,
@@ -74,45 +74,26 @@ function Contact({navigation, route}) {
               onChangeText={text => setSubject(text)}
             />
           </View>
-          <TouchableOpacity onPress={startVideocall} style={styles.button1}>
-            <Text style={styles.로그인1}>상담 신청</Text>
+          <TouchableOpacity
+            onPress={startVideocall}
+            style={styles.contactButton}>
+            <Text style={styles.contactText}>상담 신청</Text>
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity onPress={logout} style={styles.button2}>
-        <Text style={styles.로그인3}>로그아웃</Text>
+      <TouchableOpacity onPress={logout} style={styles.logoutButton}>
+        <Text style={styles.logoutText}>로그아웃</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  rect: {
+  frame: {
     flex: 1,
     backgroundColor: '#141f2b',
   },
-  rect2: {
-    height: 100,
-    backgroundColor: '#1c2a38',
-    flexDirection: 'row',
-  },
-  문의하기: {
-    color: 'rgba(255,255,255,1)',
-    fontSize: 24,
-    marginLeft: 31,
-    marginTop: 58,
-  },
-  문의하기Filler: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  rect3: {
-    width: 31,
-    height: 28,
-    marginRight: 18,
-    marginTop: 28,
-  },
-  rect4: {
+  insideFrame: {
     width: 338,
     height: 562,
     backgroundColor: '#E6E6E6',
@@ -133,7 +114,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
   },
-  button1: {
+  contactButton: {
     marginTop: 10,
     top: 349,
     width: 284,
@@ -144,13 +125,13 @@ const styles = StyleSheet.create({
     left: 7,
     justifyContent: 'center',
   },
-  로그인1: {
+  contactText: {
     color: '#ffffff',
     fontSize: 24,
     lineHeight: 30,
     alignSelf: 'center',
   },
-  로그인3: {
+  logoutText: {
     color: '#ffffff',
     fontSize: 24,
     lineHeight: 30,
@@ -176,7 +157,7 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 8,
   },
-  button2: {
+  logoutButton: {
     width: 109,
     height: 50,
     backgroundColor: '#1da1f2',

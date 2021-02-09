@@ -144,11 +144,11 @@ export default class Videocall extends Component<Props, state> {
 
   render() {
     const styled = StyleSheet.create({
-        rect: {
+        frame: {
           flex: 1,
           backgroundColor: "rgba(20,31,43,1)"
         },
-        materialButtonPink1: {
+        materialButtonPink: {
             height: 46,
             width: 256,
             borderRadius: 37,
@@ -173,7 +173,7 @@ export default class Videocall extends Component<Props, state> {
             paddingLeft: 16,
             paddingRight: 16
           },
-          상담종료: {
+          contactEnd: {
             color: "#fff",
             fontSize: 14
           },
@@ -184,12 +184,12 @@ export default class Videocall extends Component<Props, state> {
     
     
           <View style={styles.max}>
-              <View style={styled.rect}>
+              <View style={styled.frame}>
                       {this._renderVideos()}
                   <View style={styles.buttonHolder}>
-                  <TouchableOpacity style={[styled.container, styled.materialButtonPink1]}
+                  <TouchableOpacity style={[styled.container, styled.materialButtonPink]}
         onPress={this.endCall}>
-      <Text style={styled.상담종료}>상담 종료</Text>
+      <Text style={styled.contactEnd}>상담 종료</Text>
     </TouchableOpacity>
                   </View>
               </View>

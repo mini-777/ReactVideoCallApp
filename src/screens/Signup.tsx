@@ -11,7 +11,7 @@ import Divider from '../components/Divider';
 import axios from 'axios';
 import {firebase} from '@react-native-firebase/messaging';
 
-function Signup({navigation}) {
+function Signup({navigation, route}) {
   const [token, setToken] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -28,6 +28,7 @@ function Signup({navigation}) {
   const fcmToken = async () => {
     const fcm = await firebase.messaging().getToken();
     setToken(fcm);
+    console.log(fcm);
   };
 
   const sendAuth = async () => {
@@ -74,7 +75,7 @@ function Signup({navigation}) {
       })
       .then(() => {
         Alert.alert('회원가입이 완료되었습니다 !');
-        navigation.replace('Login');
+        navigation.replace('Login', route.params);
       })
       .catch(err => {
         console.error(err);
