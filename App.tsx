@@ -27,7 +27,7 @@ function App() {
       .catch(Error => {
         console.log(Error);
       });
-  });
+  }, [token]);
 
   async function requestUserPermission() {
     const authStatus = await messaging().requestPermission();
