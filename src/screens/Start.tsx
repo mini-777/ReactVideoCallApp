@@ -11,23 +11,21 @@ function Start({navigation, route}) {
   // Handle user state changes
 
   return (
-    <View style={styles.rect}>
+    <View style={styles.frame}>
       <StatusBar hidden />
-      <View style={styles.자동차문의는무진콜Column}>
-        <Text style={styles.자동차문의는무진콜}>자동차 문의는{'\n'}무진</Text>
+      <View style={styles.signupButtonFrame}>
+        <Text style={styles.titleText}>자동차 문의는{'\n'}무진</Text>
         <TouchableOpacity
           onPress={() => navigation.navigate('Signup', route.params)}
-          style={styles.button}>
-          <Text style={styles.계정생성하기}>계정 생성하기</Text>
+          style={styles.signupButton}>
+          <Text style={styles.subtitleText}>계정 생성하기</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.자동차문의는무진콜ColumnFiller} />
-      <View style={styles.rect2}>
+      <View style={styles.flexFrame} />
+      <View style={styles.loginButtonFrame}>
         <TouchableOpacity
           onPress={() => navigation.navigate('Login', route.params)}>
-          <Text style={styles.이미계정이있으신가요}>
-            이미 계정이 있으신가요?
-          </Text>
+          <Text style={styles.loginButtonText}>이미 계정이 있으신가요?</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -35,11 +33,11 @@ function Start({navigation, route}) {
 }
 
 const styles = StyleSheet.create({
-  rect: {
+  frame: {
     flex: 1,
     backgroundColor: 'rgba(21,31,40,1)',
   },
-  자동차문의는무진콜: {
+  titleText: {
     color: 'rgba(255,255,255,1)',
     fontSize: 45,
     lineHeight: 50,
@@ -47,33 +45,33 @@ const styles = StyleSheet.create({
     marginLeft: 3,
     marginRight: 2,
   },
-  button: {
+  signupButton: {
     height: 81,
     backgroundColor: 'rgba(29,161,242,1)',
     borderRadius: 100,
     justifyContent: 'center',
     marginTop: 120,
   },
-  계정생성하기: {
+  subtitleText: {
     color: 'rgba(255,255,255,1)',
     fontSize: 24,
     alignSelf: 'center',
   },
-  자동차문의는무진콜Column: {
+  signupButtonFrame: {
     marginTop: 233,
     marginLeft: 31,
     marginRight: 31,
   },
-  자동차문의는무진콜ColumnFiller: {
+  flexFrame: {
     flex: 1,
   },
-  rect2: {
+  loginButtonFrame: {
     height: 39,
     marginBottom: 45,
     marginLeft: 28,
     marginRight: 28,
   },
-  이미계정이있으신가요: {
+  loginButtonText: {
     color: 'rgba(255,255,255,1)',
     fontSize: 20,
     marginTop: 13,
