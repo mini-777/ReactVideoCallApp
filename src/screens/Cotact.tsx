@@ -13,24 +13,25 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 function Contact({navigation, route}) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
+  const BASE_URL = 'http://3.34.124.138:3001/';
   const logout = () => {
     clearAll();
     navigation.replace('Start');
   };
   const sendMessage = () => {
     axios
-      .post('http://3.34.124.138:3001/send', {
+      .post(BASE_URL + 'send', {
         token:
           'fGJG2mKdRYS0BPMtgtLZMk:APA91bHwtKbJF8o8KinjjpUGPMdCORM2OKPXf-bFDUwrMEcWn2kCoEzguZjAu5cl-sbsZ80tNPfal_8iE6-vdHltP09qXw7dpzcD0v_HAJ30U4XFikKaVlxrL0d3htHTsay6iNPYn1cS',
         title: title,
         subject: subject,
       })
-      .then(() => console.log('Sendit !!!'))
+      .then(() => console.log('Send it !!!'))
       .catch(err => {
         console.error(err);
       });
   };
-  const startVideocall = async () => {
+  const startVideoCall = async () => {
     sendMessage();
     console.log(route);
     navigation.navigate('Videocall', route.params);
@@ -75,7 +76,7 @@ function Contact({navigation, route}) {
             />
           </View>
           <TouchableOpacity
-            onPress={startVideocall}
+            onPress={startVideoCall}
             style={styles.contactButton}>
             <Text style={styles.contactText}>상담 신청</Text>
           </TouchableOpacity>

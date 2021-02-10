@@ -6,6 +6,7 @@ import React from 'react';
 import {StyleSheet, View, Modal, ActivityIndicator} from 'react-native';
 
 const Loader = props => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {loading, ...attributes} = props;
 
   return (

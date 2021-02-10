@@ -13,6 +13,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loading from './Loading';
+import URL from '../settings/URL';
 
 function Login({navigation}) {
   const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ function Login({navigation}) {
     setIsLoading(true);
 
     await axios
-      .post('http://3.34.124.138:3001/login', {
+      .post(URL + 'login', {
         email: email,
         password: password,
       })
@@ -61,17 +62,17 @@ function Login({navigation}) {
     }
   };
   return (
-    <View style={styles.rect}>
+    <View style={styles.frame}>
       <Loading loading={isLoading} />
 
-      <Text style={styles.무진콜에로그인하세요}>무진에 로그인하세요</Text>
-      <Text style={styles.id3}>이메일</Text>
-      <Text style={styles.text4}>비밀번호</Text>
+      <Text style={styles.loginText}>무진에 로그인하세요</Text>
+      <Text style={styles.emailText}>이메일</Text>
+      <Text style={styles.passwordText}>비밀번호</Text>
       <TextInput
         autoCapitalize="none"
         placeholder=""
         secureTextEntry={false}
-        style={styles.textInput2}
+        style={styles.emailInput}
         onChangeText={userEmail => setEmail(userEmail)}
         keyboardType="email-address"
         returnKeyType="next"
@@ -81,17 +82,19 @@ function Login({navigation}) {
         autoCapitalize="none"
         placeholder=""
         secureTextEntry={true}
-        style={styles.textInput}
+        style={styles.passwordInput}
         onChangeText={UserPassword => setPassword(UserPassword)}
         keyboardType="default"
         onSubmitEditing={Keyboard.dismiss}
       />
 
-      <View style={styles.무진콜에로그인하세요ColumnFiller} />
-      <View style={styles.rect4}>
+      <View style={styles.loginFrame} />
+      <View style={styles.loginButtonForm}>
         <Divider style={styles.divider} />
-        <TouchableOpacity onPress={handleSubmitPress} style={styles.button2}>
-          <Text style={styles.로그인3}>로그인</Text>
+        <TouchableOpacity
+          onPress={handleSubmitPress}
+          style={styles.loginButton}>
+          <Text style={styles.loginButtonText}>로그인</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -99,37 +102,32 @@ function Login({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  rect: {
+  frame: {
     flex: 1,
     backgroundColor: '#141f28',
   },
-  무진콜에로그인하세요: {
+  loginText: {
     color: 'rgba(255,255,255,1)',
     fontSize: 30,
     lineHeight: 50,
     marginTop: 158,
     marginLeft: 17,
   },
-  rect2: {
-    height: 98,
-    backgroundColor: '#1c2a38',
-    marginTop: -168,
-  },
-  id3: {
+  emailText: {
     color: 'rgba(123,139,151,1)',
     fontSize: 16,
     lineHeight: 20,
     marginTop: 40,
     marginLeft: 18,
   },
-  text4: {
+  passwordText: {
     color: 'rgba(123,139,151,1)',
     fontSize: 18,
     lineHeight: 20,
     marginTop: 87,
     marginLeft: 17,
   },
-  textInput: {
+  passwordInput: {
     width: 300,
     height: 42,
     color: '#1da1f2',
@@ -141,14 +139,7 @@ const styles = StyleSheet.create({
     marginTop: 70,
     marginLeft: 17,
   },
-  text5: {
-    color: '#7b8b97',
-    fontSize: 18,
-    lineHeight: 20,
-    marginTop: 50,
-    marginLeft: 82,
-  },
-  textInput2: {
+  emailInput: {
     width: 300,
     height: 42,
     color: '#1da1f2',
@@ -161,17 +152,17 @@ const styles = StyleSheet.create({
     marginLeft: 17,
   },
 
-  무진콜에로그인하세요ColumnFiller: {
+  loginFrame: {
     flex: 1,
   },
-  rect4: {
+  loginButtonForm: {
     height: 91,
   },
   divider: {
     width: 360,
     height: 1,
   },
-  button2: {
+  loginButton: {
     width: 109,
     height: 50,
     backgroundColor: '#1da1f2',
@@ -180,17 +171,11 @@ const styles = StyleSheet.create({
     marginTop: 13,
     marginLeft: 240,
   },
-  로그인3: {
+  loginButtonText: {
     color: '#ffffff',
     fontSize: 24,
     lineHeight: 30,
     alignSelf: 'center',
-  },
-  로그인4: {
-    color: 'rgba(255,255,255,1)',
-    fontSize: 24,
-    marginTop: 53,
-    marginLeft: 31,
   },
 });
 

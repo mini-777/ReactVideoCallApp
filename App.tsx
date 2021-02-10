@@ -9,7 +9,6 @@ import Splash from './src/screens/Splash';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
-import Main from './src/screens/Main';
 const Stack = createStackNavigator();
 
 function App() {
@@ -74,7 +73,6 @@ function App() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Main" component={Main} options={{title: '메인'}} />
         <Stack.Screen
           name="Vendor"
           component={Vendor}
