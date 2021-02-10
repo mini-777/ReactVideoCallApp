@@ -91,10 +91,10 @@ function Signup({navigation, route}) {
     }
   };
   return (
-    <View style={styles.rect}>
+    <View style={styles.frame}>
       <View style={styles.textInput2Column} />
       <View style={styles.textInputColumnFiller} />
-      <Text style={styles.계정을생성하세요}>계정을 생성하세요</Text>
+      <Text style={styles.registerText}>계정을 생성하세요</Text>
       <View style={styles.textInput2Column}>
         <TextInput
           placeholder="이름"
@@ -130,12 +130,12 @@ function Signup({navigation, route}) {
             placeholder="전화번호 ('-'빼고)"
             autoCapitalize="none"
             placeholderTextColor="rgba(120,135,147,1)"
-            style={styles.textInput3}
+            style={styles.phoneNumInput}
             onChangeText={num => setPhoneNum(num)}
             maxLength={11}
             keyboardType="number-pad"
           />
-          <TouchableOpacity onPress={sendAuth} style={styles.textInput6}>
+          <TouchableOpacity onPress={sendAuth} style={styles.authRequestButton}>
             <Text style={styles.authButton}>인증번호 요청</Text>
           </TouchableOpacity>
         </View>
@@ -145,17 +145,19 @@ function Signup({navigation, route}) {
             placeholderTextColor="rgba(120,135,147,1)"
             maxLength={4}
             keyboardType="number-pad"
-            style={styles.textInput4}
+            style={styles.authInput}
             onChangeText={num => setAuthInput(num)}
           />
-          <TouchableOpacity onPress={phoneRegister} style={styles.textInput5}>
+          <TouchableOpacity
+            onPress={phoneRegister}
+            style={styles.authCheckButton}>
             <Text style={styles.authButton}>인증확인</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.rect2}>
+        <View style={styles.signupButtonFrame}>
           <Divider style={styles.divider} />
-          <TouchableOpacity onPress={handleSignUp} style={styles.button}>
-            <Text style={styles.다음}>회원가입</Text>
+          <TouchableOpacity onPress={handleSignUp} style={styles.signupButton}>
+            <Text style={styles.signup}>회원가입</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -164,44 +166,16 @@ function Signup({navigation, route}) {
 }
 
 const styles = StyleSheet.create({
-  rect: {
+  frame: {
     flex: 1,
     backgroundColor: '#141f28',
   },
-  textInput: {
-    width: 300,
-    height: 42,
-    color: '#1da1f2',
-    borderColor: '#1da1f2',
-    borderWidth: 0,
-    borderBottomWidth: 2,
-    fontSize: 18,
-    lineHeight: 20,
-    marginTop: 36,
-    marginBottom: 50,
-    marginLeft: 36,
-  },
-  text2: {
-    color: '#757575',
-    fontSize: 18,
-    lineHeight: 20,
-    alignSelf: 'flex-end',
-    marginTop: 12,
-    marginRight: 1,
-  },
-  계정을생성하세요: {
+  registerText: {
     color: 'rgba(255,255,255,1)',
     fontSize: 30,
     lineHeight: 50,
-
     marginLeft: 30,
   },
-  icon2: {
-    color: '#1da1f2',
-    fontSize: 35,
-    marginTop: -143,
-  },
-
   textInputColumnFiller: {
     flex: 1,
   },
@@ -218,7 +192,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 36,
   },
-  rect2: {
+  signupButtonFrame: {
     height: 65,
     width: 375,
   },
@@ -226,7 +200,7 @@ const styles = StyleSheet.create({
     width: 360,
     height: 1,
   },
-  button: {
+  signupButton: {
     width: 109,
     height: 50,
     backgroundColor: '#1da1f2',
@@ -235,7 +209,7 @@ const styles = StyleSheet.create({
     marginTop: 13,
     marginLeft: 240,
   },
-  다음: {
+  signup: {
     color: '#ffffff',
     fontSize: 24,
     lineHeight: 30,
@@ -251,7 +225,7 @@ const styles = StyleSheet.create({
     marginLeft: 31,
     marginTop: 28,
   },
-  textInput3: {
+  phoneNumInput: {
     width: 150,
     height: 42,
     color: '#1da1f2',
@@ -264,7 +238,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     marginLeft: 36,
   },
-  textInput4: {
+  authInput: {
     width: 180,
     height: 42,
     color: '#1da1f2',
@@ -277,7 +251,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     marginLeft: 36,
   },
-  textInput5: {
+  authCheckButton: {
     color: '#1da1f2',
     borderColor: 'rgba(123,139,151,1)',
     borderWidth: 0,
@@ -293,7 +267,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginLeft: 10,
   },
-  textInput6: {
+  authRequestButton: {
     color: '#1da1f2',
     borderColor: 'rgba(123,139,151,1)',
     borderWidth: 0,
