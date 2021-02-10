@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import MaterialButtonPink1 from "../components/MaterialButtonPink1";
 import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
-import {Platform, PushNotificationIOS, ScrollView, Text, TouchableOpacity, View, StyleSheet, ViewBase, StatusBar, TextBase} from 'react-native'
-
+import {Platform, ScrollView, Text, TouchableOpacity, View, StyleSheet} from 'react-native'
 import requestCameraAndAudioPermission from '../../components/Permission'
 import styles from '../../components/Style'
-import axios from 'axios'
+
 
 interface Props {
     navigation: any
@@ -59,16 +57,7 @@ export default class Videocall extends Component<Props, state> {
 
   componentDidMount() {
       this.init();
-      
-
-     
-
-      
   }
-  componentDidUpdate() {
-   
-  }
-
   /**
    * @name init
    * @description Function to initialize the Rtc Engine, attach event listeners and actions

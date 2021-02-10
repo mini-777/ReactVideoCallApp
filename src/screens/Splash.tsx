@@ -39,6 +39,7 @@ const SplashScreen = ({navigation}) => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation]);
+
   const _checkPermission = async () => {
     const enabled = await messaging().hasPermission();
     if (enabled) {

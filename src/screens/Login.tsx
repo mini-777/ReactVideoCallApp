@@ -30,7 +30,6 @@ function Login({navigation}) {
       return;
     }
     setIsLoading(true);
-
     await axios
       .post(URL + 'login', {
         email: email,
@@ -53,6 +52,7 @@ function Login({navigation}) {
       });
     setIsLoading(false);
   };
+
   const storeUserData = async value => {
     try {
       await AsyncStorage.setItem('@user_id', value);
