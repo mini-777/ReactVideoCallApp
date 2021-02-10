@@ -13,7 +13,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loading from './Loading';
-import URL from '../settings/URL';
+import BASE_URL from '../settings/URL';
 
 function Login({navigation}) {
   const [email, setEmail] = useState('');
@@ -31,7 +31,7 @@ function Login({navigation}) {
     }
     setIsLoading(true);
     await axios
-      .post(URL + 'login', {
+      .post(`${BASE_URL}3001/login`, {
         email: email,
         password: password,
       })
@@ -57,7 +57,6 @@ function Login({navigation}) {
     try {
       await AsyncStorage.setItem('@user_id', value);
     } catch (e) {
-      // saving error
       console.log(e);
     }
   };

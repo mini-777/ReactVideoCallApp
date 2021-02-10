@@ -9,18 +9,19 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import BASE_URL from '../settings/URL';
 
 function Contact({navigation, route}) {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('');
-  const BASE_URL = 'http://3.34.124.138:3001/';
+
   const logout = () => {
     clearAll();
     navigation.replace('Start');
   };
   const sendMessage = () => {
     axios
-      .post(BASE_URL + 'send', {
+      .post(BASE_URL + '3001/send', {
         token:
           'fGJG2mKdRYS0BPMtgtLZMk:APA91bHwtKbJF8o8KinjjpUGPMdCORM2OKPXf-bFDUwrMEcWn2kCoEzguZjAu5cl-sbsZ80tNPfal_8iE6-vdHltP09qXw7dpzcD0v_HAJ30U4XFikKaVlxrL0d3htHTsay6iNPYn1cS',
         title: title,
@@ -31,18 +32,19 @@ function Contact({navigation, route}) {
         console.error(err);
       });
   };
+
   const startVideoCall = async () => {
     sendMessage();
     console.log(route);
     navigation.navigate('Videocall', route.params);
   };
+
   const clearAll = async () => {
     try {
       await AsyncStorage.clear();
     } catch (e) {
       // clear error
     }
-
     console.log('Done.');
   };
 

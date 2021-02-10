@@ -18,7 +18,6 @@ function Vendor({route, navigation}) {
   const [subject, setSubject] = useState('');
   const [token, setToken] = useState('');
   useEffect(() => {
-    console.log(route);
     try {
       if (route.params.notification) {
         console.log(route)
@@ -38,17 +37,16 @@ function Vendor({route, navigation}) {
       }
     });
   }, [route.params.notification]);
+
   const clearAll = async () => {
     try {
       await AsyncStorage.clear()
     } catch(e) {
       console.log(e);
     }
-  
     console.log('Done.')
   }
   
-
   const logout = () => {
     clearAll();
     navigation.replace('Start');

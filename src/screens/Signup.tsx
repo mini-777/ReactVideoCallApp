@@ -10,6 +10,7 @@ import {
 import Divider from '../components/Divider';
 import axios from 'axios';
 import {firebase} from '@react-native-firebase/messaging';
+import BASE_URL from '../settings/URL';
 
 function Signup({navigation, route}) {
   const [token, setToken] = useState('');
@@ -22,32 +23,41 @@ function Signup({navigation, route}) {
   const [phoneAuth, setPhoneAuth] = useState(false);
 
   useEffect(() => {
-    fcmToken();
+    fcmTokenGen();
     console.log(token);
-  }, [token]);
-  const fcmToken = async () => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fcmTokenGen = async () => {
     const fcm = await firebase.messaging().getToken();
     setToken(fcm);
     console.log(fcm);
   };
 
-  const sendAuth = async () => {
-    var result = (await Math.floor(Math.random() * 10000)) + 1000;
-    if (result > 10000) {
-      result = result - 10000;
+  const randomNumGen = async () => {
+    var randNum = Math.floor(Math.random() * 10000) + 1000;
+    if (randNum > 10000) {
+      randNum = randNum - 10000;
     }
-    setAuthNum(result.toString());
+    setAuthNum(randNum.toString());
+    return randNum;
+  };
 
+  const sendAuth = async () => {
+    randomNumGen();
     await axios
-      .post('http://3.34.124.138:3001/sendsms', {
+      .post(BASE_URL + '3001/sendsms', {
         phoneNum: phoneNum,
-        authNum: result.toString(),
+        authNum: authNum,
       })
       .then(() => Alert.alert('인증번호가 전송되었습니다 !'));
   };
   const handleSignUp = () => {
     if (!name) {
       Alert.alert('이름을 입력해주세요');
+    }
+    if (name.length <= 1) {
+      Alert.alert('이름 두자이상 입력해주세요');
     }
     if (!email) {
       Alert.alert('이메일을 입력해주세요');
@@ -66,7 +76,7 @@ function Signup({navigation, route}) {
       return;
     }
     axios
-      .post('http://3.34.124.138:3001/signup', {
+      .post(`${BASE_URL}3001/signup`, {
         token: token,
         email: email,
         password: password,

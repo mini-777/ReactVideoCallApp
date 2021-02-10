@@ -4,6 +4,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import messaging from '@react-native-firebase/messaging';
 import {Alert} from 'react-native';
+import BASE_URL from '../settings/URL';
 
 const SplashScreen = ({navigation}) => {
   //State for ActivityIndicator animation
@@ -12,8 +13,9 @@ const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setAnimating(true);
     _checkPermission();
+
     axios
-      .get('http://3.34.124.138:8080/rtcToken?channelName=videoCall')
+      .get(`${BASE_URL}8080/rtcToken?channelName=videoCall`)
       .then(Response => {
         AsyncStorage.getItem('@user_id').then(async value => {
           if (value === 'vendor') {
