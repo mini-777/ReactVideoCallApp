@@ -21,7 +21,7 @@ function Login({navigation}) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmitPress = async () => {
-    if (!email) {
+    if (email == null) {
       Alert.alert('Please fill Email');
       return;
     }

@@ -26,8 +26,6 @@ interface state {
     topic: string,
 }
 
-
-
 export default class Videocall extends Component<Props, state> {
     
   _engine?: RtcEngine
@@ -57,57 +55,64 @@ export default class Videocall extends Component<Props, state> {
 
   componentDidMount() {
       this.init();
+      this.initListener();
   }
   /**
    * @name init
    * @description Function to initialize the Rtc Engine, attach event listeners and actions
    */
   init = async () => {
-      const {appId} = this.state
-      this._engine = await RtcEngine.create(appId)
-      await this._engine.enableVideo()
+
+ // init
       // await firebase.messaging().registerDeviceForRemoteMessages();
       
-      this._engine.addListener('Warning', (warn) => {
-          console.log('Warning', warn)
-      })
 
-      this._engine.addListener('Error', (err) => {
-          console.log('Error', err)
-      })
-
-      this._engine.addListener('UserJoined', (uid, elapsed) => {
-          console.log('UserJoined', uid, elapsed)
-          // Get current peer IDs
-          const {peerIds} = this.state
-          // If new user
-          if (peerIds.indexOf(uid) === -1) {
-              this.setState({
-                  // Add peer ID to state array
-                  peerIds: [...peerIds, uid]
-              })
-          }
-      })
-
-      this._engine.addListener('UserOffline', (uid, reason) => {
-          console.log('UserOffline', uid, reason)
-          const {peerIds} = this.state
-          this.setState({
-              // Remove peer ID from state array
-              peerIds: peerIds.filter(id => id !== uid)
-          })
-      })
-
-      // If Local user joins RTC channel
-      this._engine.addListener('JoinChannelSuccess', (channel, uid, elapsed) => {
-          console.log('JoinChannelSuccess', channel, uid, elapsed)
-          // Set state variable to true
-          this.setState({
-              joinSucceed: true
-          })
-      })
-      await this._engine?.joinChannel(this.state.token, this.state.channelName, null, 0)
   }
+
+    initListener = async () => {
+        const {appId} = this.state
+        this._engine = await RtcEngine.create(appId)
+        await this._engine.enableVideo()
+        this._engine.addListener('Warning', (warn) => {
+            console.log('Warning', warn)
+        })
+
+        this._engine.addListener('Error', (err) => {
+            console.log('Error', err)
+        })
+
+        this._engine.addListener('UserJoined', (uid, elapsed) => {
+            console.log('UserJoined', uid, elapsed)
+            // Get current peer IDs
+            const {peerIds} = this.state
+            // If new user
+            if (peerIds.indexOf(uid) === -1) {
+                this.setState({
+                    // Add peer ID to state array
+                    peerIds: [...peerIds, uid]
+                })
+            }
+        })
+
+        this._engine.addListener('UserOffline', (uid, reason) => {
+            console.log('UserOffline', uid, reason)
+            const {peerIds} = this.state
+            this.setState({
+                // Remove peer ID from state array
+                peerIds: peerIds.filter(id => id !== uid)
+            })
+        })
+
+        // If Local user joins RTC channel
+        this._engine.addListener('JoinChannelSuccess', (channel, uid, elapsed) => {
+            console.log('JoinChannelSuccess', channel, uid, elapsed)
+            // Set state variable to true
+            this.setState({
+                joinSucceed: true
+            })
+        })
+        await this._engine?.joinChannel(this.state.token, this.state.channelName, null, 0)
+    }
 
   
   /**
@@ -128,8 +133,6 @@ export default class Videocall extends Component<Props, state> {
       this.setState({peerIds: [], joinSucceed: false})
       this.props.navigation.goBack();
   }
-
-  
 
   render() {
     const styled = StyleSheet.create({

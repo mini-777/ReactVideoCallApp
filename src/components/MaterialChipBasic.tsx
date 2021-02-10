@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React from 'react';
+import {StyleSheet, View, Text} from 'react-native';
 
 function MaterialChipBasic(props) {
   return (
@@ -13,17 +13,17 @@ function MaterialChipBasic(props) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgb(230,230,230)",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgb(230,230,230)',
     borderRadius: 50,
     paddingLeft: 12,
-    paddingRight: 12
+    paddingRight: 12,
   },
   요청을기다리고있습니다: {
     fontSize: 17,
-    color: "rgba(0,0,0,0.87)"
-  }
+    color: 'rgba(0,0,0,0.87)',
+  },
 });
 
 export default MaterialChipBasic;

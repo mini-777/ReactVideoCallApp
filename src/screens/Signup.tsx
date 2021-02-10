@@ -34,21 +34,16 @@ function Signup({navigation, route}) {
     console.log(fcm);
   };
 
-  const randomNumGen = async () => {
+  const sendAuth = async () => {
     var randNum = Math.floor(Math.random() * 10000) + 1000;
     if (randNum > 10000) {
       randNum = randNum - 10000;
     }
     setAuthNum(randNum.toString());
-    return randNum;
-  };
-
-  const sendAuth = async () => {
-    randomNumGen();
     await axios
       .post(BASE_URL + '3001/sendsms', {
         phoneNum: phoneNum,
-        authNum: authNum,
+        authNum: randNum.toString(),
       })
       .then(() => Alert.alert('인증번호가 전송되었습니다 !'));
   };
@@ -63,6 +58,7 @@ function Signup({navigation, route}) {
       Alert.alert('이메일을 입력해주세요');
       return;
     }
+    // eslint-disable-next-line no-useless-escape
     var re = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(email)) {
       Alert.alert('올바른 이메일 양식을 입력하세요');
