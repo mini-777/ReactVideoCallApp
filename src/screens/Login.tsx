@@ -38,7 +38,7 @@ function Login({navigation}) {
       .then(async Response => {
         if (Response.data.auth && Response.data.vendor) {
           await storeUserData('vendor');
-          navigation.replace('Vendor');
+          navigation.replace('Vendor', {notification: null});
         } else if (Response.data.auth && !Response.data.vendor) {
           await storeUserData('user');
           navigation.replace('Contact');
