@@ -23,7 +23,7 @@ function Contact({navigation, route}) {
     axios
       .post(BASE_URL + '3001/send', {
         token:
-          'fGJG2mKdRYS0BPMtgtLZMk:APA91bHwtKbJF8o8KinjjpUGPMdCORM2OKPXf-bFDUwrMEcWn2kCoEzguZjAu5cl-sbsZ80tNPfal_8iE6-vdHltP09qXw7dpzcD0v_HAJ30U4XFikKaVlxrL0d3htHTsay6iNPYn1cS',
+          'clGjajaXTpa2hO-NOIVDIU:APA91bHDg3Undwp6yYKHxNgxd-gvtzKISWM6soMDl-3doCeD_chEHk8bWfqGDADoiuzX9gHt1YQpeILjivCijEULVmsnJ0dXGfqNzjXP3wM5dXtn0H0kw1H3E8zoepIUFcs0NNC-A_Bl',
         title: title,
         subject: subject,
       })
@@ -51,6 +51,7 @@ function Contact({navigation, route}) {
   return (
     <View style={styles.frame}>
       <StatusBar hidden />
+
       <View style={styles.insideFrame}>
         <View
           style={[
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     height: 562,
     backgroundColor: '#E6E6E6',
     borderRadius: 21,
-    marginTop: 100,
+    marginTop: 50,
     alignSelf: 'center',
   },
   materialStackedLabelTextbox: {
