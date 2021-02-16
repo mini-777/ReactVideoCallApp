@@ -5,10 +5,12 @@ import Videocall from './src/screens/Videocall';
 import Signup from './src/screens/Signup';
 import Start from './src/screens/Start';
 import Vendor from './src/screens/Vendor';
+import Location from './src/screens/Location';
 import Splash from './src/screens/Splash';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
+
 const Stack = createStackNavigator();
 
 function App() {
@@ -59,6 +61,11 @@ function App() {
           name="Login"
           component={Login}
           options={{title: '로그인'}}
+        />
+        <Stack.Screen
+          name="Location"
+          component={Location}
+          options={{title: '위치', headerShown: false}}
         />
         <Stack.Screen
           name="Signup"

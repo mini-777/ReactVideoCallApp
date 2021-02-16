@@ -3,7 +3,8 @@
   xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
       tools:replace="android:allowBackup"
       android:name=".MainApplication"
@@ -23,6 +24,8 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <meta-data android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="jr7kj1e2or" />
     </application>
 
 </manifest>
