@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import NaverMapView, {Marker} from '../map';
 import {PermissionsAndroid, Platform} from 'react-native';
 
-const P4 = {latitude: 37.564834, longitude: 126.977218};
+const P4 = {latitude: 35.1847307, longitude: 129.1279943};
 
 const Location = ({navigation}) => {
   useEffect(() => {
@@ -13,13 +13,13 @@ const Location = ({navigation}) => {
   return (
     <NaverMapView
       style={{width: '100%', height: '100%'}}
-      center={{...P4, zoom: 16}}
-      onTouch={e => console.warn('onTouch', JSON.stringify(e.nativeEvent))}
-      onCameraChange={e => console.warn('onCameraChange', JSON.stringify(e))}
-      onMapClick={e => console.warn('onMapClick', JSON.stringify(e))}>
+      center={{...P4, zoom: 13}}
+      onTouch={e => console.log('onTouch', JSON.stringify(e.nativeEvent))}
+      onCameraChange={e => console.log('onCameraChange', JSON.stringify(e))}
+      onMapClick={e => console.log('onMapClick', JSON.stringify(e))}>
       <Marker
         coordinate={P4}
-        onClick={() => console.warn('onClick! p4')}
+        onClick={() => console.log('onClick! p4')}
         image={require('../img/marker.png')}
         width={48}
         height={48}
