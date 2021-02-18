@@ -11,8 +11,9 @@ import Divider from '../components/Divider';
 import axios from 'axios';
 import {firebase} from '@react-native-firebase/messaging';
 import BASE_URL from '../settings/URL';
+import SearchVendor from './SearchVendor';
 
-function Signup({navigation, route}) {
+function SignupForm({navigation, route}) {
   const [token, setToken] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,14 +25,11 @@ function Signup({navigation, route}) {
 
   useEffect(() => {
     fcmTokenGen();
-    console.log(token);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fcmTokenGen = async () => {
     const fcm = await firebase.messaging().getToken();
     setToken(fcm);
-    console.log(fcm);
   };
 
   const sendAuth = async () => {
@@ -75,26 +73,36 @@ function Signup({navigation, route}) {
       Alert.alert('휴대폰 인증을 받으세요');
       return;
     }
-    axios
-      .post(`${BASE_URL}3001/signup`, {
-        token: token,
-        email: email,
-        password: password,
-        phoneNum: phoneNum,
-        name: name,
-      })
-      .then(() => {
-        Alert.alert('회원가입이 완료되었습니다 !');
-        navigation.replace('Login', route.params);
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    navigation.navigate('SearchVendor', {
+      token: token,
+      email: email,
+      password: password,
+      phoneNum: phoneNum,
+      name: name,
+    });
+    // axios
+    //   .post(`${BASE_URL}3001/signup`, {
+    //     token: token,
+    //     email: email,
+    //     password: password,
+    //     phoneNum: phoneNum,
+    //     name: name,
+    //   })
+    //   .then(() => {
+    //     Alert.alert('회원가입이 완료되었습니다 !');
+    //     navigation.replace('Login', route.params);
+    //   })
+    //   .catch(err => {
+    //     console.error(err);
+    //   });
   };
   const phoneRegister = () => {
-    if (authNum === authInput) {
+    if (authNum === authInput && authInput) {
       setPhoneAuth(true);
       Alert.alert('인증되었습니다 !');
+    } else if (!authInput) {
+      setPhoneAuth(false);
+      Alert.alert('인증번호를 입력하지 않으셨습니다');
     } else {
       setPhoneAuth(false);
       Alert.alert('틀렸습니다 !');
@@ -102,74 +110,71 @@ function Signup({navigation, route}) {
   };
   return (
     <View style={styles.frame}>
-      <View style={styles.textInput2Column} />
-      <View style={styles.textInputColumnFiller} />
       <Text style={styles.registerText}>계정을 생성하세요</Text>
-      <View style={styles.textInput2Column}>
+
+      <TextInput
+        placeholder="이름"
+        autoCapitalize="none"
+        secureTextEntry={false}
+        style={styles.input}
+        onChangeText={userName => setName(userName)}
+        keyboardType="default"
+        returnKeyType="next"
+        placeholderTextColor="rgba(120,135,147,1)"
+      />
+      <TextInput
+        placeholder="이메일"
+        autoCapitalize="none"
+        secureTextEntry={false}
+        style={styles.input}
+        onChangeText={userEmail => setEmail(userEmail)}
+        keyboardType="email-address"
+        returnKeyType="next"
+        placeholderTextColor="rgba(120,135,147,1)"
+      />
+      <TextInput
+        placeholder="비밀번호"
+        placeholderTextColor="rgba(120,135,147,1)"
+        secureTextEntry={true}
+        style={styles.input}
+        autoCapitalize="none"
+        onChangeText={UserPassword => setPassword(UserPassword)}
+        keyboardType="default"
+      />
+      <View style={styles.olem}>
         <TextInput
-          placeholder="이름"
+          placeholder="전화번호 ('-'빼고)"
           autoCapitalize="none"
-          secureTextEntry={false}
-          style={styles.input}
-          onChangeText={userName => setName(userName)}
-          keyboardType="default"
-          returnKeyType="next"
           placeholderTextColor="rgba(120,135,147,1)"
+          style={styles.phoneNumInput}
+          onChangeText={num => setPhoneNum(num)}
+          maxLength={11}
+          keyboardType="number-pad"
         />
+        <TouchableOpacity onPress={sendAuth} style={styles.authRequestButton}>
+          <Text style={styles.authButton}>인증번호 요청</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.olem}>
         <TextInput
-          placeholder="이메일"
-          autoCapitalize="none"
-          secureTextEntry={false}
-          style={styles.input}
-          onChangeText={userEmail => setEmail(userEmail)}
-          keyboardType="email-address"
-          returnKeyType="next"
+          placeholder="인증번호"
           placeholderTextColor="rgba(120,135,147,1)"
+          maxLength={4}
+          keyboardType="number-pad"
+          style={styles.authInput}
+          onChangeText={num => setAuthInput(num)}
         />
-        <TextInput
-          placeholder="비밀번호"
-          placeholderTextColor="rgba(120,135,147,1)"
-          secureTextEntry={true}
-          style={styles.input}
-          autoCapitalize="none"
-          onChangeText={UserPassword => setPassword(UserPassword)}
-          keyboardType="default"
-        />
-        <View style={styles.olem}>
-          <TextInput
-            placeholder="전화번호 ('-'빼고)"
-            autoCapitalize="none"
-            placeholderTextColor="rgba(120,135,147,1)"
-            style={styles.phoneNumInput}
-            onChangeText={num => setPhoneNum(num)}
-            maxLength={11}
-            keyboardType="number-pad"
-          />
-          <TouchableOpacity onPress={sendAuth} style={styles.authRequestButton}>
-            <Text style={styles.authButton}>인증번호 요청</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.olem}>
-          <TextInput
-            placeholder="인증번호"
-            placeholderTextColor="rgba(120,135,147,1)"
-            maxLength={4}
-            keyboardType="number-pad"
-            style={styles.authInput}
-            onChangeText={num => setAuthInput(num)}
-          />
-          <TouchableOpacity
-            onPress={phoneRegister}
-            style={styles.authCheckButton}>
-            <Text style={styles.authButton}>인증확인</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.signupButtonFrame}>
-          <Divider style={styles.divider} />
-          <TouchableOpacity onPress={handleSignUp} style={styles.signupButton}>
-            <Text style={styles.signup}>회원가입</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          onPress={phoneRegister}
+          style={styles.authCheckButton}>
+          <Text style={styles.authButton}>인증확인</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.signupButtonFrame}>
+        <Divider style={styles.divider} />
+        <TouchableOpacity onPress={handleSignUp} style={styles.signupButton}>
+          <Text style={styles.signup}>다음</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -179,12 +184,14 @@ const styles = StyleSheet.create({
   frame: {
     flex: 1,
     backgroundColor: '#141f28',
+    justifyContent: 'flex-end',
   },
   registerText: {
     color: 'rgba(255,255,255,1)',
     fontSize: 30,
     lineHeight: 50,
     marginLeft: 30,
+    marginBottom: 50,
   },
   textInputColumnFiller: {
     flex: 1,
@@ -205,6 +212,7 @@ const styles = StyleSheet.create({
   signupButtonFrame: {
     height: 65,
     width: 375,
+    marginBottom: 40,
   },
   divider: {
     width: 360,
@@ -225,16 +233,7 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     alignSelf: 'center',
   },
-  textInput2Column: {
-    marginBottom: 29,
-    marginTop: 30,
-  },
-  login: {
-    color: 'rgba(255,255,255,1)',
-    fontSize: 24,
-    marginLeft: 31,
-    marginTop: 28,
-  },
+
   phoneNumInput: {
     width: 150,
     height: 42,
@@ -307,4 +306,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Signup;
+export default SignupForm;
