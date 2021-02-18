@@ -16,7 +16,7 @@ function Start({navigation, route}) {
       <View style={styles.signupButtonFrame}>
         <Text style={styles.titleText}>자동차 문의는{'\n'}무진</Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Signup', route.params)}
+          onPress={() => navigation.replace('Signup', route.params)}
           style={styles.signupButton}>
           <Text style={styles.subtitleText}>계정 생성하기</Text>
         </TouchableOpacity>
@@ -24,7 +24,7 @@ function Start({navigation, route}) {
       <View style={styles.flexFrame} />
       <View style={styles.loginButtonFrame}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Login', route.params)}>
+          onPress={() => navigation.replace('Login', route.params)}>
           <Text style={styles.loginButtonText}>이미 계정이 있으신가요?</Text>
         </TouchableOpacity>
       </View>

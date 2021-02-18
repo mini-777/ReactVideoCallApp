@@ -70,6 +70,7 @@ function App() {
             title: '업체 선택',
           }}
         />
+
         <Stack.Screen
           name="Location"
           component={Location}
@@ -93,6 +94,7 @@ function App() {
           component={Vendor}
           options={{title: '고객 상담', headerShown: false}}
         />
+
         <Stack.Screen
           name="Videocall"
           component={Videocall}

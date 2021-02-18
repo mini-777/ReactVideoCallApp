@@ -4,15 +4,16 @@ import * as Animatable from 'react-native-animatable';
 import styled from 'styled-components';
 import mixIn from '../style/Mixin';
 
-export default function Search({navigation}) {
+export default function Search({navigation, route}) {
   const [searchVal, setSearchVal] = useState('');
   const [data, setData] = useState([]);
   const [searchedData, setSearchedData] = useState([]);
   const searchRef = useRef();
 
   useEffect(() => {
+    console.log('this is route', route);
     getData();
-  }, []);
+  }, [route]);
   const getData = async () => {
     var firstData = [];
     const res = await fetch(
@@ -52,6 +53,7 @@ export default function Search({navigation}) {
   const clearInput = () => {
     setSearchVal('');
     setData([]);
+    navigation.goBack();
   };
 
   return (
@@ -68,11 +70,11 @@ export default function Search({navigation}) {
           placeholder="검색어를 입력해 주세요"
           onChangeText={(text: string) => searchData(text)}
           touch={searchVal}
-          animation={searchVal.length > 0 ? typed : false}
+          animation={typed}
         />
         <Cancel
           touch={searchVal}
-          animation={searchVal.length > 0 ? btnIn : false}
+          animation={btnIn}
           onPress={() => clearInput()}>
           <Text>취소</Text>
         </Cancel>
@@ -98,7 +100,6 @@ const SearchBarWrap = styled.View`
 `;
 
 const Cancel = Animatable.createAnimatableComponent(styled.TouchableOpacity`
-  display: ${({touch}) => (touch.length > 0 ? 'flex' : 'none')};
   padding-left: 10px;
 `);
 
