@@ -35,6 +35,10 @@ function Signup({navigation, route}) {
   };
 
   const sendAuth = async () => {
+    if (!phoneNum) {
+      Alert.alert('휴대폰 번호를 입력해 주세요');
+      return;
+    }
     var randNum = Math.floor(Math.random() * 10000) + 1000;
     if (randNum > 10000) {
       randNum = randNum - 10000;

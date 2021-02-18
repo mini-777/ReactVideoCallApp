@@ -28,7 +28,7 @@ const SplashScreen = ({navigation}) => {
           } else if (value === 'user') {
             navigation.replace('Contact', Response.data.key);
           } else {
-            navigation.replace('Location', Response.data.key);
+            navigation.replace('SearchVendor', Response.data.key);
           }
         });
       })
