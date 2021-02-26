@@ -23,7 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc22bfd4-a441-4860-a7cc-b5ba9243ff3c" name="Default Changelist" comment="code refactoring">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SearchVendor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SearchVendor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SignupFrom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignupFrom.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +118,7 @@
       <workItem from="1613350791872" duration="683000" />
       <workItem from="1613355173049" duration="598000" />
       <workItem from="1613371672970" duration="31000" />
+      <workItem from="1613983880176" duration="147000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1608025974702</created>

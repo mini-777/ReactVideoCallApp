@@ -11,7 +11,7 @@ import Divider from '../components/Divider';
 import axios from 'axios';
 import {firebase} from '@react-native-firebase/messaging';
 import BASE_URL from '../settings/URL';
-import SearchVendor from './SearchVendor';
+
 
 function SignupForm({navigation, route}) {
   const [token, setToken] = useState('');
@@ -50,32 +50,32 @@ function SignupForm({navigation, route}) {
       .then(() => Alert.alert('인증번호가 전송되었습니다 !'));
   };
   const handleSignUp = () => {
-    // if (!name) {
-    //   Alert.alert('이름을 입력해주세요');
-    //   return;
-    // }
-    // if (name.length <= 1) {
-    //   Alert.alert('이름 두자이상 입력해주세요');
-    //   return;
-    // }
-    // if (!email) {
-    //   Alert.alert('이메일을 입력해주세요');
-    //   return;
-    // }
-    // // eslint-disable-next-line no-useless-escape
-    // var re = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
-    // if (!re.test(email)) {
-    //   Alert.alert('올바른 이메일 양식을 입력하세요');
-    //   return;
-    // }
-    // if (!password) {
-    //   Alert.alert('비밀번호를 입력하세요');
-    //   return;
-    // }
-    // if (!phoneAuth) {
-    //   Alert.alert('휴대폰 인증을 받으세요');
-    //   return;
-    // }
+    if (!name) {
+      Alert.alert('이름을 입력해주세요');
+      return;
+    }
+    if (name.length <= 1) {
+      Alert.alert('이름 두자이상 입력해주세요');
+      return;
+    }
+    if (!email) {
+      Alert.alert('이메일을 입력해주세요');
+      return;
+    }
+    // eslint-disable-next-line no-useless-escape
+    var re = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(email)) {
+      Alert.alert('올바른 이메일 양식을 입력하세요');
+      return;
+    }
+    if (!password) {
+      Alert.alert('비밀번호를 입력하세요');
+      return;
+    }
+    if (!phoneAuth) {
+      Alert.alert('휴대폰 인증을 받으세요');
+      return;
+    }
     navigation.navigate('MyModal', {
       token: token,
       email: email,
@@ -83,21 +83,7 @@ function SignupForm({navigation, route}) {
       phoneNum: phoneNum,
       name: name,
     });
-    // axios
-    //   .post(`${BASE_URL}3001/signup`, {
-    //     token: token,
-    //     email: email,
-    //     password: password,
-    //     phoneNum: phoneNum,
-    //     name: name,
-    //   })
-    //   .then(() => {
-    //     Alert.alert('회원가입이 완료되었습니다 !');
-    //     navigation.replace('Login', route.params);
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //   });
+
   };
   const phoneRegister = () => {
     if (authNum === authInput && authInput) {

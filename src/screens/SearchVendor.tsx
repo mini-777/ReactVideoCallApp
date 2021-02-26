@@ -3,6 +3,8 @@ import {FlatList, Text} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import styled from 'styled-components';
 import mixIn from '../style/Mixin';
+import BASE_URL from '../settings/URL';
+import axios from 'axios';
 
 export default function Search({navigation, route}) {
   const [searchVal, setSearchVal] = useState('');
@@ -44,7 +46,25 @@ export default function Search({navigation, route}) {
 
   const renderItem = ({item}) => {
     return (
-      <ResultList onPress={() => navigation.navigate('Start')}>
+      <ResultList
+        onPress={() => {
+          navigation.navigate('Vendor', {});
+          axios
+            .post(`${BASE_URL}3001/signup`, {
+              token: route.params.token,
+              email: route.params.email,
+              password: route.params.password,
+              phoneNum: route.params.phoneNum,
+              name: route.params.name,
+            })
+            .then(() => {
+              Alert.alert('회원가입이 완료되었습니다 !');
+              navigation.replace('Login', route.params);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        }}>
         <ResultItem>{item}</ResultItem>
       </ResultList>
     );
